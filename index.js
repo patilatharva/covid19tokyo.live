@@ -157,7 +157,7 @@ map.on('load', function() {
         map.getCanvas().style.cursor = 'pointer';
 
         document.getElementById('test').innerHTML 
-            = 'Ward: ' + e.features[0].properties.ward_en + '<br/>Cases: ' + e.features[0].properties.cases;
+            = 'Ward: ' + e.features[0].properties.ward_en + '<br/>Cases: ' + e.features[0].properties.cases + '<br/> Hit Cmd+Opt+I -> Console for more info';
         
         if (hoveredWardId) {
             map.setFeatureState(
