@@ -14,14 +14,20 @@ var hoveredWardId = null;
 map.on('load', function() {
     // Add a GeoJSON source containing place coordinates and information.
     
+    // tokyo: geojson object of tokyo district shapefiles imported from tokyo.js
     var districts = tokyo['features'];
+    
+    // sample data returned by Tokyo coronavirus cases api
+    // https://services6.arcgis.com/5jNaHNYe2AnnqRnS/arcgis/rest/services/COVID19_JapanData_Tokyo/FeatureServer/0/query?where=%E8%87%AA%E6%B2%BB%E4%BD%93%E3%82%B3%E3%83%BC%E3%83%89%3E0&returnIdsOnly=false&returnCountOnly=false&f=pgeojson&outFields=*&orderByFields=%E5%85%AC%E8%A1%A8%E6%97%A5,%E8%87%AA%E6%B2%BB%E4%BD%93%E3%82%B3%E3%83%BC%E3%83%89
+    // includes cases count and rough district centerpoints (not accurate enough for production)
     var api_districts = cases['features'];
 
     // only consider today's data
     api_districts = api_districts.filter(ward => ward['properties']['公表日'] == 1586476800000);
 
-    var centers = {
-        "name":"centers",
+    // geojson of all labels
+    var labels = {
+        "name":"labels",
         "type":"FeatureCollection",
         "features":[]
     };
@@ -32,14 +38,19 @@ map.on('load', function() {
         for (j = 0; j < api_districts.length; j++) {
             var api_name = api_districts[j]['properties']['団体名'];
             if (name_jp === api_name) {
+                // add cases count to our geojson
                 districts[i]['properties']['cases'] = api_districts[j]['properties']['件数'];
+                // add centerpoint (label location) to our geojson 
                 districts[i]['properties']['center'] = api_districts[j]['geometry']['coordinates'];
+                // format our geojson's id
                 districts[i]['id'] = districts[i]['properties']['code'];
 
                 var ward = districts[i]['properties']['ward_en'];
                 var center = api_districts[j]['geometry']['coordinates'];
+
+                // label name
                 var label = ward.split(' ')[0] + '\n' + districts[i]['properties']['cases'];
-                centers['features'].push({
+                labels['features'].push({
                     'type': 'Feature',
                     'properties': {
                         'name': label
@@ -55,12 +66,14 @@ map.on('load', function() {
         }
     }
     
+    // district shapes
     map.addSource('wards', {
         'type': 'geojson',
         'data': tokyo
     });
 
 
+    // fill district shapes
     map.addLayer({
         'id': 'wards',
         'type': 'fill',
@@ -85,6 +98,7 @@ map.on('load', function() {
         }
     });
 
+    // draw district boundaries
     map.addLayer({
         'id': 'ward-lines',
         'type': 'line',
@@ -105,15 +119,16 @@ map.on('load', function() {
         }
     });
 
-    map.addSource('centers', {
+    // place labels
+    map.addSource('labels', {
         'type': 'geojson',
-        'data': centers
+        'data': labels
     })
 
     map.addLayer({
         'id': 'poi-labels',
         'type': 'symbol',
-        'source': 'centers',
+        'source': 'labels',
         'layout': {
             'text-field': ['get', 'name'],
             'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
@@ -128,7 +143,7 @@ map.on('load', function() {
         }
     });
 
-
+    // center to ward on click
     map.on('click', 'wards', function(e) {
         map.flyTo({
         center: eval(e.features[0].properties.center),
@@ -136,7 +151,9 @@ map.on('load', function() {
         });
     });
 
+    // access ward data on hover
     map.on('mousemove', 'wards', function(e) {
+        // change cursor to pointer
         map.getCanvas().style.cursor = 'pointer';
         document.getElementById('test').innerHTML 
             = 'Ward: ' + e.features[0].properties.ward_en + '<br/>Cases: ' + e.features[0].properties.cases;
@@ -154,11 +171,13 @@ map.on('load', function() {
         );
     });
 
-    // Change it back to a pointer when it leaves.
+    // Change cursor back to default when it leaves
     map.on('mouseleave', 'wards', function(e) {
         map.getCanvas().style.cursor = '';
     });
 });
 
-map.addControl(new mapboxgl.NavigationControl());
-
+map.addControl(new mapboxgl.NavigationControl({
+    showCompass: false,
+    showZoom: true
+}));
