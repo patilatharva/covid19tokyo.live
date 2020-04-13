@@ -10,6 +10,8 @@ var map = new mapboxgl.Map({
 });
 
 var hoveredWardId = null;
+// history of cases in hovered over ward
+var wardHistory = {};
 
 map.on('load', function() {
     // Add a GeoJSON source containing place coordinates and information.
@@ -172,7 +174,7 @@ map.on('load', function() {
             var history = cases['features'].filter(ward => ward['properties']['団体名'] === e.features[0].properties.ward_ja);
             
             // key: timestamp of date, val: num of cases
-            var cases_history = {}
+            var casesHistory = {}
             history.forEach(ward => {
                 
                 var timestamp = ward['properties']['公表日'];
@@ -185,17 +187,19 @@ map.on('load', function() {
                 var day = date.getDate();
                 var date_formatted = month + '-' + day + '-' + year;
                 */
-                cases_history[timestamp] = ward['properties']['件数'];
+                casesHistory[timestamp] = ward['properties']['件数'];
             });
 
             history = {
                 'name_en': e.features[0].properties.ward_en,
                 'name_ja': e.features[0].properties.ward_en,
-                'history': cases_history
+                'history': casesHistory
             };
 
             // see history of that ward in console
             console.log(history);
+            // store data in global variable
+            wardHistory = history;
         }
 
         hoveredWardId = e.features[0].id;
