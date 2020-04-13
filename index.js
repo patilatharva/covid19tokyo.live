@@ -17,7 +17,7 @@ map.on('load', function() {
     // tokyo: geojson object of tokyo district shapefiles imported from tokyo.js
     var districts = tokyo['features'];
     
-    // sample data returned by Tokyo coronavirus cases api
+    // sample data returned by Tokyo coronavirus cases api; will integrate the actual api later:
     // https://services6.arcgis.com/5jNaHNYe2AnnqRnS/arcgis/rest/services/COVID19_JapanData_Tokyo/FeatureServer/0/query?where=%E8%87%AA%E6%B2%BB%E4%BD%93%E3%82%B3%E3%83%BC%E3%83%89%3E0&returnIdsOnly=false&returnCountOnly=false&f=pgeojson&outFields=*&orderByFields=%E5%85%AC%E8%A1%A8%E6%97%A5,%E8%87%AA%E6%B2%BB%E4%BD%93%E3%82%B3%E3%83%BC%E3%83%89
     // includes cases count and rough district centerpoints (not accurate enough for production)
     var api_districts = cases['features'];
@@ -155,15 +155,49 @@ map.on('load', function() {
     map.on('mousemove', 'wards', function(e) {
         // change cursor to pointer
         map.getCanvas().style.cursor = 'pointer';
+
         document.getElementById('test').innerHTML 
             = 'Ward: ' + e.features[0].properties.ward_en + '<br/>Cases: ' + e.features[0].properties.cases;
-
+        
         if (hoveredWardId) {
             map.setFeatureState(
                 { source: 'wards', id: hoveredWardId },
                 { hover: false }
             );
         }
+
+        // get cases history if user's cursor enters ward
+        if (!hoveredWardId || hoveredWardId != e.features[0].id) {
+            // get cases history for the ward
+            var history = cases['features'].filter(ward => ward['properties']['団体名'] === e.features[0].properties.ward_ja);
+            
+            // key: timestamp of date, val: num of cases
+            var cases_history = {}
+            history.forEach(ward => {
+                
+                var timestamp = ward['properties']['公表日'];
+                /*
+                optional date formatting:
+
+                var date = new Date(ward['properties']['公表日']);
+                var year = date.getFullYear();
+                var month = date.getMonth();
+                var day = date.getDate();
+                var date_formatted = month + '-' + day + '-' + year;
+                */
+                cases_history[timestamp] = ward['properties']['件数'];
+            });
+
+            history = {
+                'name_en': e.features[0].properties.ward_en,
+                'name_ja': e.features[0].properties.ward_en,
+                'history': cases_history
+            };
+
+            // see history of that ward in console
+            console.log(history);
+        }
+
         hoveredWardId = e.features[0].id;
         map.setFeatureState(
             { source: 'wards', id: hoveredWardId },
