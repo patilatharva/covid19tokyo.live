@@ -1,4 +1,5 @@
 function fillCards(data) {
+    var lastUpdated = data['lastUpdate'];
     var confirmed = data['main_summary']['children'][0]['value'];
     var deaths = data['main_summary']['children'][0]['children'][2]['value'];
     var critical = data['main_summary']['children'][0]['children'][0]['children'][1]['value'];
@@ -6,6 +7,7 @@ function fillCards(data) {
     var tested = data['inspection_status_summary']['value'];
     var active = confirmed - discharged - deaths;
 
+    document.getElementById('lastUpdated').innerHTML = lastUpdated;
     document.getElementById('active').innerHTML = active;
     document.getElementById('deaths').innerHTML = deaths;
     document.getElementById('critical').innerHTML = critical;
