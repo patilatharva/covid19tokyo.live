@@ -94,7 +94,7 @@ map.on('load', function() {
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
                 0.9,
-                0.65
+                0.75
             ]
         }
     });
