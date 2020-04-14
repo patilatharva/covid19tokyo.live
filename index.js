@@ -212,6 +212,8 @@ map.on('load', function() {
     map.on('mouseleave', 'wards', function(e) {
         map.getCanvas().style.cursor = '';
     });
+
+    map.scrollZoom.disable()
 });
 
 map.addControl(new mapboxgl.NavigationControl({

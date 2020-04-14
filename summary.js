@@ -1,7 +1,5 @@
-let url = 'https://raw.githubusercontent.com/tokyo-metropolitan-gov/covid19/master/data/data.json';
-
 function fillCards(data) {
-    var confirmed = data['main_summary']['value'];
+    var confirmed = data['main_summary']['children'][0]['value'];
     var deaths = data['main_summary']['children'][0]['children'][2]['value'];
     var critical = data['main_summary']['children'][0]['children'][0]['children'][1]['value'];
     var discharged = data['main_summary']['children'][0]['children'][1]['value'];
@@ -42,4 +40,5 @@ var getJSON = function(url) {
 };
 
 var data = {};
+let url = 'https://raw.githubusercontent.com/tokyo-metropolitan-gov/covid19/master/data/data.json';
 getJSON(url);
