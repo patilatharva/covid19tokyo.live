@@ -62,7 +62,6 @@ map.on('load', function() {
                         'coordinates': center
                     }
                 });
-                
                 break;
             }
         }
@@ -192,7 +191,7 @@ map.on('load', function() {
 
             history = {
                 'name_en': e.features[0].properties.ward_en,
-                'name_ja': e.features[0].properties.ward_en,
+                'name_ja': e.features[0].properties.ward_ja,
                 'history': casesHistory
             };
 
