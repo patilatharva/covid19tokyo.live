@@ -69,7 +69,9 @@ const createChart = () => {
             padding: 10,
           },
           scales: {
-            xAxes: [{}],
+            xAxes: [
+              { position: 'top' },
+            ],
             yAxes: [
               {
                 ticks: {
