@@ -203,9 +203,15 @@ map.on("load", function () {
 
       // see history of that ward in console
       console.log(history);
-      console.log(history.history);
-
       var keys = Object.keys(history.history);
+
+      keys = keys.map((timestamp) => {
+        var date = new Date(parseInt(timestamp));
+        var month = date.getMonth();
+        var day = date.getDate();
+        return month+1 + '/' + day;
+      });
+
       var values = Object.values(history.history);
 
       var ctx = document.getElementById("wardHistoryChart").getContext("2d");
@@ -225,7 +231,6 @@ map.on("load", function () {
           labels: keys,
           datasets: [
             {
-              label: "# of Cases",
               data: values,
               borderColor: "rgba(29, 90, 185, 1)",
               backgroundColor: gradient,
@@ -233,6 +238,19 @@ map.on("load", function () {
           ],
         },
         options: {
+            title: {
+                display: true,
+                text: "Confirmed cases in " + e.features[0].properties.ward_en,
+            },
+            elements: {
+                line: {
+                    tension: 0
+                }
+            },
+            legend: {
+                display: false
+            },
+            maintainAspectRatio: false,
           layout: {
             backgroundColor: "blue",
           },

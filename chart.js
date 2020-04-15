@@ -53,7 +53,7 @@ const createChart = () => {
           labels: labels,
           datasets: [
             {
-              label: "# of Cases",
+              label: "# of Cases 1",
               data: data,
               backgroundColor: backgroundColor,
               borderColor: borderColor,
@@ -62,6 +62,9 @@ const createChart = () => {
           ],
         },
         options: {
+          legend: {
+            display: false
+        },
           layout: {
             padding: 10,
           },

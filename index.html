@@ -7,7 +7,6 @@
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -23,8 +22,13 @@
         margin: 0;
         padding: 0;
       }
+
+      header {
+        margin-top: 30px;
+      }
+
       #map {
-        height: 50vh;
+        height: 100%;
         border: solid 1px;
         border-radius: 7px;
       }
@@ -32,23 +36,26 @@
         height: 30px;
         margin-top: 50px;
       }
-      .container {
-        margin-left: 50px;
-        width: 50%;
-        margin-top: 20px;
-      }
       .summary {
         height: 80px;
+      }
+
+      .ward-info {
+        height: 50vh;
+        width: 100%;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h2>Tokyo COVID-19 Tracker</h2>
-      <div>
-        Last Updated:
-        <span id="lastUpdated"></span>
-      </div>
+        <header>
+            <h2>Tokyo COVID-19 Tracker</h2>
+            <div>
+                Last Updated:
+                <span id="lastUpdated"></span>
+            </div>
+        </header>
+    
       <br />
       <div class="row">
         <div class="summary col-sm">
@@ -78,14 +85,21 @@
           <div id="discharged"></div>
         </div>
       </div>
-      <div id="map"></div>
+      <div class="row ward-info">
+        <div id="map" class="col-sm"></div>
+        <div class="col-sm">
+            <canvas id="wardHistoryChart" width="50vh"></canvas>
+        </div>
+      </div>
+      
       <div id="test"></div>
-      <canvas id="wardHistoryChart" width="400" height="650"></canvas>
+      
       <div class="row">
         <canvas id="allWardCasesChart" width="400" height="650"></canvas>
       </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
     <script src="chart.js"></script>
     <script src="tokyo.js"></script>
