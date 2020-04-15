@@ -19,7 +19,7 @@ map.on('load', function() {
     // tokyo: geojson object of tokyo district shapefiles imported from tokyo.js
     var districts = tokyo['features'];
     
-    // sample data returned by Tokyo coronavirus cases api; will integrate the actual api later:
+    // sample data returned by Tokyo coronavirus cases api
     // https://services6.arcgis.com/5jNaHNYe2AnnqRnS/arcgis/rest/services/COVID19_JapanData_Tokyo/FeatureServer/0/query?where=%E8%87%AA%E6%B2%BB%E4%BD%93%E3%82%B3%E3%83%BC%E3%83%89%3E0&returnIdsOnly=false&returnCountOnly=false&f=pgeojson&outFields=*&orderByFields=%E5%85%AC%E8%A1%A8%E6%97%A5,%E8%87%AA%E6%B2%BB%E4%BD%93%E3%82%B3%E3%83%BC%E3%83%89
     // includes cases count and rough district centerpoints (not accurate enough for production)
     var api_districts = cases['features'];
@@ -87,7 +87,7 @@ map.on('load', function() {
                     [10, '#ffffb2'],
                     [30, '#fecc5c'],
                     [50, '#fd8d3c'],
-                    [90, '#e31a1c']
+                    [100, '#e31a1c']
                 ]
             },
             'fill-opacity': [
