@@ -1,61 +1,111 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>COVID-19 Tokyo</title>
-        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
-        <style>
-            body { margin: 0; padding: 0; }
-            #map {height: 50vh; border: solid 1px ; border-radius: 7px; }
-            #test {height: 30px; margin-top: 50px;}
-            .container {margin-left: 50px; width: 50%; margin-top: 20px}
-            .summary {height: 80px;}
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h2>Tokyo COVID-19 Tracker</h2>
-            <div>
-                Last Updated:
-                <span id="lastUpdated"></span>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="summary col-sm">
-                    Active <div id="active"></div>
-                </div>
-                <div class="summary col-sm">
-                    Deaths <div id="deaths"></div>
-                </div>
-                <div class="summary col-sm">
-                    Critical <div id="critical"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="summary col-sm">
-                    Tested <div id="tested"></div>
-                </div>
-                <div class="summary col-sm">
-                    Confirmed <div id="confirmed"></div>
-                </div>
-                <div class="summary col-sm">
-                    Discharged <div id="discharged"></div>
-                </div>
-            </div>
-            
-            <div id="map"></div>
-            <div id="test"></div>
+  <head>
+    <meta charset="utf-8" />
+    <title>COVID-19 Tokyo</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 50vh;
+        border: solid 1px;
+        border-radius: 7px;
+      }
+      #test {
+        height: 30px;
+        margin-top: 50px;
+      }
+      .container {
+        margin-left: 50px;
+        width: 50%;
+        margin-top: 20px;
+      }
+      .summary {
+        height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Tokyo COVID-19 Tracker</h2>
+      <div>
+        Last Updated:
+        <span id="lastUpdated"></span>
+      </div>
+      <br />
+      <div class="row">
+        <div class="summary col-sm">
+          Active
+          <div id="active"></div>
         </div>
+        <div class="summary col-sm">
+          Deaths
+          <div id="deaths"></div>
+        </div>
+        <div class="summary col-sm">
+          Critical
+          <div id="critical"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="summary col-sm">
+          Tested
+          <div id="tested"></div>
+        </div>
+        <div class="summary col-sm">
+          Confirmed
+          <div id="confirmed"></div>
+        </div>
+        <div class="summary col-sm">
+          Discharged
+          <div id="discharged"></div>
+        </div>
+      </div>
+      <div id="map"></div>
+      <div id="test"></div>
+      <canvas id="wardHistoryChart" width="400" height="650"></canvas>
+      <div class="row">
+        <canvas id="allWardCasesChart" width="400" height="650"></canvas>
+      </div>
+    </div>
 
-        <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
-        <script src="tokyo.js"></script>
-        <script src="cases.js"></script>
-        <script src="index.js"></script>
-        <script src="summary.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    </body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+    <script src="chart.js"></script>
+    <script src="tokyo.js"></script>
+    <script src="cases.js"></script>
+    <script src="index.js"></script>
+    <script src="summary.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
