@@ -24,8 +24,8 @@ map.on('load', function() {
     // includes cases count and rough district centerpoints (not accurate enough for production)
     var api_districts = cases['features'];
 
-    // only consider today's data
-    api_districts = api_districts.filter(ward => ward['properties']['公表日'] == 1586476800000);
+    // get the latest 62 records (62 districts in total)
+    api_districts = api_districts.slice(api_districts.length - 62);
 
     // geojson of all labels
     var labels = {
@@ -41,7 +41,7 @@ map.on('load', function() {
             var api_name = api_districts[j]['properties']['団体名'];
             if (name_jp === api_name) {
                 // add cases count to our geojson
-                districts[i]['properties']['cases'] = api_districts[j]['properties']['件数'];
+                districts[i]['properties']['cases'] = api_districts[j]['properties']['件数'] || 0;
                 // add centerpoint (label location) to our geojson 
                 districts[i]['properties']['center'] = api_districts[j]['geometry']['coordinates'];
                 // format our geojson's id

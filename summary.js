@@ -1,18 +1,26 @@
 function fillCards(data) {
     var lastUpdated = data['lastUpdate'];
+    
     var confirmed = data['main_summary']['children'][0]['value'];
+    var confirmedNew = data['patients_summary']['data'][data['patients_summary']['data'].length - 1]['小計'];
+
     var deaths = data['main_summary']['children'][0]['children'][2]['value'];
+
     var critical = data['main_summary']['children'][0]['children'][0]['children'][1]['value'];
+
     var discharged = data['main_summary']['children'][0]['children'][1]['value'];
+
     var tested = data['inspection_status_summary']['value'];
+    var testedNew = data['inspection_persons']['datasets'][0]['data'][data['inspection_persons']['datasets'][0]['data'].length - 1];
+
     var active = confirmed - discharged - deaths;
 
     document.getElementById('lastUpdated').innerHTML = lastUpdated;
     document.getElementById('active').innerHTML = active;
     document.getElementById('deaths').innerHTML = deaths;
     document.getElementById('critical').innerHTML = critical;
-    document.getElementById('tested').innerHTML = tested;
-    document.getElementById('confirmed').innerHTML = confirmed;
+    document.getElementById('tested').innerHTML = tested + ' (+' + testedNew + ')';
+    document.getElementById('confirmed').innerHTML = confirmed + ' (+' + confirmedNew + ')';
     document.getElementById('discharged').innerHTML = discharged;
 
 }
