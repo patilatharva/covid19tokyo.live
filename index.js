@@ -35,6 +35,9 @@ map.on("load", function () {
     features: [],
   };
 
+  // upper limit of ward chart
+  var casesMaxValue = 0;
+
   for (i = 0; i < districts.length; i++) {
     var name_jp = districts[i]["properties"]["ward_ja"];
 
@@ -42,7 +45,10 @@ map.on("load", function () {
       var api_name = api_districts[j]["properties"]["団体名"];
       if (name_jp === api_name) {
         // add cases count to our geojson
-        districts[i]["properties"]["cases"] = api_districts[j]["properties"]["件数"] || 0;
+        var count = api_districts[j]["properties"]["件数"] || 0;
+        districts[i]["properties"]["cases"] = count;
+        casesMaxValue = Math.max(count, casesMaxValue);
+
         // add centerpoint (label location) to our geojson
         districts[i]["properties"]["center"] = api_districts[j]["geometry"]["coordinates"];
         // format our geojson's id
@@ -157,12 +163,14 @@ map.on("load", function () {
     // change cursor to pointer
     map.getCanvas().style.cursor = "pointer";
 
+    /*
     document.getElementById("test").innerHTML =
       "Ward: " +
       e.features[0].properties.ward_en +
       "<br/>Cases: " +
       e.features[0].properties.cases +
       "<br/> Hit Cmd+Opt+I -> Console for more info";
+    */
 
     if (hoveredWardId) {
       map.setFeatureState(
@@ -255,7 +263,11 @@ map.on("load", function () {
             backgroundColor: "blue",
           },
           scales: {
-            yAxes: [{}],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    suggestedMax: casesMaxValue,
+            }}],
           },
         },
       });
