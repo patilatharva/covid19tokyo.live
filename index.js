@@ -162,6 +162,7 @@ map.on("load", function () {
   map.on("mousemove", "wards", function (e) {
     // change cursor to pointer
     map.getCanvas().style.cursor = "pointer";
+    removePlaceholder();
 
     /*
     document.getElementById("test").innerHTML =

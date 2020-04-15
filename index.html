@@ -44,6 +44,27 @@
         height: 50vh;
         width: 100%;
       }
+
+      #placeholder {
+          text-align: center;
+          font-size: 20px;
+          border: dashed 1px #85929E;
+          border-radius: 10px;
+          margin: 20px;
+          height: calc(100% - 40px);
+          display: table;
+          width: calc(100% - 40px);
+      }
+
+      #placeholder span {
+          display: table-cell;
+          color: #85929E;
+      }
+
+      #wardHistoryChart {
+          display: none;
+      }
+
     </style>
   </head>
   <body>
@@ -89,6 +110,9 @@
         <div id="map" class="col-sm"></div>
         <div class="col-sm">
             <canvas id="wardHistoryChart" width="50vh"></canvas>
+            <div id="placeholder">
+                <span class="align-middle">hover on a ward</span>
+            </div>
         </div>
       </div>
             
@@ -99,6 +123,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+    <script src="utils.js"></script>
     <script src="chart.js"></script>
     <script src="tokyo.js"></script>
     <script src="cases.js"></script>
