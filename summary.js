@@ -25,11 +25,17 @@ function fillCards(data) {
 
 }
 
+function plotOverallChart(data) {
+  // plot chart
+  // data: array containing number of new cases each day; sample in temp.json -> patients_summary
+}
+
 function callback(status, response) {
     if (status) {
         alert(status);
     } else {
         fillCards(response);
+        plotOverallChart(response['patients_summary']);
         data = response;
     }
 }
