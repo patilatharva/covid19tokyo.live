@@ -201,7 +201,7 @@ map.on("load", function () {
                 var day = date.getDate();
                 var date_formatted = month + '-' + day + '-' + year;
                 */
-        casesHistory[timestamp] = ward["properties"]["件数"];
+        casesHistory[timestamp] = ward["properties"]["件数"] || 0;
       });
 
       history = {
