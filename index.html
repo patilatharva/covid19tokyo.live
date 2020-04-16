@@ -17,61 +17,7 @@
       href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css"
       rel="stylesheet"
     />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-
-      header {
-        margin-top: 30px;
-      }
-
-      #map {
-        height: 100%;
-        border: solid 1px;
-        border-radius: 7px;
-      }
-      #test {
-        height: 30px;
-        margin-top: 50px;
-      }
-      .summary {
-        margin-top: 10px;
-        height: 80px;
-        text-align: center;
-      }
-
-      .summary div {
-        font-weight: bold;
-      }
-
-      .ward-info {
-        height: 50vh;
-        width: 100%;
-        margin-top: 30px;
-      }
-
-      #placeholder {
-        text-align: center;
-        font-size: 20px;
-        border: dashed 1px #85929e;
-        border-radius: 10px;
-        margin: 20px;
-        height: calc(100% - 40px);
-        display: table;
-        width: calc(100% - 40px);
-      }
-
-      #placeholder span {
-        display: table-cell;
-        color: #85929e;
-      }
-
-      #wardHistoryChart {
-        display: none;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
     <div class="container">
@@ -86,30 +32,30 @@
       <br />
       <div class="row">
         <div class="summary col-sm">
-          Active
-          <div id="active"></div>
+          <b>Active</b>
+          <div id="active" class="text-danger h3"></div>
         </div>
         <div class="summary col-sm">
-          Deaths
-          <div id="deaths"></div>
+          <b>Deaths</b>
+          <div id="deaths" class="text-danger h3"></div>
         </div>
         <div class="summary col-sm">
-          Critical
-          <div id="critical"></div>
+          <b>Critical</b>
+          <div id="critical" class="text-danger h3"></div>
         </div>
       </div>
       <div class="row">
         <div class="summary col-sm">
-          Tested
-          <div id="tested"></div>
+          <b>Tested</b>
+          <div id="tested" class="text-info h3"></div>
         </div>
         <div class="summary col-sm">
-          Confirmed
-          <div id="confirmed"></div>
+          <b>Confirmed</b>
+          <div id="confirmed" class="text-info h3"></div>
         </div>
         <div class="summary col-sm">
-          Discharged
-          <div id="discharged"></div>
+          <b>Discharged</b>
+          <div id="discharged" class="text-info h3"></div>
         </div>
       </div>
       <div class="row ward-info">

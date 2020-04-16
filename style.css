@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  margin-top: 30px;
+}
+
+#map {
+  height: 100%;
+  border: solid 1px;
+  border-radius: 7px;
+}
+#test {
+  height: 30px;
+  margin-top: 50px;
+}
+.summary {
+  margin-top: 10px;
+  height: 80px;
+  text-align: center;
+}
+
+.summary div {
+  font-weight: bold;
+}
+
+.ward-info {
+  height: 50vh;
+  width: 100%;
+  margin-top: 30px;
+}
+
+#placeholder {
+  text-align: center;
+  font-size: 20px;
+  border: dashed 1px #85929e;
+  border-radius: 10px;
+  margin: 20px;
+  height: calc(100% - 40px);
+  display: table;
+  width: calc(100% - 40px);
+}
+
+#placeholder span {
+  display: table-cell;
+  color: #85929e;
+}
+
+#wardHistoryChart {
+  display: none;
+}
