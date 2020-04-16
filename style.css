@@ -50,7 +50,7 @@ h4 {
 #map-container {
   min-width: 350px;
   min-height: 300px;
-  margin: 30px;
+  margin: 10px 30px 30px;
 }
 
 #legend {
@@ -110,7 +110,7 @@ h4 {
 
 #confirmed .h5 {color: crimson}
 #discharged .h5 {color: royalblue}
-#deaths .h5 {color: #78909C}
+#deaths .h5 {color: #C0392B}
 #critical .h5 {color: #78909C}
 #tested .h5 {color: #455A64}
 #tests .h5 {color: #455A64}
