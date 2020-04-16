@@ -242,7 +242,9 @@ map.on("load", function () {
       gradient.addColorStop(1, "rgba(29, 90, 185, 0.1)");
 
       // line chart of cases over time of ward that cursor hovers over on the map.
+      // if previous chart exists, destroy it
       if (stackedLine) stackedLine.destroy();
+
       stackedLine = new Chart(ctx, {
         type: "line",
         data: {
