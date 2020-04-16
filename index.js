@@ -13,6 +13,8 @@ var map = new mapboxgl.Map({
 var hoveredWardId = null;
 // history of cases in hovered over ward
 var wardHistory = {};
+var chartStatus = false;
+var stackedLine;
 
 map.on("load", function () {
   // Add a GeoJSON source containing place coordinates and information.
@@ -50,7 +52,8 @@ map.on("load", function () {
         casesMaxValue = Math.max(count, casesMaxValue);
 
         // add centerpoint (label location) to our geojson
-        districts[i]["properties"]["center"] = api_districts[j]["geometry"]["coordinates"];
+        districts[i]["properties"]["center"] =
+          api_districts[j]["geometry"]["coordinates"];
         // format our geojson's id
         districts[i]["id"] = districts[i]["properties"]["code"];
 
@@ -58,7 +61,8 @@ map.on("load", function () {
         var center = api_districts[j]["geometry"]["coordinates"];
 
         // label name
-        var label = ward.split(" ")[0] + "\n" + districts[i]["properties"]["cases"];
+        var label =
+          ward.split(" ")[0] + "\n" + districts[i]["properties"]["cases"];
         labels["features"].push({
           type: "Feature",
           properties: {
@@ -164,6 +168,9 @@ map.on("load", function () {
     map.getCanvas().style.cursor = "pointer";
     removePlaceholder();
 
+    // var clear = document.getElementById("wardHistoryChart").getContext("2d");
+    // clear.clear();
+    // clear.destroy();
     /*
     document.getElementById("test").innerHTML =
       "Ward: " +
@@ -182,6 +189,7 @@ map.on("load", function () {
 
     // get cases history if user's cursor enters ward
     if (!hoveredWardId || hoveredWardId != e.features[0].id) {
+      // var clear = getElementById("");
       // get cases history for the ward
       var history = cases["features"].filter(
         (ward) =>
@@ -218,7 +226,7 @@ map.on("load", function () {
         var date = new Date(parseInt(timestamp));
         var month = date.getMonth();
         var day = date.getDate();
-        return month+1 + '/' + day;
+        return month + 1 + "/" + day;
       });
 
       var values = Object.values(history.history);
@@ -234,7 +242,8 @@ map.on("load", function () {
       gradient.addColorStop(1, "rgba(29, 90, 185, 0.1)");
 
       // line chart of cases over time of ward that cursor hovers over on the map.
-      var stackedLine = new Chart(ctx, {
+      if (stackedLine) stackedLine.destroy();
+      stackedLine = new Chart(ctx, {
         type: "line",
         data: {
           labels: keys,
@@ -247,31 +256,36 @@ map.on("load", function () {
           ],
         },
         options: {
-            title: {
-                display: true,
-                text: "Confirmed cases in " + e.features[0].properties.ward_en,
+          title: {
+            display: true,
+            text: "Confirmed cases in " + e.features[0].properties.ward_en,
+          },
+          elements: {
+            line: {
+              tension: 0,
             },
-            elements: {
-                line: {
-                    tension: 0
-                }
-            },
-            legend: {
-                display: false
-            },
-            maintainAspectRatio: false,
+          },
+          legend: {
+            display: false,
+          },
+          maintainAspectRatio: false,
           layout: {
             backgroundColor: "blue",
           },
           scales: {
-            yAxes: [{
+            yAxes: [
+              {
                 ticks: {
-                    suggestedMin: 0,
-                    suggestedMax: casesMaxValue,
-            }}],
+                  suggestedMin: 0,
+                  suggestedMax: casesMaxValue,
+                },
+              },
+            ],
           },
         },
       });
+      chartStatus = true;
+
       // store data in global variable
       wardHistory = history;
     }

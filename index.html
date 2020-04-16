@@ -43,7 +43,7 @@
       }
 
       .summary div {
-          font-weight: bold;
+        font-weight: bold;
       }
 
       .ward-info {
@@ -53,37 +53,36 @@
       }
 
       #placeholder {
-          text-align: center;
-          font-size: 20px;
-          border: dashed 1px #85929E;
-          border-radius: 10px;
-          margin: 20px;
-          height: calc(100% - 40px);
-          display: table;
-          width: calc(100% - 40px);
+        text-align: center;
+        font-size: 20px;
+        border: dashed 1px #85929e;
+        border-radius: 10px;
+        margin: 20px;
+        height: calc(100% - 40px);
+        display: table;
+        width: calc(100% - 40px);
       }
 
       #placeholder span {
-          display: table-cell;
-          color: #85929E;
+        display: table-cell;
+        color: #85929e;
       }
 
       #wardHistoryChart {
-          display: none;
+        display: none;
       }
-
     </style>
   </head>
   <body>
     <div class="container">
-        <header>
-            <h2>Tokyo COVID-19 Tracker</h2>
-            <div>
-                Last Updated:
-                <span id="lastUpdated"></span>
-            </div>
-        </header>
-    
+      <header>
+        <h2>Tokyo COVID-19 Tracker</h2>
+        <div>
+          Last Updated:
+          <span id="lastUpdated"></span>
+        </div>
+      </header>
+
       <br />
       <div class="row">
         <div class="summary col-sm">
@@ -116,19 +115,20 @@
       <div class="row ward-info">
         <div id="map" class="col-sm"></div>
         <div class="col-sm">
-            <canvas id="wardHistoryChart" width="50vh"></canvas>
-            <div id="placeholder">
-                <span class="align-middle">hover on a ward</span>
-            </div>
+          <canvas id="wardHistoryChart" width="50vh"></canvas>
+          <div id="placeholder">
+            <span class="align-middle">hover on a ward</span>
+          </div>
         </div>
       </div>
-            
+
       <div class="row">
         <canvas id="allWardCasesChart" width="400" height="650"></canvas>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.1.2"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
     <script src="utils.js"></script>
     <script src="chart.js"></script>
