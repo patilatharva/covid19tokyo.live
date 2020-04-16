@@ -31,15 +31,20 @@ function fillCards(data) {
   
   //document.getElementById("active").innerHTML = active;
   $("#deaths .h5").html(deaths);
+  $("#deaths .new").html("(+" + "n" + ")");
+
   $("#critical .h5").html(critical);
+  $("#critical .new").html("(+" + "n" + ")");
+
   $("#tested .h5").html(tested);
   $("#tested .new").html("(+" + testedNew + ")");
 
-  $("#deaths .h5").html(deaths);
   $("#confirmed .h5").html(confirmed);
   $("#confirmed .new").html("(+" + confirmedNew + ")");
 
   $("#discharged .h5").html(discharged);
+  $("#discharged .new").html("(+" + "n" + ")");
+
   $("#tests .h5").html(tests);
   $("#tests .new").html("(+" + testsNew + ")");
 
