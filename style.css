@@ -7,14 +7,21 @@ header {
   margin-top: 30px;
 }
 
+#map-container {
+  min-width: 350px;
+  min-height: 300px;
+}
+
 #map {
   height: 100%;
   border: solid 1px;
   border-radius: 7px;
+  max-width: calc(100% - 30px);
+  margin: 0 auto;
 }
-#test {
-  height: 30px;
-  margin-top: 50px;
+#ward-chart-container {
+  min-width: 350px;
+  min-height: 250px;
 }
 .summary {
   margin-top: 10px;
@@ -27,8 +34,8 @@ header {
 }
 
 .ward-info {
-  height: 50vh;
-  width: 100%;
+  min-height: 50vh;
+  height: fit-content;
   margin-top: 30px;
 }
 
