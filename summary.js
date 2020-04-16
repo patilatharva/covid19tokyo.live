@@ -20,17 +20,40 @@ function fillCards(data) {
       data["inspection_persons"]["datasets"][0]["data"].length - 1
     ];
 
-  var active = confirmed - discharged - deaths;
+  var tests = data["inspection_status_summary"]["children"][0]["value"];
+
+  var testData = data["inspections_summary"]["data"];
+  var testsNew = testData["都内"][testData["都内"].length - 1] + testData["その他"][testData["その他"].length - 1];
+
+  //var active = confirmed - discharged - deaths;
 
   document.getElementById("lastUpdated").innerHTML = lastUpdated;
-  document.getElementById("active").innerHTML = active;
-  document.getElementById("deaths").innerHTML = deaths;
-  document.getElementById("critical").innerHTML = critical;
+  
+  //document.getElementById("active").innerHTML = active;
+  $("#deaths .h5").html(deaths);
+  $("#critical .h5").html(critical);
+  $("#tested .h5").html(tested);
+  $("#tested .new").html("(+" + testedNew + ")");
+
+  $("#deaths .h5").html(deaths);
+  $("#confirmed .h5").html(confirmed);
+  $("#confirmed .new").html("(+" + confirmedNew + ")");
+
+  $("#discharged .h5").html(discharged);
+  $("#tests .h5").html(tests);
+  $("#tests .new").html("(+" + testsNew + ")");
+
+
+
+    /*
   document.getElementById("tested").innerHTML =
     tested + " (+" + testedNew + ")";
   document.getElementById("confirmed").innerHTML =
     confirmed + " (+" + confirmedNew + ")";
   document.getElementById("discharged").innerHTML = discharged;
+  document.getElementById("tests").innerHTML = 
+    tests + " (+" + testsNew + ")";
+    */
 }
 
 function plotOverallChart(data) {

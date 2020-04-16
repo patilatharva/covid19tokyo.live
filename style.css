@@ -6,6 +6,14 @@ body {
 header {
   margin-top: 30px;
 }
+#overall-info {
+  min-height: 50vh;
+  height: fit-content
+}
+
+#overall-info .align-middle {
+  display: table-cell;
+}
 
 #map-container {
   min-width: 350px;
@@ -14,7 +22,7 @@ header {
 
 #map {
   height: 100%;
-  border: solid 1px;
+  border: solid 1px #85929e;
   border-radius: 7px;
   max-width: calc(100% - 30px);
   margin: 0 auto;
@@ -24,10 +32,37 @@ header {
   min-height: 250px;
 }
 .summary {
-  margin-top: 10px;
+  margin: 10px 0;
   height: 80px;
   text-align: center;
 }
+
+.summary b {
+  display: block;
+  color: #37474F;
+}
+
+.summary .h5 {
+  font-size: 30px;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.summary .new {
+  color: crimson;
+  font-size: 12px;
+  font-weight: bold;
+  display: block;
+  margin-top: 5px;
+}
+
+#confirmed .h5 {color: crimson}
+#discharged .h5 {color: royalblue}
+#deaths .h5 {color: #37474F}
+#critical .h5 {color: #78909C}
+#tested .h5 {color: #138D75}
+#tests .h5 {color: #4CAF50}
+
 
 .summary div {
   font-weight: bold;

@@ -30,34 +30,83 @@
       </header>
 
       <br />
-      <div class="row">
+      <!--div class="row">
         <div class="summary col-sm">
           <b>Active</b>
-          <div id="active" class="text-danger h3"></div>
+          <div id="active" class="h3"></div>
         </div>
         <div class="summary col-sm">
           <b>Deaths</b>
-          <div id="deaths" class="text-danger h3"></div>
+          <div id="deaths" class="h3"></div>
         </div>
         <div class="summary col-sm">
           <b>Critical</b>
-          <div id="critical" class="text-danger h3"></div>
+          <div id="critical" class="h3"></div>
         </div>
       </div>
       <div class="row">
         <div class="summary col-sm">
           <b>Tested</b>
-          <div id="tested" class="text-danger h3"></div>
+          <div id="tested" class="h3"></div>
         </div>
         <div class="summary col-sm">
           <b>Confirmed</b>
-          <div id="confirmed" class="text-danger h3"></div>
+          <div id="confirmed" class="h3"></div>
         </div>
         <div class="summary col-sm">
           <b>Discharged</b>
-          <div id="discharged" class="text-danger h3"></div>
+          <div id="discharged" class="h3"></div>
+        </div>
+      </div-->
+
+      <div id="overall-info" class="row">
+        <div class="col-sm">
+          <div style="display: table; height: 100%; width: inherit">
+            <div class="align-middle">
+              <div class="row">
+                <div id="confirmed" class="summary col-sm">
+                  <b>Confirmed</b>
+                  <div class="h5"></div>
+                  <span class="new"></span>
+                </div>
+                <div id="discharged" class="summary col-sm">
+                  <b>Discharged</b>
+                  <div class="h5"></div>
+                  <span class="new"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div id="deaths" class="summary col-sm">
+                  <b>Deaths</b>
+                  <div class="h5"></div>
+                  <span class="new"></span>
+                </div>
+                <div id="critical" class="summary col-sm">
+                  <b>Critical</b>
+                  <div class="h5"></div>
+                  <span class="new"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div id="tested" class="summary col-sm">
+                  <b>Tested</b>
+                  <div class="h5"></div>
+                  <span class="new"></span>
+                </div>
+                <div id="tests" class="summary col-sm">
+                  <b>Total Tests</b>
+                  <div class="h5"></div>
+                  <span class="new"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <canvas id="totalCasesChart" width="50vh"></canvas>
         </div>
       </div>
+
       <div class="row ward-info">
         <div id="map-container" class="col-sm">
           <div id="map"></div>
@@ -73,11 +122,13 @@
       <div class="row">
         <canvas id="allWardCasesChart" width="400" height="650"></canvas>
       </div>
-      <div class="row">
-        <canvas id="totalCasesChart" width="400" height="650"></canvas>
-      </div>
     </div>
 
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
@@ -87,11 +138,6 @@
     <script src="cases.js"></script>
     <script src="index.js"></script>
     <script src="summary.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"

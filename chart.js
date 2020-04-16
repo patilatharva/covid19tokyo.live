@@ -24,6 +24,7 @@ const createChart = () => {
       // Setting the labels and the data of the chart.
       for (var i = 0; i < districtsData.length; i++) {
         var ward = districtsData[i]["properties"]["団体名"];
+        ward = toEnglish(ward);
         var cases = districtsData[i]["properties"]["件数"] || 0;
         backgroundColor.push("rgba(29, 90, 185, 0.5)");
         borderColor.push("rgba(29, 90, 185, 1)");
