@@ -256,6 +256,17 @@ map.on("load", function () {
           ],
         },
         options: {
+          plugins: {
+            datalabels: {
+              labels: {
+                title: {
+                  color: "black",
+                  align: "top",
+                  offset: 3,
+                },
+              },
+            },
+          },
           title: {
             display: true,
             text: "Confirmed cases in " + e.features[0].properties.ward_en,

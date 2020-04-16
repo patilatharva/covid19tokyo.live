@@ -64,7 +64,7 @@ const createChart = () => {
         options: {
           plugins: {
             datalabels: {
-              color: "#36A2EB",
+              color: "black",
             },
           },
           legend: {
