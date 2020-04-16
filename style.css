@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: "Rubik", sans-serif;
   color: #37474F;
+  background-color: #F9F9FF;
 }
 
 header {
@@ -11,6 +12,25 @@ header {
 
 h2 {
   font-weight: 700;
+}
+
+h4 {
+  display: block;
+  margin: 20px 0 0 50px;
+  border-left: solid 7px royalblue;
+  padding-left: 8px;
+}
+
+.section,
+.card {
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow:  0px 2px 5px 0px rgba(69, 67, 96, 0.1);
+}
+
+.card {
+  padding: 0 0 20px 0;
 }
 
 #overall-info {
@@ -25,10 +45,26 @@ h2 {
 #map-container {
   min-width: 350px;
   min-height: 300px;
+  margin: 30px;
 }
 
+#legend {
+  height: fit-content;
+  padding: 0 20px 5px;
+}
+
+#legend .col-sm {
+  text-align: center;
+  max-width: 150px;
+}
+
+#legend #first {color: #ffffb2}
+#legend #second {color: #fecc5c}
+#legend #third {color: #fd8d3c}
+#legend #fourth {color: #e31a1c}
+
 #map {
-  height: 100%;
+  height: calc(100% - 40px);
   border: solid 1px #85929e;
   border-radius: 7px;
   max-width: calc(100% - 30px);
@@ -37,10 +73,10 @@ h2 {
 #ward-chart-container {
   min-width: 350px;
   min-height: 250px;
-  height: 90%;
-  padding: 20px
-
+  height: 348px;
+  padding: 20px 20px 0;
 }
+
 .summary {
   margin: 15px 0;
   height: 80px;
@@ -85,9 +121,9 @@ h2 {
 }
 
 .ward-info {
-  min-height: 400px;
+  min-height: 450px;
   height: fit-content;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 #placeholder {
@@ -101,8 +137,9 @@ h2 {
   width: calc(100% - 40px);
 }
 
-.ward-info button {
+.ward-info .dropdown-toggle {
   border-color: #CFD8DC;
+  margin-top: 20px;
 }
 
 #placeholder span {

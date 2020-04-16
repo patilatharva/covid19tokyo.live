@@ -113,10 +113,6 @@ function plotOverallChart(data) {
           offset: 3,
         },
       },
-      title: {
-        display: true,
-        text: "Confirmed Cases Over Time",
-      },
       elements: {
         line: {
           tension: 0,

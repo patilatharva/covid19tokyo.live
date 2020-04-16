@@ -46,7 +46,7 @@ map.on("load", function () {
         // add cases count to our geojson
         var count = api_districts[j]["properties"]["件数"] || 0;
         districts[i]["properties"]["cases"] = count;
-        casesMaxValue = Math.max(count, casesMaxValue);
+        casesMaxValue = Math.max(count + 10, casesMaxValue);
 
         // add centerpoint (label location) to our geojson
         districts[i]["properties"]["center"] =
@@ -90,11 +90,11 @@ map.on("load", function () {
       "fill-color": {
         property: "cases",
         stops: [
-          [0, "#fff"],
-          [10, "#ffffb2"],
-          [30, "#fecc5c"],
+          [0, "#ffffb2"],
+          [10, "#fecc5c"],
           [50, "#fd8d3c"],
-          [90, "#e31a1c"],
+          [100, "#e31a1c"],
+          [200, "#bd0026"],
         ],
       },
       "fill-opacity": [
