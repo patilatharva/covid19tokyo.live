@@ -12,9 +12,9 @@ var map = new mapboxgl.Map({
 
 var hoveredWardId = null;
 // history of cases in hovered over ward
-var wardHistory = {};
-var chartStatus = false;
 var stackedLine;
+// upper limit of ward chart
+var casesMaxValue = 0;
 
 map.on("load", function () {
   // Add a GeoJSON source containing place coordinates and information.
@@ -36,9 +36,6 @@ map.on("load", function () {
     type: "FeatureCollection",
     features: [],
   };
-
-  // upper limit of ward chart
-  var casesMaxValue = 0;
 
   for (i = 0; i < districts.length; i++) {
     var name_jp = districts[i]["properties"]["ward_ja"];
@@ -156,158 +153,19 @@ map.on("load", function () {
 
   // center to ward on click
   map.on("click", "wards", function (e) {
-    map.flyTo({
-      center: eval(e.features[0].properties.center),
-      essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-    });
+    var center = eval(e.features[0].properties.center);
+    flyToPoint(center);
   });
 
   // access ward data on hover
   map.on("mousemove", "wards", function (e) {
     // change cursor to pointer
     map.getCanvas().style.cursor = "pointer";
-    removePlaceholder();
 
-    // var clear = document.getElementById("wardHistoryChart").getContext("2d");
-    // clear.clear();
-    // clear.destroy();
-    /*
-    document.getElementById("test").innerHTML =
-      "Ward: " +
-      e.features[0].properties.ward_en +
-      "<br/>Cases: " +
-      e.features[0].properties.cases +
-      "<br/> Hit Cmd+Opt+I -> Console for more info";
-    */
-
-    if (hoveredWardId) {
-      map.setFeatureState(
-        { source: "wards", id: hoveredWardId },
-        { hover: false }
-      );
-    }
-
-    // get cases history if user's cursor enters ward
+    // select ward and plot chart if user hovers on ward
     if (!hoveredWardId || hoveredWardId != e.features[0].id) {
-      // var clear = getElementById("");
-      // get cases history for the ward
-      var history = cases["features"].filter(
-        (ward) =>
-          ward["properties"]["団体名"] === e.features[0].properties.ward_ja
-      );
-
-      // key: timestamp of date, val: num of cases
-      var casesHistory = {};
-      history.forEach((ward) => {
-        var timestamp = ward["properties"]["公表日"];
-        /*
-                optional date formatting:
-
-                var date = new Date(ward['properties']['公表日']);
-                var year = date.getFullYear();
-                var month = date.getMonth();
-                var day = date.getDate();
-                var date_formatted = month + '-' + day + '-' + year;
-                */
-        casesHistory[timestamp] = ward["properties"]["件数"] || 0;
-      });
-
-      history = {
-        name_en: e.features[0].properties.ward_en,
-        name_ja: e.features[0].properties.ward_ja,
-        history: casesHistory,
-      };
-
-      // see history of that ward in console
-      console.log(history);
-      var keys = Object.keys(history.history);
-
-      keys = keys.map((timestamp) => {
-        var date = new Date(parseInt(timestamp));
-        var month = date.getMonth();
-        var day = date.getDate();
-        return month + 1 + "/" + day;
-      });
-
-      var values = Object.values(history.history);
-
-      var ctx = document.getElementById("wardHistoryChart").getContext("2d");
-
-      // creating gradient to fill the background of the line chart.
-      var gradient = ctx.createLinearGradient(0, 0, 0, 400);
-      gradient.addColorStop(0, "rgba(29, 90, 185, 0.8)");
-      gradient.addColorStop(0.2, "rgba(29, 90, 185, 0.6)");
-      gradient.addColorStop(0.5, "rgba(29, 90, 185, 0.4)");
-      gradient.addColorStop(0.8, "rgba(29, 90, 185, 0.2)");
-      gradient.addColorStop(1, "rgba(29, 90, 185, 0.1)");
-
-      // line chart of cases over time of ward that cursor hovers over on the map.
-      // if previous chart exists, destroy it
-      if (stackedLine) stackedLine.destroy();
-
-      stackedLine = new Chart(ctx, {
-        type: "line",
-        data: {
-          labels: keys,
-          datasets: [
-            {
-              data: values,
-              borderColor: "rgba(29, 90, 185, 1)",
-              backgroundColor: gradient,
-            },
-          ],
-        },
-        options: {
-          plugins: {
-            datalabels: {
-              labels: {
-                title: {
-                  color: "black",
-                  align: "top",
-                  offset: 3,
-                },
-              },
-            },
-          },
-          title: {
-            display: true,
-            text: "Confirmed cases in " + e.features[0].properties.ward_en,
-          },
-          elements: {
-            line: {
-              tension: 0,
-            },
-          },
-          legend: {
-            display: false,
-          },
-          maintainAspectRatio: false,
-          layout: {
-            backgroundColor: "blue",
-          },
-          scales: {
-            yAxes: [
-              {
-                ticks: {
-                  suggestedMin: 0,
-                  suggestedMax: casesMaxValue,
-                },
-              },
-            ],
-          },
-        },
-      });
-      chartStatus = true;
-
-      // store data in global variable
-      wardHistory = history;
+      selectWard(e.features[0].id);
     }
-
-    hoveredWardId = e.features[0].id;
-    map.setFeatureState(
-      { source: "wards", id: hoveredWardId },
-      { hover: true }
-    );
   });
 
   // Change cursor back to default when it leaves

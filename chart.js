@@ -89,4 +89,81 @@ const createChart = () => {
       });
     });
 };
+
+function drawWardChart(currentWard) {
+  var history = getHistory(currentWard);
+  var keys = Object.keys(history.history);
+
+  keys = keys.map((timestamp) => {
+    var date = new Date(parseInt(timestamp));
+    var month = date.getMonth();
+    var day = date.getDate();
+    return month + 1 + "/" + day;
+  });
+
+  var values = Object.values(history.history);
+  var ctx = document.getElementById("wardHistoryChart").getContext("2d");
+
+  // line chart of cases over time of ward that cursor hovers over on the map.
+  // if previous chart exists, destroy it
+  if (stackedLine) stackedLine.destroy();
+
+  stackedLine = new Chart(ctx, wardChartSettings(ctx, currentWard, keys, values));
+}
+
+function wardChartSettings(ctx, currentWard, keys, values) { 
+  return {
+    type: "line",
+    data: {
+      labels: keys,
+      datasets: [
+        {
+          data: values,
+          borderColor: "rgba(29, 90, 185, 1)",
+          backgroundColor: blueGradient(ctx),
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        datalabels: {
+          labels: {
+            title: {
+              color: "black",
+              align: "top",
+              offset: 3,
+            },
+          },
+        },
+      },
+      title: {
+        display: true,
+        text: "Confirmed cases in " + currentWard.properties.ward_en,
+      },
+      elements: {
+        line: {
+          tension: 0,
+        },
+      },
+      legend: {
+        display: false,
+      },
+      maintainAspectRatio: false,
+      layout: {
+        backgroundColor: "blue",
+      },
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: casesMaxValue,
+            },
+          },
+        ],
+      },
+    },
+  };
+}
+
 createChart();

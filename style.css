@@ -1,13 +1,20 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Rubik", sans-serif;
+  color: #37474F;
 }
 
 header {
   margin-top: 30px;
 }
+
+h2 {
+  font-weight: 700;
+}
+
 #overall-info {
-  min-height: 50vh;
+  min-height: 370px;
   height: fit-content
 }
 
@@ -30,16 +37,18 @@ header {
 #ward-chart-container {
   min-width: 350px;
   min-height: 250px;
+  height: 90%;
+  padding: 20px
+
 }
 .summary {
-  margin: 10px 0;
+  margin: 15px 0;
   height: 80px;
   text-align: center;
 }
 
 .summary b {
   display: block;
-  color: #37474F;
 }
 
 .summary .h5 {
@@ -76,9 +85,9 @@ header {
 }
 
 .ward-info {
-  min-height: 50vh;
+  min-height: 400px;
   height: fit-content;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 #placeholder {
@@ -86,10 +95,14 @@ header {
   font-size: 20px;
   border: dashed 1px #85929e;
   border-radius: 10px;
-  margin: 20px;
-  height: calc(100% - 40px);
+  margin: 0 20px;
+  height: 100%;
   display: table;
   width: calc(100% - 40px);
+}
+
+.ward-info button {
+  border-color: #CFD8DC;
 }
 
 #placeholder span {
