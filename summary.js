@@ -63,30 +63,39 @@ function fillCards(data) {
 
 function plotOverallChart(data) {
   // plot chart
-  // data: array containing number of new cases each day; sample in temp.json -> patients_summary
-  var patientData = data["data"];
-  console.log(patientData[0]);
-  var cases = []; // x axis
-  var dates = []; // y axis (labels)
-  var total = 0;
+  // patientData: array containing number of new cases each day; sample in temp.json -> patients_summary
+  var patientData = data["patients_summary"]["data"];
+  // dischargeData: array containing number of new discharges each day: sample in temp.json -> discharges_summary
+  var dischargeData = data["discharges_summary"]["data"];
+
+  var cases = []; // number of cases
+  var discharges = []; // number of discharges
+  var dates = []; // x axis (labels)
+  var caseTotal = 0;
+  var dischargeTotal = 0;
+
   for (var i = 0; i < patientData.length; i++) {
-    total += patientData[i]["小計"];
-    cases.push(total);
+    caseTotal += patientData[i]["小計"];
+    cases.push(caseTotal);
+    dischargeTotal += dischargeData[i]["小計"];
+    discharges.push(dischargeTotal);
     var date = patientData[i]["日付"].slice(5, 10);
     dates.push(date);
   }
   console.log(cases);
   console.log(dates);
+  console.log(discharges);
 
   var ctx = document.getElementById("totalCasesChart").getContext("2d");
 
   // creating gradient to fill the background of the line chart.
-  var gradient = ctx.createLinearGradient(0, 0, 0, 400);
-  gradient.addColorStop(0, "rgba(29, 90, 185, 0.8)");
-  gradient.addColorStop(0.2, "rgba(29, 90, 185, 0.6)");
-  gradient.addColorStop(0.5, "rgba(29, 90, 185, 0.4)");
-  gradient.addColorStop(0.8, "rgba(29, 90, 185, 0.2)");
-  gradient.addColorStop(1, "rgba(29, 90, 185, 0.1)");
+
+  // var gradient = ctx.createLinearGradient(0, 0, 0, 400);
+  // gradient.addColorStop(0, "rgba(29, 90, 185, 0.8)");
+  // gradient.addColorStop(0.2, "rgba(29, 90, 185, 0.6)");
+  // gradient.addColorStop(0.5, "rgba(29, 90, 185, 0.4)");
+  // gradient.addColorStop(0.8, "rgba(29, 90, 185, 0.2)");
+  // gradient.addColorStop(1, "rgba(29, 90, 185, 0.1)");
 
   // line chart of cases over time of ward that cursor hovers over on the map.
   var lineChart = new Chart(ctx, {
@@ -95,9 +104,16 @@ function plotOverallChart(data) {
       labels: dates,
       datasets: [
         {
+          label: "cases",
           data: cases,
-          borderColor: "rgba(29, 90, 185, 1)",
-          backgroundColor: gradient,
+          borderColor: "red",
+          fill: false,
+        },
+        {
+          label: "discharged",
+          data: discharges,
+          borderColor: "blue",
+          fill: false,
         },
       ],
     },
@@ -108,9 +124,6 @@ function plotOverallChart(data) {
             // disabling labels as chart becomes too cluttered.
             size: 0,
           },
-          color: "blue",
-          align: "top",
-          offset: 3,
         },
       },
       elements: {
@@ -119,11 +132,11 @@ function plotOverallChart(data) {
         },
       },
       legend: {
-        display: false,
+        display: true,
       },
       maintainAspectRatio: false,
       layout: {
-        backgroundColor: "blue",
+        // backgroundColor: "blue",
       },
       scales: {
         yAxes: [
@@ -182,9 +195,9 @@ const drawAgeGenderChart = (data) => {
   }
   labels[0] = "<10";
   labels[labels.length - 1] = "100+";
-  console.log(males);
-  console.log(females);
-  console.log(labels);
+  // console.log(males);
+  // console.log(females);
+  // console.log(labels);
   var ctx = document.getElementById("ageGenderChart").getContext("2d");
 
   var stackedBar = new Chart(ctx, {
@@ -264,7 +277,9 @@ function callback(status, response) {
     alert(status);
   } else {
     fillCards(response);
-    plotOverallChart(response["patients_summary"]);
+    // plotOverallChart(response["patients_summary"]);
+    plotOverallChart(response);
+
     drawAgeGenderChart(response["patients"]);
     data = response;
   }
