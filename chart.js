@@ -1,5 +1,5 @@
 //  function to create chart for number of cases of all districts.
-const createChart = () => {
+const allWardsChart = () => {
   const url =
     "https://services6.arcgis.com/5jNaHNYe2AnnqRnS/arcgis/rest/services/COVID19_JapanData_Tokyo/FeatureServer/0/query?where=%E8%87%AA%E6%B2%BB%E4%BD%93%E3%82%B3%E3%83%BC%E3%83%89%3E0&returnIdsOnly=false&returnCountOnly=false&f=pgeojson&outFields=*&orderByFields=%E5%85%AC%E8%A1%A8%E6%97%A5,%E8%87%AA%E6%B2%BB%E4%BD%93%E3%82%B3%E3%83%BC%E3%83%89";
   fetch(url, {
@@ -25,11 +25,11 @@ const createChart = () => {
       for (var i = 0; i < districtsData.length; i++) {
         var ward = districtsData[i]["properties"]["団体名"];
         ward = toEnglish(ward);
-        var cases = districtsData[i]["properties"]["件数"] || 0;
+        var num = districtsData[i]["properties"]["件数"] || 0;
         backgroundColor.push("rgba(29, 90, 185, 0.5)");
         borderColor.push("rgba(29, 90, 185, 1)");
         labels.push(ward);
-        data.push(cases);
+        data.push(num);
       }
 
       // Sorting the array of cases in descending order.
@@ -89,8 +89,10 @@ const createChart = () => {
       });
     });
 };
+allWardsChart();
 
-function drawWardChart(currentWard) {
+// function to create chart of selected ward from map/drop down
+const drawWardChart = (currentWard) => {
   var history = getHistory(currentWard);
   var keys = Object.keys(history.history);
 
@@ -108,10 +110,13 @@ function drawWardChart(currentWard) {
   // if previous chart exists, destroy it
   if (stackedLine) stackedLine.destroy();
 
-  stackedLine = new Chart(ctx, wardChartSettings(ctx, currentWard, keys, values));
-}
+  stackedLine = new Chart(
+    ctx,
+    wardChartSettings(ctx, currentWard, keys, values)
+  );
+};
 
-function wardChartSettings(ctx, currentWard, keys, values) { 
+function wardChartSettings(ctx, currentWard, keys, values) {
   return {
     type: "line",
     data: {
@@ -165,5 +170,3 @@ function wardChartSettings(ctx, currentWard, keys, values) {
     },
   };
 }
-
-createChart();
