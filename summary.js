@@ -119,23 +119,23 @@ function plotOverallChart(data) {
     type: "line",
     data: {
       // slice is used to include data from the last 60 days only.
-      labels: dates.slice(dates.length - 60),
+      labels: dates.slice(dates.length - 50),
       datasets: [
         {
           label: "cases",
-          data: cases.slice(cases.length - 60),
+          data: cases.slice(cases.length - 50),
           borderColor: "red",
           fill: false,
         },
         {
           label: "discharged",
-          data: discharges.slice(discharges.length - 60),
+          data: discharges.slice(discharges.length - 50),
           borderColor: "blue",
           fill: false,
         },
         {
           label: "tested",
-          data: tests.slice(discharges.length - 60),
+          data: tests.slice(discharges.length - 50),
           borderColor: "grey",
           fill: false,
         },
@@ -278,21 +278,21 @@ const drawAgeGenderChart = (data) => {
       scales: {
         xAxes: [
           {
-            scaleLabel: {
-              display: true,
-              labelString: "age range",
-              fontSize: 16,
-            },
+            // scaleLabel: {
+            //   display: true,
+            //   labelString: "age range",
+            //   fontSize: 16,
+            // },
             stacked: true,
           },
         ],
         yAxes: [
           {
-            scaleLabel: {
-              display: true,
-              labelString: "# of cases",
-              fontSize: 16,
-            },
+            // scaleLabel: {
+            //   display: true,
+            //   labelString: "# of cases",
+            //   fontSize: 16,
+            // },
             stacked: true,
             ticks: {
               suggestedMin: 0,

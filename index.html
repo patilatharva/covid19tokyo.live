@@ -197,12 +197,24 @@
         </div>
       </div>
       <br /><br />
-      <div class="row">
+
+      <!-- <div class="row">
         <canvas id="allWardCasesChart" width="400" height="650"></canvas>
-      </div>
+      </div> -->
 
       <div class="row">
-        <canvas id="ageGenderChart" width="300" height="170"></canvas>
+        <div class="col-sm card" style="margin-right: 30px;">
+          <h4>Age & Gender</h4>
+          <hr />
+          <canvas id="ageGenderChart" width="250" height="175"></canvas>
+        </div>
+        <div class="col-sm card">
+          <h4>Total Cases by Ward</h4>
+          <hr />
+          <div class="div" style="max-height: 400px; overflow: scroll;">
+            <canvas id="allWardCasesChart" width="300" height="500"></canvas>
+          </div>
+        </div>
       </div>
     </div>
 
