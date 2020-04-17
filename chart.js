@@ -98,7 +98,7 @@ const drawWardChart = (currentWard) => {
 
   keys = keys.map((timestamp) => {
     // data is one day old
-    timestamp -= 24*60*60*1000;
+    timestamp -= 24 * 60 * 60 * 1000;
     var date = new Date(parseInt(timestamp));
     var month = date.getMonth();
     var day = date.getDate();
@@ -132,6 +132,14 @@ function wardChartSettings(ctx, currentWard, keys, values) {
       ],
     },
     options: {
+      tooltips: {
+        mode: "index",
+        intersect: false,
+      },
+      hover: {
+        mode: "index",
+        intersect: false,
+      },
       plugins: {
         datalabels: {
           labels: {

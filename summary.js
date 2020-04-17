@@ -121,6 +121,14 @@ function plotOverallChart(data) {
       ],
     },
     options: {
+      tooltips: {
+        mode: "index",
+        intersect: false,
+      },
+      hover: {
+        mode: "index",
+        intersect: false,
+      },
       plugins: {
         datalabels: {
           font: {
