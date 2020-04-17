@@ -215,8 +215,7 @@ const drawAgeGenderChart = (data) => {
             weight: "bold",
           },
           color: "black",
-          align: "top",
-          offset: 3,
+          align: "center",
         },
       },
       // elements: {
