@@ -95,6 +95,8 @@ function drawWardChart(currentWard) {
   var keys = Object.keys(history.history);
 
   keys = keys.map((timestamp) => {
+    // data is one day old
+    timestamp -= 24*60*60*1000;
     var date = new Date(parseInt(timestamp));
     var month = date.getMonth();
     var day = date.getDate();

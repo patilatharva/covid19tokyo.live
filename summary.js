@@ -8,6 +8,8 @@ function fillCards(data) {
     ]["小計"];
 
   var deaths = data["main_summary"]["children"][0]["children"][2]["value"];
+  let deathNums = Object.values(deathCount);
+  var deathsNew = deathNums[deathNums.length - 1];
 
   var critical =
     data["main_summary"]["children"][0]["children"][0]["children"][1]["value"];
@@ -31,7 +33,7 @@ function fillCards(data) {
   
   //document.getElementById("active").innerHTML = active;
   $("#deaths .h5").html(deaths);
-  $("#deaths .new").html("(+" + "num" + ")");
+  $("#deaths .new").html("(+" + deathsNew + ")");
 
   $("#critical .h5").html(critical);
   $("#critical .new").html("(+" + "num" + ")");
