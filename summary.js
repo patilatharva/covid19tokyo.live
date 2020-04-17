@@ -101,17 +101,18 @@ function plotOverallChart(data) {
   var lineChart = new Chart(ctx, {
     type: "line",
     data: {
-      labels: dates,
+      // slice is used to include data from the last 60 days only.
+      labels: dates.slice(dates.length - 60),
       datasets: [
         {
           label: "cases",
-          data: cases,
+          data: cases.slice(cases.length - 60),
           borderColor: "red",
           fill: false,
         },
         {
           label: "discharged",
-          data: discharges,
+          data: discharges.slice(discharges.length - 60),
           borderColor: "blue",
           fill: false,
         },
