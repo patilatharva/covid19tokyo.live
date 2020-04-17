@@ -263,6 +263,14 @@ const drawAgeGenderChart = (data) => {
           align: "center",
         },
       },
+      tooltips: {
+        mode: "index",
+        intersect: false,
+      },
+      hover: {
+        mode: "index",
+        intersect: false,
+      },
       // elements: {
       //   line: {
       //     tension: 0,

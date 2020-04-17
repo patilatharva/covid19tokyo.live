@@ -68,6 +68,14 @@ const allWardsChart = () => {
               color: "black",
             },
           },
+          tooltips: {
+            mode: "index",
+            intersect: false,
+          },
+          hover: {
+            mode: "index",
+            intersect: false,
+          },
           legend: {
             display: false,
           },
