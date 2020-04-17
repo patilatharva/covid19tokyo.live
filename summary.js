@@ -70,23 +70,38 @@ function plotOverallChart(data) {
   // dischargeData: array containing number of new discharges each day: sample in temp.json -> discharges_summary
   var dischargeData = data["discharges_summary"]["data"];
 
+  var tokyoTestData = data["inspections_summary"]["data"]["都内"]; // "その他"
+  var otherTestData = data["inspections_summary"]["data"]["その他"];
+
   var cases = []; // number of cases
   var discharges = []; // number of discharges
   var dates = []; // x axis (labels)
+  var tests = [];
   var caseTotal = 0;
   var dischargeTotal = 0;
+  var testsTotal = 0;
 
   for (var i = 0; i < patientData.length; i++) {
     caseTotal += patientData[i]["小計"];
     cases.push(caseTotal);
+
     dischargeTotal += dischargeData[i]["小計"];
     discharges.push(dischargeTotal);
+
+    if (tokyoTestData[i]) {
+      testsTotal += tokyoTestData[i];
+      testsTotal += otherTestData[i];
+    } else testsTotal += 0;
+    tests.push(testsTotal);
+
     var date = patientData[i]["日付"].slice(5, 10);
     dates.push(date);
   }
-  console.log(cases);
-  console.log(dates);
-  console.log(discharges);
+  // console.log(cases);
+  // console.log(dates);
+  // console.log(discharges);
+  // console.log(tests);
+  // console.log(testsTotal);
 
   var ctx = document.getElementById("totalCasesChart").getContext("2d");
 
@@ -116,6 +131,12 @@ function plotOverallChart(data) {
           label: "discharged",
           data: discharges.slice(discharges.length - 60),
           borderColor: "blue",
+          fill: false,
+        },
+        {
+          label: "tested",
+          data: tests.slice(discharges.length - 60),
+          borderColor: "grey",
           fill: false,
         },
       ],
