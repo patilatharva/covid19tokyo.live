@@ -1,30 +1,30 @@
-function casesCallback(status, response) {
-  if (status) {
-    alert(status);
-  } else {
-    console.log(response);
-  }
-}
+// function casesCallback(status, response) {
+//   if (status) {
+//     alert(status);
+//   } else {
+//     console.log(response);
+//   }
+// }
 
-var getCases = function (url) {
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", url, true);
-  xhr.responseType = "json";
-  xhr.onload = function () {
-    var status = xhr.status;
-    if (status === 200) {
-      casesCallback(null, xhr.response);
-    } else {
-      casesCallback(status, xhr.response);
-    }
-  };
-  xhr.send();
-};
+// var getCases = function (url) {
+//   var xhr = new XMLHttpRequest();
+//   xhr.open("GET", url, true);
+//   xhr.responseType = "json";
+//   xhr.onload = function () {
+//     var status = xhr.status;
+//     if (status === 200) {
+//       casesCallback(null, xhr.response);
+//     } else {
+//       casesCallback(status, xhr.response);
+//     }
+//   };
+//   xhr.send();
+// };
 
-let newsUrl =
-  "https://github.com/tokyo-metropolitan-gov/covid19/blob/development/data/news.json";
+// let newsUrl =
+//   "https://github.com/tokyo-metropolitan-gov/covid19/blob/development/data/news.json";
 
-getCases(newsUrl);
+// getCases(newsUrl);
 
 // const getNews = () => {
 //   const url =
