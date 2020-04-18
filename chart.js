@@ -25,6 +25,7 @@ const allWardsChart = () => {
       for (var i = 0; i < districtsData.length; i++) {
         var ward = districtsData[i]["properties"]["団体名"];
         ward = toEnglish(ward);
+        ward = ward.split(" ")[0];
         var num = districtsData[i]["properties"]["件数"] || 0;
         backgroundColor.push("rgba(29, 90, 185, 0.5)");
         borderColor.push("rgba(29, 90, 185, 1)");
@@ -97,8 +98,7 @@ const drawWardChart = (currentWard) => {
   var keys = Object.keys(history.history);
 
   keys = keys.map((timestamp) => {
-    // data is one day old
-    timestamp -= 24*60*60*1000;
+    timestamp;// -= 24*60*60*1000;
     var date = new Date(parseInt(timestamp));
     var month = date.getMonth();
     var day = date.getDate();

@@ -109,13 +109,13 @@ function plotOverallChart(data) {
         {
           label: "cases",
           data: cases.slice(cases.length - 60),
-          borderColor: "red",
+          borderColor: "crimson",
           fill: false,
         },
         {
           label: "discharged",
           data: discharges.slice(discharges.length - 60),
-          borderColor: "blue",
+          borderColor: "royalblue",
           fill: false,
         },
       ],
@@ -133,6 +133,9 @@ function plotOverallChart(data) {
         line: {
           tension: 0,
         },
+        point: {
+          radius: 2
+        }
       },
       legend: {
         display: true,

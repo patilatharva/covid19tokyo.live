@@ -36,7 +36,7 @@
       <br />
 
       <div id="overall-info" class="row">
-        <div class="col-sm card" style="margin-right: 30px;">
+        <div class="col-md card" style="margin-right: 30px;">
           <h4>Summary</h4>
           <hr />
           <div style="display: table; width: inherit;">
@@ -80,7 +80,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm card">
+        <div class="col-md card">
           <h4>Confirmed cases</h4>
           <hr />
           <div style="height: 100%; padding: 0 30px;">
@@ -198,11 +198,19 @@
       </div>
       <br /><br />
       <div class="row">
-        <canvas id="allWardCasesChart" width="400" height="650"></canvas>
-      </div>
-
-      <div class="row">
-        <canvas id="ageGenderChart" width="300" height="170"></canvas>
+        <div class="col-md card" style="margin-right: 30px">
+          <canvas id="ageGenderChart" width="300" height="170"></canvas>
+        </div>
+        <div class="col-md card">
+          <h4>All Wards</h4>
+          <hr/> 
+          <div style="padding: 0px 20px 10px 0">
+            <canvas id="allWardCasesChart" width="400" height="650"></canvas>
+          </div>
+        </div>
+        <div class="col-md">
+          <canvas id="ageGenderChart" width="300" height="170"></canvas>
+        </div>
       </div>
     </div>
 
