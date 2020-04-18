@@ -69,6 +69,14 @@ const allWardsChart = () => {
               color: "black",
             },
           },
+          tooltips: {
+            mode: "index",
+            intersect: false,
+          },
+          hover: {
+            mode: "index",
+            intersect: false,
+          },
           legend: {
             display: false,
           },
@@ -132,6 +140,14 @@ function wardChartSettings(ctx, currentWard, keys, values) {
       ],
     },
     options: {
+      tooltips: {
+        mode: "index",
+        intersect: false,
+      },
+      hover: {
+        mode: "index",
+        intersect: false,
+      },
       plugins: {
         datalabels: {
           labels: {

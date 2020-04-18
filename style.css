@@ -3,8 +3,8 @@
 body {
   margin: 0;
   padding: 0;
-  color: #37474F;
-  background-color: #F9F9FF;
+  color: #37474f;
+  background-color: #f9f9ff;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -28,10 +28,12 @@ h4 {
 
 .section,
 .card {
-  border: 1px solid rgba(0,0,0,.125);
+  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 5px;
   background-color: #fff;
-  box-shadow:  0px 2px 5px 0px rgba(69, 67, 96, 0.1);
+  /* box-shadow:  0px 2px 5px 0px rgba(69, 67, 96, 0.1); */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 8px 6px -6px black; */
 }
 
 .card {
@@ -40,7 +42,7 @@ h4 {
 
 #overall-info {
   min-height: 370px;
-  height: fit-content
+  height: fit-content;
 }
 
 #overall-info .align-middle {
@@ -63,10 +65,18 @@ h4 {
   max-width: 150px;
 }
 
-#legend #first {color: #ffffb2}
-#legend #second {color: #fecc5c}
-#legend #third {color: #fd8d3c}
-#legend #fourth {color: #e31a1c}
+#legend #first {
+  color: #ffffb2;
+}
+#legend #second {
+  color: #fecc5c;
+}
+#legend #third {
+  color: #fd8d3c;
+}
+#legend #fourth {
+  color: #e31a1c;
+}
 
 #map {
   height: calc(100% - 40px);
@@ -108,12 +118,24 @@ h4 {
   margin-top: 5px;
 }
 
-#confirmed .h5 {color: crimson}
-#discharged .h5 {color: royalblue}
-#deaths .h5 {color: #7D3C98}
-#critical .h5 {color: #78909C}
-#tested .h5 {color: #455A64}
-#tests .h5 {color: #455A64}
+#confirmed .h5 {
+  color: crimson;
+}
+#discharged .h5 {
+  color: royalblue;
+}
+#deaths .h5 {
+  color: #7d3c98;
+}
+#critical .h5 {
+  color: #78909c;
+}
+#tested .h5 {
+  color: #455a64;
+}
+#tests .h5 {
+  color: #455a64;
+}
 
 /*
 #deaths .h5 {color: #37474F}
@@ -121,7 +143,6 @@ h4 {
 #tested .h5 {color: #138D75}
 #tests .h5 {color: #4CAF50}
 */
-
 
 .summary div {
   font-weight: bold;
@@ -145,7 +166,7 @@ h4 {
 }
 
 .ward-info .dropdown-toggle {
-  border-color: #CFD8DC;
+  border-color: #cfd8dc;
   margin-top: 20px;
 }
 
