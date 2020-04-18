@@ -84,7 +84,9 @@ const allWardsChart = () => {
             padding: 10,
           },
           scales: {
-            xAxes: [{ position: "top" }],
+            xAxes: [{ 
+              position: "top",
+            }],
             yAxes: [
               {
                 ticks: {
