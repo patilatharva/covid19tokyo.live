@@ -102,6 +102,7 @@ function plotOverallChart(data) {
   var patientData = data["patients_summary"]["data"];
   // dischargeData: array containing number of new discharges each day: sample in temp.json -> discharges_summary
   var dischargeData = data["discharges_summary"]["data"];
+  console.log(dischargeData);
 
   var tokyoTestData = data["inspections_summary"]["data"]["都内"]; // "その他"
   var otherTestData = data["inspections_summary"]["data"]["その他"];
@@ -353,10 +354,13 @@ function callback(status, response) {
   if (status) {
     alert(status);
   } else {
+    data = response;
+    console.log('response', response);
+    plotOverallChart(response);
+
     data = parseData(response);
     fillCards(data);
     // plotOverallChart(response["patients_summary"]);
-    plotOverallChart(response);
 
     drawAgeGenderChart(response["patients"]);
     data = response;
@@ -380,5 +384,5 @@ var getJSON = function (url) {
 
 var data = {};
 let url =
-  "https://raw.githubusercontent.com/tokyo-metropolitan-gov/covid19/master/data/data.json";
+  "d";
 getJSON(url);
