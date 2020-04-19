@@ -75,6 +75,8 @@ map.on("load", function () {
     }
   }
 
+  initializeOptions("#ward-picker", tokyo);
+
   // district shapes
   map.addSource("wards", {
     type: "geojson",

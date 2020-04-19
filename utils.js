@@ -100,3 +100,17 @@ function onWardSelect(id) {
         }
     }
 }
+
+function initializeOptions(selectId, geo) {
+    for (var ward of geo['features']) {
+        var name = ward.properties.ward_ja;
+        var id = ward.properties.code;
+
+        
+
+        $(selectId).append($('<option>', {
+            value: id,
+            text: name
+        })).selectpicker('refresh');
+    }
+}
