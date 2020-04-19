@@ -56,11 +56,11 @@ function flyToPoint(point) {
 
 function blueGradient(context) {
     var gradient = context.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0, "rgba(29, 90, 185, 0.8)");
-    gradient.addColorStop(0.2, "rgba(29, 90, 185, 0.6)");
-    gradient.addColorStop(0.5, "rgba(29, 90, 185, 0.4)");
-    gradient.addColorStop(0.8, "rgba(29, 90, 185, 0.2)");
-    gradient.addColorStop(1, "rgba(29, 90, 185, 0.1)");
+    gradient.addColorStop(0, "rgba(0, 123, 255, 0.8)");
+    gradient.addColorStop(0.2, "rgba(0, 123, 255, 0.6)");
+    gradient.addColorStop(0.5, "rgba(0, 123, 255, 0.4)");
+    gradient.addColorStop(0.8, "rgba(0, 123, 255, 0.2)");
+    gradient.addColorStop(1, "rgba(0, 123, 255, 0.1)");
     
     return gradient
 }
