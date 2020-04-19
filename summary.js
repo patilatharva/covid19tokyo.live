@@ -15,15 +15,17 @@ function parseData(data) {
     data["main_summary"]["children"][0]["children"][0]["children"][1]["value"];
 
   //var discharged = data["main_summary"]["children"][0]["children"][1]["value"];
-  var recovered = 0
+  var recovered = 0;
   var recoveredNew = 0;
   var today = new Date(lastUpdated);
-  today = today.getMonth()+1 + '-' + today.getDate() + '-' + today.getFullYear();
+  today =
+    today.getMonth() + 1 + "-" + today.getDate() + "-" + today.getFullYear();
 
-  for (patient of data['patients']['data']) {
-    if (patient['退院']) {
-      var date = new Date(patient['リリース日']);
-      var releasedDate = date.getMonth()+1 + '-' + date.getDate() + '-' + date.getFullYear();
+  for (patient of data["patients"]["data"]) {
+    if (patient["退院"]) {
+      var date = new Date(patient["リリース日"]);
+      var releasedDate =
+        date.getMonth() + 1 + "-" + date.getDate() + "-" + date.getFullYear();
       if (releasedDate === today) {
         recoveredNew++;
       }
@@ -48,31 +50,30 @@ function parseData(data) {
     testData["その他"][testData["その他"].length - 1];
 
   result = {
-    'lastUpdated': lastUpdated,
-    'confirmed': confirmed,
-    'confirmedNew': confirmedNew,
-    'active': active,
-    'activeNew': activeNew,
-    'deaths': deaths,
-    'deathsNew': deathsNew,
-    'critical': critical,
-    'discharged': 0,
-    'recovered': recovered,
-    'recoveredNew': recoveredNew,
-    'tested': tested,
-    'testedNew': testedNew,
-    'tests': tests,
-    'testsNew': testsNew
-  }
+    lastUpdated: lastUpdated,
+    confirmed: confirmed,
+    confirmedNew: confirmedNew,
+    active: active,
+    activeNew: activeNew,
+    deaths: deaths,
+    deathsNew: deathsNew,
+    critical: critical,
+    discharged: 0,
+    recovered: recovered,
+    recoveredNew: recoveredNew,
+    tested: tested,
+    testedNew: testedNew,
+    tests: tests,
+    testsNew: testsNew,
+  };
 
-  return result
+  return result;
 }
 
 function fillCards(summary) {
   //var active = confirmed - discharged - deaths;
 
   $("#lastUpdated").html(summary.lastUpdated);
-
 
   $("#confirmed .h5").html(summary.confirmed);
   $("#confirmed .new").html("(+" + summary.confirmedNew + ")");
@@ -102,7 +103,8 @@ function plotOverallChart(data) {
   var patientData = data["patients_summary"]["data"];
   // dischargeData: array containing number of new discharges each day: sample in temp.json -> discharges_summary
   var dischargeData = data["discharges_summary"]["data"];
-
+  console.log(dischargeData);
+  console.log(patientData);
   var tokyoTestData = data["inspections_summary"]["data"]["都内"]; // "その他"
   var otherTestData = data["inspections_summary"]["data"]["その他"];
 
@@ -118,24 +120,23 @@ function plotOverallChart(data) {
   var recoveredTotal = 0;
   var deathsTotal = 0;
 
-
   for (var i = 0; i < patientData.length; i++) {
     caseTotal += patientData[i]["小計"];
     cases.push(caseTotal);
 
     deathsTotal += deathVals[i];
     deaths.push(deathsTotal);
-
-    recoveredTotal += dischargeData[i]["小計"];
+    if (dischargeData[i]) recoveredTotal += dischargeData[i]["小計"];
+    else recoveredTotal += 0;
     recovered.push(recoveredTotal);
 
     active.push(caseTotal - deathsTotal - recoveredTotal);
 
     var date = new Date(patientData[i]["日付"]);
-    dates.push(date.getMonth()+1 +'/' + date.getDate());
+    dates.push(date.getMonth() + 1 + "/" + date.getDate());
   }
 
-  dates = dates.slice(dates.length - 60)
+  dates = dates.slice(dates.length - 60);
   console.log(dates);
 
   var ctx = document.getElementById("totalCasesChart").getContext("2d");
@@ -196,7 +197,9 @@ function plotOverallChart(data) {
         },
         point: {
           radius: 2,
-          backgroundColor: (context) => {return context.dataset.borderColor}
+          backgroundColor: (context) => {
+            return context.dataset.borderColor;
+          },
         },
       },
       legend: {
