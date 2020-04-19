@@ -34,11 +34,18 @@
       </header>
 
       <br />
+      <div class="row">
+        <div class="col-md card">
+          <div class="col-sm">
+            <div class="row"></div>
+          </div>
+        </div>
+      </div>
 
       <div id="overall-info" class="row">
         <div class="col-md card" style="margin-right: 30px;">
           <h4>Summary</h4>
-          <hr/>
+          <hr />
           <div style="display: table; width: inherit;">
             <div class="align-middle">
               <div class="row">
@@ -82,7 +89,7 @@
         </div>
         <div class="col-md card">
           <h4>Confirmed cases</h4>
-          <hr/>
+          <hr />
           <div style="height: 100%; padding: 0 30px;">
             <canvas id="totalCasesChart" width="50vh"></canvas>
           </div>
@@ -91,7 +98,7 @@
 
       <div class="ward-info section">
         <h4>By Ward</h4>
-        <hr/>
+        <hr />
         <div class="row" style="min-height: 450px;">
           <div id="map-container" class="col-sm">
             <div id="legend" class="row">
@@ -205,12 +212,12 @@
       <div class="row">
         <div class="col-sm card" style="margin-right: 30px;">
           <h4>Age & Gender</h4>
-          <hr/>
+          <hr />
           <canvas id="ageGenderChart" width="250" height="175"></canvas>
         </div>
         <div class="col-sm card">
           <h4>Total Cases by Ward</h4>
-          <hr/>
+          <hr />
           <div class="div" style="max-height: 400px; overflow: scroll;">
             <canvas id="allWardCasesChart" width="300" height="700"></canvas>
           </div>
@@ -226,6 +233,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+    <script src="news.json"></script>
     <script src="tokyo.js"></script>
     <script src="cases.js"></script>
     <script src="deaths.js"></script>
