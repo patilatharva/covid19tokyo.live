@@ -163,8 +163,8 @@ function plotOverallChart(data) {
           tension: 0,
         },
         point: {
-          radius: 2
-        }
+          radius: 2,
+        },
       },
       legend: {
         display: true,
