@@ -127,14 +127,14 @@ h4 {
 }
 
 #active  {
-  color: #007bff;
+  color: #007bffe7;
 }
 
 #confirmed  {
   color: #ff0739e7;
 }
 #recovered  {
-  color: #28a745;
+  color: #28a745e7;
 }
 #deaths  {
   color: #6c757d;

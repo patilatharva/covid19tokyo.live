@@ -148,27 +148,27 @@ function plotOverallChart(data) {
       labels: dates,
       datasets: [
         {
-          label: "cases",
+          label: "confirmed",
           data: cases.slice(cases.length - 60),
-          borderColor: "#ff073a",
+          borderColor: "rgba(255, 7, 57, 0.8)",
           fill: false,
         },
         {
           label: "active",
           data: active.slice(active.length - 60),
-          borderColor: "#007bff",
+          borderColor: "rgba(0, 123, 255, 0.8)",
           fill: false,
         },
         {
           label: "recovered",
           data: recovered.slice(recovered.length - 60),
-          borderColor: "#28a745",
+          borderColor: "rgba(40, 167, 69, 0.8)",
           fill: false,
         },
         {
           label: "deaths",
           data: deaths.slice(deaths.length - 60),
-          borderColor: "#6c757d",
+          borderColor: "rgba(108, 117, 125, 0.8)",
           fill: false,
         },
       ],
@@ -196,6 +196,7 @@ function plotOverallChart(data) {
         },
         point: {
           radius: 2,
+          backgroundColor: (context) => {return context.dataset.borderColor}
         },
       },
       legend: {
