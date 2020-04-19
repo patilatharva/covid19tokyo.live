@@ -9,7 +9,27 @@ const getNews = () => {
     })
     .then((json) => {
       var data = json["newsItems"];
-      console.log(data);
+
+      var date = data[0]["date"] + "&emsp;";
+      $(".newsDate").html(date);
+
+      var newsItem = $("<a/>");
+      newsItem.attr("href", data[0]["url"]);
+      var text = data[0]["text"];
+      newsItem.text(text);
+      $("#newsItem1").append(newsItem);
+
+      var newsItem = $("<a/>");
+      newsItem.attr("href", data[1]["url"]);
+      var text = data[1]["text"];
+      newsItem.text(text);
+      $("#newsItem2").append(newsItem);
+
+      var newsItem = $("<a/>");
+      newsItem.attr("href", data[2]["url"]);
+      var text = data[2]["text"];
+      newsItem.text(text);
+      $("#newsItem3").append(newsItem);
     });
 };
 getNews();

@@ -22,6 +22,12 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <div class="container">
@@ -35,19 +41,43 @@
             </div>
           </div>
           <div class="col-md">
-            [share buttons]
+            <span></span>
+            <i class="fab fa-github fa-2x"></i>&emsp;
+            <i class="fab fa-twitter fa-2x" style="color: #1da1f2;"></i>&emsp;
+            <i class="fab fa-facebook fa-2x" style="color: #1778f2;"></i>&emsp;
           </div>
         </div>
       </header>
 
       <br />
-      <div class="row">
-        <div class="col-md card">
-          <div class="col-sm">
-            <div class="row"></div>
+      <div class="row card">
+        <div class="col-sm">
+          <h4><i class="fas fa-info-circle"></i> Latest News</h4>
+          <hr />
+          <div class="row">
+            <div class="col-sm newsItem">
+              <div id="newsItem1">
+                <span class="newsDate"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm newsItem">
+              <div id="newsItem2">
+                <span class="newsDate"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm newsItem">
+              <div id="newsItem3">
+                <span class="newsDate"></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <br />
 
       <div id="overall-info" class="row">
         <div class="col-md-5">
@@ -229,8 +259,12 @@
           <div class="card" style="height: 100%;">
             <h4>年齢・男女別</h4>
             <hr />
-            <div style="padding: 0 30px">
-              <canvas id="ageGenderChart" width="50vh" style="height: 310px;"></canvas>
+            <div style="padding: 0 30px;">
+              <canvas
+                id="ageGenderChart"
+                width="50vh"
+                style="height: 310px;"
+              ></canvas>
             </div>
           </div>
         </div>
@@ -238,11 +272,23 @@
           <div class="card" style="padding-bottom: 10px">
             <h4>各区市町村の感染者数</h4>
             <hr />
-            <div class="div" style="max-height: 320px; overflow: scroll; padding-right: 20px; border-bottom: 1px solid rgba(0,0,0,.2)">
+            <div
+              class="div"
+              style="
+                max-height: 320px;
+                overflow: scroll;
+                padding-right: 20px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+              "
+            >
               <canvas id="allWardCasesChart" width="300" height="1000"></canvas>
             </div>
-            <div style="text-align: center">
-              <img src="icons/scroll-down.png" alt="" style="height: 18px; margin-top: 10px">
+            <div style="text-align: center;">
+              <img
+                src="icons/scroll-down.png"
+                alt=""
+                style="height: 18px; margin-top: 10px;"
+              />
             </div>
           </div>
         </div>
