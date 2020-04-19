@@ -102,7 +102,6 @@ function plotOverallChart(data) {
   var patientData = data["patients_summary"]["data"];
   // dischargeData: array containing number of new discharges each day: sample in temp.json -> discharges_summary
   var dischargeData = data["discharges_summary"]["data"];
-  console.log(dischargeData);
 
   var tokyoTestData = data["inspections_summary"]["data"]["都内"]; // "その他"
   var otherTestData = data["inspections_summary"]["data"]["その他"];
@@ -120,7 +119,7 @@ function plotOverallChart(data) {
   var deathsTotal = 0;
 
 
-  for (var i = 0; i < patientData.length; i++) {
+  for (var i = 0; i < Math.min(patientData.length, dischargeData.length, deathVals.length); i++) {
     caseTotal += patientData[i]["小計"];
     cases.push(caseTotal);
 
