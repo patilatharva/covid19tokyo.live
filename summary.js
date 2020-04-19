@@ -297,7 +297,7 @@ const drawAgeGenderChart = (data) => {
       plugins: {
         datalabels: {
           font: {
-            weight: "bold",
+            // weight: "bold",
           },
           color: "black",
           align: "center",
