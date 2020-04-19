@@ -57,8 +57,8 @@ const allWardsChart = () => {
             {
               label: "# of Cases",
               data: data,
-              backgroundColor: backgroundColor,
-              borderColor: borderColor,
+              backgroundColor: "rgba(0, 123, 255, 0.5)",
+              borderColor: "rgba(0, 123, 255, 1)",
               borderWidth: 1,
             },
           ],

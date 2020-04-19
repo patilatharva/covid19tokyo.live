@@ -43,183 +43,200 @@
       </div>
 
       <div id="overall-info" class="row">
-        <div class="col-md card" style="margin-right: 30px;">
-          <h4>Summary</h4>
-          <hr />
-          <div style="display: table; width: inherit;">
-            <div class="align-middle">
-              <div class="row">
-                <div id="confirmed" class="summary col-sm">
-                  <b>Confirmed</b>
-                  <div class="h5"></div>
-                  <span class="new"></span>
+        <div class="col-md-5">
+          <div class="card">
+            <h4>Summary</h4>
+            <hr />
+            <div style="display: table; width: inherit;">
+              <div class="align-middle">
+                <div class="row">
+                  <div id="active" class="summary col-sm">
+                    <b>Active</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div>
+                  <div id="confirmed" class="summary col-sm">
+                    <b>Confirmed</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div>
                 </div>
-                <div id="discharged" class="summary col-sm">
-                  <b>Discharged</b>
-                  <div class="h5"></div>
-                  <span class="new"></span>
+                <div class="row">
+                  <div id="recovered" class="summary col-sm">
+                    <b>Recovered</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div>
+                  <div id="deaths" class="summary col-sm">
+                    <b>Deaths</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div>
+                  <!--div id="critical" class="summary col-sm">
+                    <b>Critical</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div-->
                 </div>
-              </div>
-              <div class="row">
-                <div id="deaths" class="summary col-sm">
-                  <b>Deaths</b>
-                  <div class="h5"></div>
-                  <span class="new"></span>
-                </div>
-                <div id="critical" class="summary col-sm">
-                  <b>Critical</b>
-                  <div class="h5"></div>
-                  <span class="new"></span>
-                </div>
-              </div>
-              <div class="row">
-                <div id="tested" class="summary col-sm">
-                  <b>Tested</b>
-                  <div class="h5"></div>
-                  <span class="new"></span>
-                </div>
-                <div id="tests" class="summary col-sm">
-                  <b>Total Tests</b>
-                  <div class="h5"></div>
-                  <span class="new"></span>
+                <div class="row">
+                  <div id="tested" class="summary col-sm">
+                    <b>Tested</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div>
+                  <div id="tests" class="summary col-sm">
+                    <b>Total Tests</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md card">
-          <h4>Confirmed cases</h4>
-          <hr />
-          <div style="height: 100%; padding: 0 30px;">
-            <canvas id="totalCasesChart" width="50vh"></canvas>
-          </div>
-        </div>
-      </div>
-
-      <div class="ward-info section">
-        <h4>By Ward</h4>
-        <hr />
-        <div class="row" style="min-height: 450px;">
-          <div id="map-container" class="col-sm">
-            <div id="legend" class="row">
-              <div class="col-sm">
-                <span id="first">▉</span>
-                0-10
-              </div>
-              <div class="col-sm">
-                <span id="second">▉</span>
-                10-50
-              </div>
-              <div class="col-sm">
-                <span id="third">▉</span>
-                50-10
-              </div>
-              <div class="col-sm">
-                <span id="fourth">▉</span>
-                100+
-              </div>
-            </div>
-            <div id="map"></div>
-          </div>
-          <div class="col-sm">
-            <center>
-              <select
-                id="ward-picker"
-                class="selectpicker"
-                data-live-search="true"
-                title="Search ward"
-                onchange="onWardSelect(this.value)"
-              >
-                <option value="131211">Adachi Ku</option>
-                <option value="131059">Bunkyo Ku</option>
-                <option value="131016">Chiyoda Ku</option>
-                <option value="131067">Taito Ku</option>
-                <option value="131091">Shinagawa Ku</option>
-                <option value="131237">Edogawa Ku</option>
-                <option value="131041">Shinjuku Ku</option>
-                <option value="131130">Shibuya Ku</option>
-                <option value="131172">Kita Ku</option>
-                <option value="131164">Toshima Ku</option>
-                <option value="131024">Chuo Ku</option>
-                <option value="131156">Suginami Ku</option>
-                <option value="131199">Itabashi Ku</option>
-                <option value="131121">Setagaya Ku</option>
-                <option value="131075">Sumida Ku</option>
-                <option value="131148">Nakano Ku</option>
-                <option value="131202">Nerima Ku</option>
-                <option value="131083">Koto Ku</option>
-                <option value="131105">Meguro Ku</option>
-                <option value="131229">Katsushika Ku</option>
-                <option value="131032">Minato Ku</option>
-                <option value="131113">Ota Ku</option>
-                <option value="131181">Arakawa Ku</option>
-                <option value="134210">Ogasawara Mura</option>
-                <option value="132080">Chofu Shi</option>
-                <option value="132021">Tachikawa Shi</option>
-                <option value="133078">Hinohara Mura</option>
-                <option value="132012">Hachioji Shi</option>
-                <option value="132217">Kiyose Shi</option>
-                <option value="132047">Mitaka Shi</option>
-                <option value="132136">Higashimurayama Shi</option>
-                <option value="134015">Hachijo Machi</option>
-                <option value="132225">Higashikurume Shi</option>
-                <option value="133639">Niijima Mura</option>
-                <option value="132292">Nishitokyo Shi</option>
-                <option value="133086">Okutama Machi</option>
-                <option value="132110">Kodaira Shi</option>
-                <option value="132187">Fussa Shi</option>
-                <option value="133051">Hinode Machi</option>
-                <option value="132071">Akishima Shi</option>
-                <option value="133825">Mikurajima Mura</option>
-                <option value="133817">Miyake Mura</option>
-                <option value="132152">Kunitachi Shi</option>
-                <option value="132144">Kokubunji Shi</option>
-                <option value="133621">Toshima Mura</option>
-                <option value="133647">Kozushima Mura</option>
-                <option value="134023">Aogashima Mura</option>
-                <option value="132209">Higashiyamato Shi</option>
-                <option value="132241">Tama Shi</option>
-                <option value="132276">Hamura Shi</option>
-                <option value="133035">Mizuho Machi</option>
-                <option value="132233">Musashimurayama Shi</option>
-                <option value="132195">Komae Shi</option>
-                <option value="132063">Fuchu Shi</option>
-                <option value="132101">Koganei Shi</option>
-                <option value="132098">Machida Shi</option>
-                <option value="132128">Hino Shi</option>
-                <option value="133612">Oshima Machi</option>
-                <option value="132055">Ome Shi</option>
-                <option value="132039">Musashino Shi</option>
-                <option value="132284">Akiruno Shi</option>
-                <option value="132250">Inagi Shi</option>
-              </select>
-            </center>
-            <div id="ward-chart-container">
-              <canvas id="wardHistoryChart" width="50vh"></canvas>
-              <div id="placeholder">
-                <span class="align-middle">select ward</span>
-              </div>
+        <div class="col-md-7">
+          <div class="card" style="height: 100%">
+            <h4>Confirmed cases</h4>
+            <hr />
+            <div style="height: 100%; padding: 0 30px;">
+              <canvas id="totalCasesChart" width="50vh"></canvas>
             </div>
           </div>
         </div>
       </div>
-      <br /><br />
 
-      <!-- <div class="row">
-        <canvas id="allWardCasesChart" width="400" height="650"></canvas>
-      </div> -->
+      <div class="row" style="">
+        <div class="ward-info col">
+          <div class="section">
+            <h4>By Ward</h4>
+            <hr />
+            <div class="row" style="min-height: 450px;">
+              <div id="map-container" class="col-md">
+                <div id="legend" class="row">
+                  <div class="col-sm">
+                    <span id="first">▉</span>
+                    0-10
+                  </div>
+                  <div class="col-sm">
+                    <span id="second">▉</span>
+                    10-50
+                  </div>
+                  <div class="col-sm">
+                    <span id="third">▉</span>
+                    50-10
+                  </div>
+                  <div class="col-sm">
+                    <span id="fourth">▉</span>
+                    100+
+                  </div>
+                </div>
+                <div id="map"></div>
+              </div>
+              <div class="col-md">
+                <center>
+                  <select
+                    id="ward-picker"
+                    class="selectpicker"
+                    data-live-search="true"
+                    title="Search ward"
+                    onchange="onWardSelect(this.value)"
+                  >
+                    <option value="131211">Adachi Ku</option>
+                    <option value="131059">Bunkyo Ku</option>
+                    <option value="131016">Chiyoda Ku</option>
+                    <option value="131067">Taito Ku</option>
+                    <option value="131091">Shinagawa Ku</option>
+                    <option value="131237">Edogawa Ku</option>
+                    <option value="131041">Shinjuku Ku</option>
+                    <option value="131130">Shibuya Ku</option>
+                    <option value="131172">Kita Ku</option>
+                    <option value="131164">Toshima Ku</option>
+                    <option value="131024">Chuo Ku</option>
+                    <option value="131156">Suginami Ku</option>
+                    <option value="131199">Itabashi Ku</option>
+                    <option value="131121">Setagaya Ku</option>
+                    <option value="131075">Sumida Ku</option>
+                    <option value="131148">Nakano Ku</option>
+                    <option value="131202">Nerima Ku</option>
+                    <option value="131083">Koto Ku</option>
+                    <option value="131105">Meguro Ku</option>
+                    <option value="131229">Katsushika Ku</option>
+                    <option value="131032">Minato Ku</option>
+                    <option value="131113">Ota Ku</option>
+                    <option value="131181">Arakawa Ku</option>
+                    <option value="134210">Ogasawara Mura</option>
+                    <option value="132080">Chofu Shi</option>
+                    <option value="132021">Tachikawa Shi</option>
+                    <option value="133078">Hinohara Mura</option>
+                    <option value="132012">Hachioji Shi</option>
+                    <option value="132217">Kiyose Shi</option>
+                    <option value="132047">Mitaka Shi</option>
+                    <option value="132136">Higashimurayama Shi</option>
+                    <option value="134015">Hachijo Machi</option>
+                    <option value="132225">Higashikurume Shi</option>
+                    <option value="133639">Niijima Mura</option>
+                    <option value="132292">Nishitokyo Shi</option>
+                    <option value="133086">Okutama Machi</option>
+                    <option value="132110">Kodaira Shi</option>
+                    <option value="132187">Fussa Shi</option>
+                    <option value="133051">Hinode Machi</option>
+                    <option value="132071">Akishima Shi</option>
+                    <option value="133825">Mikurajima Mura</option>
+                    <option value="133817">Miyake Mura</option>
+                    <option value="132152">Kunitachi Shi</option>
+                    <option value="132144">Kokubunji Shi</option>
+                    <option value="133621">Toshima Mura</option>
+                    <option value="133647">Kozushima Mura</option>
+                    <option value="134023">Aogashima Mura</option>
+                    <option value="132209">Higashiyamato Shi</option>
+                    <option value="132241">Tama Shi</option>
+                    <option value="132276">Hamura Shi</option>
+                    <option value="133035">Mizuho Machi</option>
+                    <option value="132233">Musashimurayama Shi</option>
+                    <option value="132195">Komae Shi</option>
+                    <option value="132063">Fuchu Shi</option>
+                    <option value="132101">Koganei Shi</option>
+                    <option value="132098">Machida Shi</option>
+                    <option value="132128">Hino Shi</option>
+                    <option value="133612">Oshima Machi</option>
+                    <option value="132055">Ome Shi</option>
+                    <option value="132039">Musashino Shi</option>
+                    <option value="132284">Akiruno Shi</option>
+                    <option value="132250">Inagi Shi</option>
+                  </select>
+                </center>
+                <div id="ward-chart-container">
+                  <canvas id="wardHistoryChart" width="50vh"></canvas>
+                  <div id="placeholder">
+                    <span class="align-middle">select ward</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="row">
-        <div class="col-sm card" style="margin-right: 30px;">
-          <h4>Age & Gender</h4>
-          <hr />
-          <canvas id="ageGenderChart" width="250" height="175"></canvas>
+        <div class="col-md">
+          <div class="card" style="height: 100%;">
+            <h4>Cases by Age & Gender</h4>
+            <hr />
+            <div style="padding: 0 30px">
+              <canvas id="ageGenderChart" width="50vh" style="height: 310px;"></canvas>
+            </div>
+          </div>
         </div>
-        <div class="col-sm card">
-          <h4>Total Cases by Ward</h4>
-          <hr />
-          <div class="div" style="max-height: 400px; overflow: scroll;">
-            <canvas id="allWardCasesChart" width="300" height="700"></canvas>
+        <div class="col-md">
+          <div class="card" style="padding-bottom: 10px">
+            <h4>Total Cases by Ward</h4>
+            <hr />
+            <div class="div" style="max-height: 320px; overflow: scroll; padding-right: 20px; border-bottom: 1px solid rgba(0,0,0,.2)">
+              <canvas id="allWardCasesChart" width="300" height="1000"></canvas>
+            </div>
+            <div style="text-align: center">
+              <img src="icons/scroll-down.png" alt="" style="height: 18px; margin-top: 10px">
+            </div>
           </div>
         </div>
       </div>

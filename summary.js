@@ -1,4 +1,4 @@
-function fillCards(data) {
+function parseData(data) {
   var lastUpdated = data["lastUpdate"];
 
   var confirmed = data["main_summary"]["children"][0]["value"];
@@ -8,13 +8,31 @@ function fillCards(data) {
     ]["小計"];
 
   var deaths = data["main_summary"]["children"][0]["children"][2]["value"];
-  let deathNums = Object.values(deathCount);
-  var deathsNew = deathNums[deathNums.length - 1];
+  let deathsByDate = Object.values(deathCount);
+  var deathsNew = deathsByDate[deathsByDate.length - 1];
 
   var critical =
     data["main_summary"]["children"][0]["children"][0]["children"][1]["value"];
 
-  var discharged = data["main_summary"]["children"][0]["children"][1]["value"];
+  //var discharged = data["main_summary"]["children"][0]["children"][1]["value"];
+  var recovered = 0
+  var recoveredNew = 0;
+  var today = new Date(lastUpdated);
+  today = today.getMonth()+1 + '-' + today.getDate() + '-' + today.getFullYear();
+
+  for (patient of data['patients']['data']) {
+    if (patient['退院']) {
+      var date = new Date(patient['リリース日']);
+      var releasedDate = date.getMonth()+1 + '-' + date.getDate() + '-' + date.getFullYear();
+      if (releasedDate === today) {
+        recoveredNew++;
+      }
+      recovered++;
+    }
+  }
+
+  var active = confirmed - recovered - deaths;
+  var activeNew = confirmedNew - recoveredNew - deathsNew;
 
   var tested = data["inspection_status_summary"]["value"];
   var testedNew =
@@ -29,38 +47,53 @@ function fillCards(data) {
     testData["都内"][testData["都内"].length - 1] +
     testData["その他"][testData["その他"].length - 1];
 
+  result = {
+    'lastUpdated': lastUpdated,
+    'confirmed': confirmed,
+    'confirmedNew': confirmedNew,
+    'active': active,
+    'activeNew': activeNew,
+    'deaths': deaths,
+    'deathsNew': deathsNew,
+    'critical': critical,
+    'discharged': 0,
+    'recovered': recovered,
+    'recoveredNew': recoveredNew,
+    'tested': tested,
+    'testedNew': testedNew,
+    'tests': tests,
+    'testsNew': testsNew
+  }
+
+  return result
+}
+
+function fillCards(summary) {
   //var active = confirmed - discharged - deaths;
 
-  document.getElementById("lastUpdated").innerHTML = lastUpdated;
+  $("#lastUpdated").html(summary.lastUpdated);
 
-  //document.getElementById("active").innerHTML = active;
-  $("#deaths .h5").html(deaths);
-  $("#deaths .new").html("(+" + deathsNew + ")");
 
-  $("#critical .h5").html(critical);
+  $("#confirmed .h5").html(summary.confirmed);
+  $("#confirmed .new").html("(+" + summary.confirmedNew + ")");
+
+  $("#active .h5").html(summary.active);
+  $("#active .new").html("(+" + summary.activeNew + ")");
+
+  $("#recovered .h5").html(summary.recovered);
+  $("#recovered .new").html("(+" + summary.recoveredNew + ")");
+
+  $("#deaths .h5").html(summary.deaths);
+  $("#deaths .new").html("(+" + summary.deathsNew + ")");
+
+  $("#critical .h5").html(summary.critical);
   $("#critical .new").html("(+" + "num" + ")");
 
-  $("#tested .h5").html(tested);
-  $("#tested .new").html("(+" + testedNew + ")");
+  $("#tested .h5").html(summary.tested);
+  $("#tested .new").html("(+" + summary.testedNew + ")");
 
-  $("#confirmed .h5").html(confirmed);
-  $("#confirmed .new").html("(+" + confirmedNew + ")");
-
-  $("#discharged .h5").html(discharged);
-  $("#discharged .new").html("(+" + "num" + ")");
-
-  $("#tests .h5").html(tests);
-  $("#tests .new").html("(+" + testsNew + ")");
-
-  /*
-  document.getElementById("tested").innerHTML =
-    tested + " (+" + testedNew + ")";
-  document.getElementById("confirmed").innerHTML =
-    confirmed + " (+" + confirmedNew + ")";
-  document.getElementById("discharged").innerHTML = discharged;
-  document.getElementById("tests").innerHTML = 
-    tests + " (+" + testsNew + ")";
-    */
+  $("#tests .h5").html(summary.tests);
+  $("#tests .new").html("(+" + summary.testsNew + ")");
 }
 
 function plotOverallChart(data) {
@@ -74,69 +107,68 @@ function plotOverallChart(data) {
   var otherTestData = data["inspections_summary"]["data"]["その他"];
 
   var cases = []; // number of cases
-  var discharges = []; // number of discharges
+  var recovered = []; // number of discharges
   var dates = []; // x axis (labels)
   var tests = [];
+  var deaths = [];
+  var active = [];
+
+  let deathVals = Object.values(deathCount);
   var caseTotal = 0;
-  var dischargeTotal = 0;
-  var testsTotal = 0;
+  var recoveredTotal = 0;
+  var deathsTotal = 0;
+
 
   for (var i = 0; i < patientData.length; i++) {
     caseTotal += patientData[i]["小計"];
     cases.push(caseTotal);
 
-    dischargeTotal += dischargeData[i]["小計"];
-    discharges.push(dischargeTotal);
+    deathsTotal += deathVals[i];
+    deaths.push(deathsTotal);
 
-    if (tokyoTestData[i]) {
-      testsTotal += tokyoTestData[i];
-      testsTotal += otherTestData[i];
-    } else testsTotal += 0;
-    tests.push(testsTotal);
+    recoveredTotal += dischargeData[i]["小計"];
+    recovered.push(recoveredTotal);
 
-    var date = patientData[i]["日付"].slice(5, 10);
-    dates.push(date);
+    active.push(caseTotal - deathsTotal - recoveredTotal);
+
+    var date = new Date(patientData[i]["日付"]);
+    dates.push(date.getMonth()+1 +'/' + date.getDate());
   }
-  // console.log(cases);
-  // console.log(dates);
-  // console.log(discharges);
-  // console.log(tests);
-  // console.log(testsTotal);
+
+  dates = dates.slice(dates.length - 60)
+  console.log(dates);
 
   var ctx = document.getElementById("totalCasesChart").getContext("2d");
-
-  // creating gradient to fill the background of the line chart.
-
-  // var gradient = ctx.createLinearGradient(0, 0, 0, 400);
-  // gradient.addColorStop(0, "rgba(29, 90, 185, 0.8)");
-  // gradient.addColorStop(0.2, "rgba(29, 90, 185, 0.6)");
-  // gradient.addColorStop(0.5, "rgba(29, 90, 185, 0.4)");
-  // gradient.addColorStop(0.8, "rgba(29, 90, 185, 0.2)");
-  // gradient.addColorStop(1, "rgba(29, 90, 185, 0.1)");
 
   // line chart of cases over time of ward that cursor hovers over on the map.
   var lineChart = new Chart(ctx, {
     type: "line",
     data: {
       // slice is used to include data from the last 60 days only.
-      labels: dates.slice(dates.length - 50),
+      labels: dates,
       datasets: [
         {
           label: "cases",
-          data: cases.slice(cases.length - 50),
-          borderColor: "crimson",
+          data: cases.slice(cases.length - 60),
+          borderColor: "#ff073a",
           fill: false,
         },
         {
-          label: "discharged",
-          data: discharges.slice(discharges.length - 50),
-          borderColor: "royalblue",
+          label: "active",
+          data: active.slice(active.length - 60),
+          borderColor: "#007bff",
           fill: false,
         },
         {
-          label: "tested",
-          data: tests.slice(discharges.length - 50),
-          borderColor: "grey",
+          label: "recovered",
+          data: recovered.slice(recovered.length - 60),
+          borderColor: "#28a745",
+          fill: false,
+        },
+        {
+          label: "deaths",
+          data: deaths.slice(deaths.length - 60),
+          borderColor: "#6c757d",
           fill: false,
         },
       ],
@@ -241,22 +273,23 @@ const drawAgeGenderChart = (data) => {
       labels: labels,
       datasets: [
         {
-          label: "male cases",
+          label: "male",
           data: males,
-          borderColor: "rgba(0,100,255,1)",
-          backgroundColor: "rgba(0,100,255,0.7)",
-          borderWidth: 2,
+          borderColor: "rgba(0, 123, 255, 1)",
+          backgroundColor: "rgba(0, 123, 255, 0.5)",
+          borderWidth: 1,
         },
         {
-          label: "female cases",
+          label: "female",
           data: females,
-          borderColor: "rgba(232,0,255,1)",
-          backgroundColor: "rgba(232,0,255,0.7)",
-          borderWidth: 2,
+          borderColor: "rgba(255, 7, 58, 1)",
+          backgroundColor: "rgba(255, 7, 58, 0.5)",
+          borderWidth: 1,
         },
       ],
     },
     options: {
+      maintainAspectRatio: false,
       plugins: {
         datalabels: {
           font: {
@@ -319,7 +352,8 @@ function callback(status, response) {
   if (status) {
     alert(status);
   } else {
-    fillCards(response);
+    data = parseData(response);
+    fillCards(data);
     // plotOverallChart(response["patients_summary"]);
     plotOverallChart(response);
 

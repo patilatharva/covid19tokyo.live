@@ -8,6 +8,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.container {
+  padding-bottom: 50px;
+}
+
 header {
   font-family: "Rubik", sans-serif;
   margin-top: 30px;
@@ -34,6 +38,11 @@ h4 {
   /* box-shadow:  0px 2px 5px 0px rgba(69, 67, 96, 0.1); */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   /* box-shadow: 0 8px 6px -6px black; */
+  
+}
+
+.col, .col-md, .col-md-5, .col-md-7 {
+  margin-bottom: 30px;
 }
 
 .card {
@@ -52,7 +61,7 @@ h4 {
 #map-container {
   min-width: 350px;
   min-height: 300px;
-  margin: 10px 30px 30px;
+  margin: 0 10px 20px 10px
 }
 
 #legend {
@@ -111,30 +120,37 @@ h4 {
 
 .summary .new {
   font-family: "Rubik", sans-serif;
-  color: crimson;
   font-size: 12px;
   font-weight: bold;
   display: block;
   margin-top: 5px;
 }
 
-#confirmed .h5 {
-  color: crimson;
+#active  {
+  color: #007bff;
 }
-#discharged .h5 {
-  color: royalblue;
+
+#confirmed  {
+  color: #ff0739e7;
 }
-#deaths .h5 {
-  color: #7d3c98;
+#recovered  {
+  color: #28a745;
 }
-#critical .h5 {
+#deaths  {
+  color: #6c757d;
+}
+#critical  {
   color: #78909c;
 }
-#tested .h5 {
+#tested  {
   color: #455a64;
 }
-#tests .h5 {
+#tests  {
   color: #455a64;
+}
+
+.summary b {
+  color: #37474f;
 }
 
 /*
@@ -151,7 +167,7 @@ h4 {
 .ward-info {
   min-height: 450px;
   height: fit-content;
-  margin-top: 30px;
+  width: 100%
 }
 
 #placeholder {
