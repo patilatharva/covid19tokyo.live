@@ -52,7 +52,8 @@ h4 {
 }
 
 .card p {
-  padding-left: 30px
+  padding: 0 30px
+
 }
 
 .newsItem {
