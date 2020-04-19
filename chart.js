@@ -164,6 +164,7 @@ function wardChartSettings(ctx, currentWard, keys, values) {
       title: {
         display: true,
         text: "Confirmed cases in " + currentWard.properties.ward_en,
+        fontColor: "royalblue"
       },
       elements: {
         line: {

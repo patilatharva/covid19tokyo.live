@@ -124,13 +124,13 @@ function plotOverallChart(data) {
         {
           label: "cases",
           data: cases.slice(cases.length - 50),
-          borderColor: "red",
+          borderColor: "crimson",
           fill: false,
         },
         {
           label: "discharged",
           data: discharges.slice(discharges.length - 50),
-          borderColor: "blue",
+          borderColor: "royalblue",
           fill: false,
         },
         {
