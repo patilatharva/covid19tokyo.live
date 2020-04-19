@@ -384,5 +384,5 @@ var getJSON = function (url) {
 
 var data = {};
 let url =
-  "d";
+  "https://raw.githubusercontent.com/tokyo-metropolitan-gov/covid19/master/data/data.json";
 getJSON(url);
