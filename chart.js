@@ -164,7 +164,7 @@ function wardChartSettings(ctx, currentWard, keys, values) {
       title: {
         display: true,
         text: currentWard.properties.ward_ja + "の感染者数", //"Confirmed cases in " + currentWard.properties.ward_en,
-        fontColor: "royalblue"
+        fontColor: "#007bff"
       },
       elements: {
         line: {
