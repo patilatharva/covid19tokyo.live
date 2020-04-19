@@ -356,10 +356,13 @@ function callback(status, response) {
   if (status) {
     alert(status);
   } else {
+    data = response;
+    console.log("response", response);
+    plotOverallChart(response);
+
     data = parseData(response);
     fillCards(data);
     // plotOverallChart(response["patients_summary"]);
-    plotOverallChart(response);
 
     drawAgeGenderChart(response["patients"]);
     data = response;
