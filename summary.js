@@ -148,25 +148,25 @@ function plotOverallChart(data) {
       labels: dates,
       datasets: [
         {
-          label: "confirmed",
+          label: "感染者",
           data: cases.slice(cases.length - 60),
           borderColor: "rgba(255, 7, 57, 0.8)",
           fill: false,
         },
         {
-          label: "active",
+          label: "現在患者数",
           data: active.slice(active.length - 60),
           borderColor: "rgba(0, 123, 255, 0.8)",
           fill: false,
         },
         {
-          label: "recovered",
+          label: "回復者",
           data: recovered.slice(recovered.length - 60),
           borderColor: "rgba(40, 167, 69, 0.8)",
           fill: false,
         },
         {
-          label: "deaths",
+          label: "死亡者",
           data: deaths.slice(deaths.length - 60),
           borderColor: "rgba(108, 117, 125, 0.8)",
           fill: false,
@@ -258,7 +258,7 @@ const drawAgeGenderChart = (data) => {
   var labels = []; // labels for the chart is the age groups
 
   for (var i = 1; i < 11; i++) {
-    var range = i * 10 + "s";
+    var range = i * 10 + "代";
     labels[i] = range;
   }
   labels[0] = "<10";
@@ -274,14 +274,14 @@ const drawAgeGenderChart = (data) => {
       labels: labels,
       datasets: [
         {
-          label: "male",
+          label: "男性",
           data: males,
           borderColor: "rgba(0, 123, 255, 1)",
           backgroundColor: "rgba(0, 123, 255, 0.5)",
           borderWidth: 1,
         },
         {
-          label: "female",
+          label: "女性",
           data: females,
           borderColor: "rgba(255, 7, 58, 1)",
           backgroundColor: "rgba(255, 7, 58, 0.5)",

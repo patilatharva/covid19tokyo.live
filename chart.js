@@ -24,8 +24,8 @@ const allWardsChart = () => {
       // Setting the labels and the data of the chart.
       for (var i = 0; i < districtsData.length; i++) {
         var ward = districtsData[i]["properties"]["団体名"];
-        ward = toEnglish(ward);
-        ward = ward.split(" ")[0];
+        //ward = toEnglish(ward);
+        //ward = ward.split(" ")[0];
         var num = districtsData[i]["properties"]["件数"] || 0;
         backgroundColor.push("rgba(29, 90, 185, 0.5)");
         borderColor.push("rgba(29, 90, 185, 1)");
@@ -55,7 +55,7 @@ const allWardsChart = () => {
           labels: labels,
           datasets: [
             {
-              label: "# of Cases",
+              label: "感染者数",
               data: data,
               backgroundColor: "rgba(0, 123, 255, 0.5)",
               borderColor: "rgba(0, 123, 255, 1)",
@@ -163,7 +163,7 @@ function wardChartSettings(ctx, currentWard, keys, values) {
       },
       title: {
         display: true,
-        text: "Confirmed cases in " + currentWard.properties.ward_en,
+        text: currentWard.properties.ward_ja + "の感染者数", //"Confirmed cases in " + currentWard.properties.ward_en,
         fontColor: "royalblue"
       },
       elements: {

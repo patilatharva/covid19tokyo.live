@@ -3,7 +3,7 @@ mapboxgl.accessToken =
 
 var map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/mapbox/light-v10",
+  style: "mapbox://styles/patilatharva/ck976z7w94gsc1in2kam1txd5",
   center: [139.7338123, 35.684163],
   zoom: 9,
   minZoom: 8,
@@ -54,7 +54,7 @@ map.on("load", function () {
         // format our geojson's id
         districts[i]["id"] = districts[i]["properties"]["code"];
 
-        var ward = districts[i]["properties"]["ward_en"];
+        var ward = districts[i]["properties"]["ward_ja"];
         var center = api_districts[j]["geometry"]["coordinates"];
 
         // label name

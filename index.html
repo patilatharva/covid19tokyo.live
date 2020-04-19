@@ -28,9 +28,9 @@
       <header>
         <div class="row">
           <div class="col-md">
-            <h2>Tokyo COVID-19 Tracker</h2>
+            <h1>Tokyo COVID-19 Dashboard</h1>
             <div>
-              Last Updated:
+              最終更新&nbsp;
               <span id="lastUpdated"></span>
             </div>
           </div>
@@ -52,30 +52,30 @@
       <div id="overall-info" class="row">
         <div class="col-md-5">
           <div class="card">
-            <h4>Summary</h4>
+            <h4>現在の状況</h4>
             <hr />
             <div style="display: table; width: inherit;">
               <div class="align-middle">
                 <div class="row">
                   <div id="active" class="summary col-sm">
-                    <b>Active</b>
+                    <b>現在患者数</b>
                     <div class="h5"></div>
                     <span class="new"></span>
                   </div>
                   <div id="confirmed" class="summary col-sm">
-                    <b>Confirmed</b>
+                    <b>感染者</b>
                     <div class="h5"></div>
                     <span class="new"></span>
                   </div>
                 </div>
                 <div class="row">
                   <div id="recovered" class="summary col-sm">
-                    <b>Recovered</b>
+                    <b>回復者</b>
                     <div class="h5"></div>
                     <span class="new"></span>
                   </div>
                   <div id="deaths" class="summary col-sm">
-                    <b>Deaths</b>
+                    <b>死亡者</b>
                     <div class="h5"></div>
                     <span class="new"></span>
                   </div>
@@ -87,12 +87,12 @@
                 </div>
                 <div class="row">
                   <div id="tested" class="summary col-sm">
-                    <b>Tested</b>
+                    <b>検査実施人数</b>
                     <div class="h5"></div>
                     <span class="new"></span>
                   </div>
                   <div id="tests" class="summary col-sm">
-                    <b>Total Tests</b>
+                    <b>検査実施件数</b>
                     <div class="h5"></div>
                     <span class="new"></span>
                   </div>
@@ -103,7 +103,7 @@
         </div>
         <div class="col-md-7">
           <div class="card" style="height: 100%">
-            <h4>Timeline</h4>
+            <h4>最新感染動向</h4>
             <hr />
             <div style="height: 100%; padding: 0 30px;">
               <canvas id="totalCasesChart" width="50vh"></canvas>
@@ -115,7 +115,7 @@
       <div class="row">
         <div class="ward-info col">
           <div class="section">
-            <h4>By Ward</h4>
+            <h4>区市町村別の感染者数</h4>
             <hr />
             <div class="row" style="min-height: 450px;">
               <div id="map-container" class="col-md">
@@ -145,7 +145,7 @@
                     id="ward-picker"
                     class="selectpicker"
                     data-live-search="true"
-                    title="Search ward"
+                    title="探す"
                     onchange="onWardSelect(this.value)"
                   >
                     <option value="131211">Adachi Ku</option>
@@ -215,7 +215,7 @@
                 <div id="ward-chart-container">
                   <canvas id="wardHistoryChart" width="50vh"></canvas>
                   <div id="placeholder">
-                    <span class="align-middle">select ward</span>
+                    <span class="align-middle">区市町村を選択して下さい</span>
                   </div>
                 </div>
               </div>
@@ -227,7 +227,7 @@
       <div class="row">
         <div class="col-md">
           <div class="card" style="height: 100%;">
-            <h4>Cases by Age & Gender</h4>
+            <h4>年齢・男女別</h4>
             <hr />
             <div style="padding: 0 30px">
               <canvas id="ageGenderChart" width="50vh" style="height: 310px;"></canvas>
@@ -236,7 +236,7 @@
         </div>
         <div class="col-md">
           <div class="card" style="padding-bottom: 10px">
-            <h4>Total Cases by Ward</h4>
+            <h4>各区市町村の感染者数</h4>
             <hr />
             <div class="div" style="max-height: 320px; overflow: scroll; padding-right: 20px; border-bottom: 1px solid rgba(0,0,0,.2)">
               <canvas id="allWardCasesChart" width="300" height="1000"></canvas>
@@ -251,12 +251,21 @@
       <div class="row">
         <div class="col">
           <div class="card">
-            <h4>Sources</h4>
+            <h4>About</h4>
             <hr/>
-            <ul>
-              <li><a target="_blank" href="https://www.fukushihoken.metro.tokyo.lg.jp/hodo/index.html">東京都福祉保健局報道発表</a></li>
-              <li><a target="_blank" href="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068">東京都福祉保健局オープンデータ</a></li>
-            </ul>
+            <p>
+              <b>Credit</b><br/>
+              <a href="https://atharvapatil.me" target="_blank">
+                Atharva Patil
+              </a>
+              · Rahul Joshi · Yoshiki Yarlagadda
+               <br/><br/>
+
+              <b>データ出典</b> <br/>
+              <a target="_blank" href="https://www.fukushihoken.metro.tokyo.lg.jp/hodo/index.html">東京都福祉保健局報道発表</a>
+              ＆
+              <a target="_blank" href="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068">東京都福祉保健局オープンデータ</a>
+            </p>
                 
                 
           </div>
