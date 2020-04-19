@@ -15,6 +15,7 @@ const getNews = () => {
 
       var newsItem = $("<a/>");
       newsItem.attr("href", data[0]["url"]);
+      newsItem.attr("target", "_blank");
       var text = data[0]["text"];
       newsItem.text(text);
       $("#newsItem1").append(newsItem);
