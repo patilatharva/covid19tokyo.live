@@ -29,9 +29,7 @@ h4 {
   padding-left: 10px;
   font-size: 1.4rem;
 }
-.newsItem {
-  margin: 0px 0 3px 40px;
-}
+
 .section,
 .card {
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -55,6 +53,14 @@ h4 {
 
 .card p {
   padding-left: 30px
+}
+
+.newsItem {
+  margin: 0px 20px 10px 40px;
+}
+
+.newsItem a {
+  display: inline-block;
 }
 
 #overall-info {
