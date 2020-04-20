@@ -14,7 +14,7 @@ function parseData(data) {
   var critical =
     data["main_summary"]["children"][0]["children"][0]["children"][1]["value"];
 
-  //var discharged = data["main_summary"]["children"][0]["children"][1]["value"];
+  var discharged = data["main_summary"]["children"][0]["children"][1]["value"];
   var recovered = 0;
   var recoveredNew = 0;
   var today = new Date(lastUpdated);
@@ -58,7 +58,7 @@ function parseData(data) {
     deaths: deaths,
     deathsNew: deathsNew,
     critical: critical,
-    discharged: 0,
+    discharged: discharged,
     recovered: recovered,
     recoveredNew: recoveredNew,
     tested: tested,
@@ -81,8 +81,8 @@ function fillCards(summary) {
   $("#active .h5").html(summary.active);
   $("#active .new").html("(+" + summary.activeNew + ")");
 
-  $("#recovered .h5").html(summary.recovered);
-  $("#recovered .new").html("(+" + summary.recoveredNew + ")");
+  $("#recovered .h5").html(summary.discharged);
+  //$("#recovered .new").html("(+" + summary.recoveredNew + ")");
 
   $("#deaths .h5").html(summary.deaths);
   $("#deaths .new").html("(+" + summary.deathsNew + ")");
@@ -126,7 +126,8 @@ function plotOverallChart(data) {
 
     deathsTotal += deathVals[i];
     deaths.push(deathsTotal);
-    if (dischargeData[i]) recoveredTotal += dischargeData[i]["小計"];
+
+    if (dischargeData[i]) recoveredTotal += dischargeData[i]["小計"] - deathVals[i];
     else recoveredTotal += 0;
     recovered.push(recoveredTotal);
 
@@ -160,12 +161,14 @@ function plotOverallChart(data) {
           borderColor: "rgba(0, 123, 255, 0.8)",
           fill: false,
         },
+        /*
         {
           label: "回復者",
           data: recovered.slice(recovered.length - 60),
           borderColor: "rgba(40, 167, 69, 0.8)",
           fill: false,
         },
+        */
         {
           label: "死亡者",
           data: deaths.slice(deaths.length - 60),
