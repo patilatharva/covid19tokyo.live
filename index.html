@@ -12,7 +12,7 @@
     </script>
 
     <meta charset="utf-8" />
-    <meta name="description" content="東京都内の新型コロナウイルス(COVID-19)の感染状況をリアルタイムで可視化するダッシュボードです。"/>
+    <meta name="description" content="東京都内の新型コロナウイルス(COVID-19)の最新感染状況が一目で分かるダッシュボードです。"/>
     <title>東京都都 COVID-19</title>
     <meta
       name="viewport"
@@ -64,36 +64,6 @@
             <i class="fab fa-facebook fa-2x" style="color: #1778f2;"></i>&emsp;
           </div>
       </div-->
-
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <h4>最新のニュース</h4>
-            <hr />
-            <div class="row">
-              <div class="col-sm newsItem">
-                <div id="newsItem1">
-                  <span class="newsDate"></span>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm newsItem">
-                <div id="newsItem2">
-                  <span class="newsDate"></span>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm newsItem">
-                <div id="newsItem3">
-                  <span class="newsDate"></span>
-                </div>
-              </div>
-            </div>
-            </div>
-        </div>
-      </div>
 
       <div id="overall-info" class="row">
         <div class="col-md-5">
@@ -193,6 +163,7 @@
                     data-live-search="true"
                     title="区市町村を探す"
                     onchange="onWardSelect(this.value)"
+                    data-size="15"
                   >
                   </select>
                 </center>
@@ -237,10 +208,40 @@
             >
               <canvas id="allWardCasesChart" width="300" height="1000"></canvas>
             </div>
-            <div style="text-align: center;">
+            <div style="text-align: center; height: 20px">
                
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <h4>最新のニュース</h4>
+            <hr />
+            <div class="row">
+              <div class="col-sm newsItem">
+                <div id="newsItem1">
+                  <span class="newsDate"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm newsItem">
+                <div id="newsItem2">
+                  <span class="newsDate"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm newsItem">
+                <div id="newsItem3">
+                  <span class="newsDate"></span>
+                </div>
+              </div>
+            </div>
+            </div>
         </div>
       </div>
 
