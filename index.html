@@ -134,28 +134,30 @@
         <div class="ward-info col">
           <div class="section">
             <h4>区市町村別の感染者数</h4>
-            <hr />
+            <hr/>
             <div class="row" style="min-height: 450px;">
-              <div id="map-container" class="col-md">
-                <div id="legend" class="row">
-                  <div class="col-sm">
-                    <span id="first">▉</span>
-                    0-10
+              <div class="col-md" style="margin-top: 30px">
+                <div id="map-container">
+                  <div id="legend" class="row">
+                    <div class="col-sm">
+                      <span id="first">▉</span>
+                      0-10
+                    </div>
+                    <div class="col-sm">
+                      <span id="second">▉</span>
+                      10-50
+                    </div>
+                    <div class="col-sm">
+                      <span id="third">▉</span>
+                      50-100
+                    </div>
+                    <div class="col-sm">
+                      <span id="fourth">▉</span>
+                      100+
+                    </div>
                   </div>
-                  <div class="col-sm">
-                    <span id="second">▉</span>
-                    10-50
-                  </div>
-                  <div class="col-sm">
-                    <span id="third">▉</span>
-                    50-100
-                  </div>
-                  <div class="col-sm">
-                    <span id="fourth">▉</span>
-                    100+
-                  </div>
+                  <div id="map"></div>
                 </div>
-                <div id="map"></div>
               </div>
               <div class="col-md">
                 <center>
@@ -205,13 +207,10 @@
                 max-height: 320px;
                 overflow: scroll;
                 padding-right: 20px;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                /*border-bottom: 1px solid rgba(0, 0, 0, 0.2);*/
               "
             >
               <canvas id="allWardCasesChart" width="300" height="1000"></canvas>
-            </div>
-            <div style="text-align: center; height: 20px">
-               
             </div>
           </div>
         </div>

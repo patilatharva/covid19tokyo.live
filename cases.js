@@ -2,7 +2,6 @@ function casesCallback(status, response) {
   if (status) {
     alert(status);
   } else {
-    console.log(response);
     cases = response;
   }
 }
