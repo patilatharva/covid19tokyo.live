@@ -104,8 +104,6 @@ function plotOverallChart(data) {
   var patientData = data["patients_summary"]["data"];
   // dischargeData: array containing number of new discharges each day: sample in temp.json -> discharges_summary
   var dischargeData = data["discharges_summary"]["data"];
-  console.log(dischargeData);
-  console.log(patientData);
   var tokyoTestData = data["inspections_summary"]["data"]["都内"]; // "その他"
   var otherTestData = data["inspections_summary"]["data"]["その他"];
 
@@ -139,8 +137,6 @@ function plotOverallChart(data) {
   }
 
   dates = dates.slice(dates.length - 60);
-  console.log(dates);
-
   var ctx = document.getElementById("totalCasesChart").getContext("2d");
 
   // line chart of cases over time of ward that cursor hovers over on the map.
@@ -272,9 +268,6 @@ const drawAgeGenderChart = (data) => {
   }
   labels[0] = "<10";
   labels[labels.length - 1] = "100+";
-  // console.log(males);
-  // console.log(females);
-  // console.log(labels);
   var ctx = document.getElementById("ageGenderChart").getContext("2d");
 
   var stackedBar = new Chart(ctx, {
@@ -363,7 +356,6 @@ function callback(status, response) {
     alert(status);
   } else {
     data = response;
-    console.log("response", response);
     plotOverallChart(response);
 
     data = parseData(response);
