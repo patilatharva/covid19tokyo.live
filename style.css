@@ -105,6 +105,7 @@ h4 {
 }
 
 #map {
+  min-height: 300px;/*calc(100% - 40px);*/
   height: calc(100% - 40px);
   border: solid 1px #85929e;
   border-radius: 7px;
