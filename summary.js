@@ -33,8 +33,9 @@ function parseData(data) {
     }
   }
 
-  var active = confirmed - recovered - deaths;
-  var activeNew = confirmedNew - recoveredNew - deathsNew;
+  //var active = confirmed - recovered - deaths;
+  var active = confirmed - discharged - deaths;
+  //var activeNew = confirmedNew - recoveredNew - deathsNew;
 
   var tested = data["inspection_status_summary"]["value"];
   var testedNew =
@@ -54,7 +55,7 @@ function parseData(data) {
     confirmed: confirmed,
     confirmedNew: confirmedNew,
     active: active,
-    activeNew: activeNew,
+    //activeNew: activeNew,
     deaths: deaths,
     deathsNew: deathsNew,
     critical: critical,
@@ -79,7 +80,7 @@ function fillCards(summary) {
   $("#confirmed .new").html("(+" + summary.confirmedNew + ")");
 
   $("#active .h5").html(summary.active);
-  $("#active .new").html("(+" + summary.activeNew + ")");
+  //$("#active .new").html("(+" + summary.activeNew + ")");
 
   $("#recovered .h5").html(summary.discharged);
   //$("#recovered .new").html("(+" + summary.recoveredNew + ")");
@@ -155,12 +156,14 @@ function plotOverallChart(data) {
           borderColor: "rgba(255, 7, 57, 0.8)",
           fill: false,
         },
+        /*
         {
           label: "現在患者数",
           data: active.slice(active.length - 60),
           borderColor: "rgba(0, 123, 255, 0.8)",
           fill: false,
         },
+        */
         /*
         {
           label: "回復者",
