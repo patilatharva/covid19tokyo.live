@@ -77,8 +77,9 @@ h4 {
 
 #map-container {
   min-width: 350px;
-  min-height: 300px;
+  min-height: 330px;
   margin: 0 10px 20px 10px;
+  height: fit-content;
 }
 
 #legend {
@@ -105,7 +106,7 @@ h4 {
 }
 
 #map {
-  min-height: 300px;/*calc(100% - 40px);*/
+  min-height: 330px;/*calc(100% - 40px);*/
   height: calc(100% - 40px);
   border: solid 1px #85929e;
   border-radius: 7px;
