@@ -24,7 +24,7 @@ const plotTestedChart = (data) => {
       labels: labels,
       datasets: [
         {
-          label: "tested",
+          label: "検査",
           data: tests,
           backgroundColor: "rgba(0, 123, 255, 0.5)",
           borderColor: "rgba(0, 123, 255, 1)",
