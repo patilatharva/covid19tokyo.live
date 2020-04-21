@@ -2,27 +2,36 @@
 <html lang="ja">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163974178-1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-163974178-1"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'UA-163974178-1');
+      gtag("config", "UA-163974178-1");
     </script>
 
     <meta charset="utf-8" />
-    <meta http-equiv="content-language" content="ja">
-    <meta name="keywords" content="コロナウイルス,新型コロナウイルス,東京,covid-19,区市町村別,感染者,最新感染状況,最新感染動向,都内,東京都">
-    <meta name="description" content="東京都内の新型コロナウイルス(COVID-19)の最新感染状況が一目で分かるダッシュボードです。"/>
+    <meta http-equiv="content-language" content="ja" />
+    <meta
+      name="keywords"
+      content="コロナウイルス,新型コロナウイルス,東京,covid-19,区市町村別,感染者,最新感染状況,最新感染動向,都内,東京都,tokyo"
+    />
+    <meta
+      name="description"
+      content="東京都内の新型コロナウイルス(COVID-19)の最新感染状況が一目で分かるダッシュボードです。"
+    />
     <title>東京都新型コロナウイルス(COVID-19)の最新感染状況</title>
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
-    <link rel="icon" 
-      type="image/png" 
-      href="images/tokyo-tower.png">
+    <link rel="icon" type="image/png" href="images/tokyo-tower.png" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -38,7 +47,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css"
     />
-
   </head>
   <body>
     <div class="container">
@@ -46,15 +54,15 @@
         <div class="row">
           <div class="col">
             <h1>
-              東京都<span style="display: inline-block">新型コロナウイルス</span><span style="display: inline-block">感染状況</span>
+              東京都<span style="display: inline-block;"
+                >新型コロナウイルス</span
+              ><span style="display: inline-block;">感染状況</span>
             </h1>
             <div>
-              
               最終更新&nbsp;
               <span id="lastUpdated"></span>
             </div>
           </div>
-          
         </div>
       </header>
 
@@ -72,7 +80,7 @@
           <div class="card">
             <h4>現在の状況</h4>
             <hr />
-            <div style="display: table; width: 100%; padding: 0 20px">
+            <div style="display: table; width: 100%; padding: 0 20px;">
               <div class="align-middle">
                 <div class="row">
                   <div id="active" class="summary col-sm">
@@ -120,7 +128,7 @@
           </div>
         </div>
         <div class="col-md-7">
-          <div class="card" style="height: 100%; min-height: 400px">
+          <div class="card" style="height: 100%; min-height: 400px;">
             <h4>最新感染動向</h4>
             <hr />
             <div style="min-height: 330px; padding: 0 30px;">
@@ -134,9 +142,9 @@
         <div class="ward-info col">
           <div class="section">
             <h4>区市町村別の感染者数</h4>
-            <hr/>
+            <hr />
             <div class="row" style="min-height: 450px;">
-              <div class="col-md-7" style="margin-top: 30px">
+              <div class="col-md-7" style="margin-top: 30px;">
                 <div id="map-container">
                   <div id="legend" class="row">
                     <div class="col-sm">
@@ -198,7 +206,7 @@
           </div>
         </div>
         <div class="col-md">
-          <div class="card" style="padding-bottom: 10px">
+          <div class="card" style="padding-bottom: 10px;">
             <h4>各区市町村の感染者数</h4>
             <hr />
             <div
@@ -242,7 +250,7 @@
                 </div>
               </div>
             </div>
-            </div>
+          </div>
         </div>
       </div>
 
@@ -250,30 +258,36 @@
         <div class="col">
           <div class="card">
             <h4>About</h4>
-            <hr/>
+            <hr />
             <p>
               このサイトは東京都内の新型コロナウイルス(COVID-19)の最新感染状況が一目で分かるように開発されたダッシュボードです。
-              <br/><br/>
-              <b>Credit</b><br/>
+              <br /><br />
+              <b>Credit</b><br />
               Atharva Patil · Rahul Joshi · Yoshiki Yarlagadda
-               <br/><br/>
+              <br /><br />
 
-              <b>Contact</b><br/>
-              <a target="_blank" href="https://twitter.com/atharvap4til">@atharvap4til</a>
-               <br/><br/>
-              <b>データ出典</b> <br/>
-              <a target="_blank" href="https://www.fukushihoken.metro.tokyo.lg.jp/hodo/index.html">東京都福祉保健局報道発表</a>
+              <b>Contact</b><br />
+              <a target="_blank" href="https://twitter.com/atharvap4til"
+                >@atharvap4til</a
+              >
+              <br /><br />
+              <b>データ出典</b> <br />
+              <a
+                target="_blank"
+                href="https://www.fukushihoken.metro.tokyo.lg.jp/hodo/index.html"
+                >東京都福祉保健局報道発表</a
+              >
               ＆
-              <a target="_blank" href="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068">東京都福祉保健局オープンデータ</a>
+              <a
+                target="_blank"
+                href="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068"
+                >東京都福祉保健局オープンデータ</a
+              >
             </p>
-                
-                
           </div>
         </div>
       </div>
     </div>
-
-    
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
