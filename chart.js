@@ -84,9 +84,11 @@ const allWardsChart = () => {
             padding: 10,
           },
           scales: {
-            xAxes: [{ 
-              position: "top",
-            }],
+            xAxes: [
+              {
+                position: "top",
+              },
+            ],
             yAxes: [
               {
                 ticks: {
@@ -108,7 +110,7 @@ const drawWardChart = (currentWard) => {
   var keys = Object.keys(history.history);
 
   keys = keys.map((timestamp) => {
-    timestamp;// -= 24*60*60*1000;
+    timestamp; // -= 24*60*60*1000;
     var date = new Date(parseInt(timestamp));
     var month = date.getMonth();
     var day = date.getDate();
@@ -164,7 +166,7 @@ function wardChartSettings(ctx, currentWard, keys, values) {
       title: {
         display: true,
         text: currentWard.properties.ward_ja + "の感染者数", //"Confirmed cases in " + currentWard.properties.ward_en,
-        fontColor: "#007bff"
+        fontColor: "#007bff",
       },
       elements: {
         line: {
