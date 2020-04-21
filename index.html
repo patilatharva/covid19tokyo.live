@@ -65,7 +65,7 @@
       <header>
         <div class="row">
           <div class="col">
-            <h1>
+            <h1 id="title">
               東京都<span style="display: inline-block;"
                 >新型コロナウイルス</span
               ><span style="display: inline-block;">感染状況</span>
@@ -85,7 +85,7 @@
               </div-->
             </h1>
             <div>
-              最終更新&nbsp;
+              <span id="lastUpdatedLabel">最終更新</span>&nbsp;
               <span id="lastUpdated"></span>
             </div>
             <br />
@@ -107,30 +107,30 @@
       <div id="overall-info" class="row">
         <div class="col-md-5">
           <div class="card">
-            <h4>現在の状況</h4>
+            <h4 id="summary">現在の状況</h4>
             <hr />
             <div style="display: table; width: 100%; padding: 0 20px;">
               <div class="align-middle">
                 <div class="row">
                   <div id="active" class="summary col-sm">
-                    <b>現在患者数</b>
+                    <b id="activeLabel">現在患者数</b>
                     <div class="h5"></div>
                     <span class="new"></span>
                   </div>
                   <div id="confirmed" class="summary col-sm">
-                    <b>感染者</b>
+                    <b id="confirmedLabel">感染者</b>
                     <div class="h5"></div>
                     <span class="new"></span>
                   </div>
                 </div>
                 <div class="row">
                   <div id="recovered" class="summary col-sm">
-                    <b>回復者</b>
+                    <b id="recoveredLabel">回復者</b>
                     <div class="h5"></div>
                     <span class="new"></span>
                   </div>
                   <div id="deaths" class="summary col-sm">
-                    <b>死亡者</b>
+                    <b id="deathsLabel">死亡者</b>
                     <div class="h5"></div>
                     <span class="new"></span>
                   </div>
@@ -142,12 +142,12 @@
                 </div>
                 <div class="row">
                   <div id="tested" class="summary col-sm">
-                    <b>検査実施人数</b>
+                    <b id="testedLabel">検査実施人数</b>
                     <div class="h5"></div>
                     <span class="new"></span>
                   </div>
                   <div id="tests" class="summary col-sm">
-                    <b>検査実施件数</b>
+                    <b id="testsLabel">検査実施件数</b>
                     <div class="h5"></div>
                     <span class="new"></span>
                   </div>
@@ -158,7 +158,7 @@
         </div>
         <div class="col-md-7">
           <div class="card" style="height: 100%; min-height: 400px;">
-            <h4>最新感染動向</h4>
+            <h4 id="latestTrends">最新感染動向</h4>
             <hr />
             <div style="min-height: 330px; padding: 0 30px;">
               <canvas id="totalCasesChart" width="50vh"></canvas>
@@ -170,7 +170,7 @@
       <div class="row">
         <div class="ward-info col">
           <div class="section">
-            <h4>区市町村別の感染者数</h4>
+            <h4 id="outbreakMapLabel">区市町村別の感染者数</h4>
             <hr />
             <div class="row" style="min-height: 450px;">
               <div class="col-md-7" style="margin-top: 30px;">
@@ -211,7 +211,7 @@
                 <div id="ward-chart-container">
                   <canvas id="wardHistoryChart" width="50vh"></canvas>
                   <div id="placeholder">
-                    <span class="align-middle">区市町村を選択して下さい</span>
+                    <span id="selectLabel" class="align-middle">区市町村を選択して下さい</span>
                   </div>
                 </div>
               </div>
@@ -223,7 +223,7 @@
       <div class="row">
         <div class="col-md">
           <div class="card" style="height: fit-content;">
-            <h4>年齢・男女別</h4>
+            <h4 id="ageGenderLabel">年齢・男女別</h4>
             <hr />
             <div style="padding: 0 30px;">
               <canvas
@@ -236,7 +236,7 @@
         </div>
         <div class="col-md">
           <div class="card" style="padding-bottom: 10px;">
-            <h4>各区市町村の感染者数</h4>
+            <h4 id="confirmedByWard">各区市町村の感染者数</h4>
             <hr />
             <div
               class="div"
@@ -271,7 +271,7 @@
       <div class="row" style="margin-top: 30px;">
         <div class="col">
           <div class="card">
-            <h4>最新のニュース</h4>
+            <h4 id="newsLabel">最新のニュース</h4>
             <hr />
             <div class="row">
               <div class="col-sm newsItem">
@@ -304,7 +304,7 @@
             <h4>About</h4>
             <hr />
             <p>
-              このサイトは東京都内の新型コロナウイルス(COVID-19)の最新感染状況が一目で分かるように開発されたダッシュボードです。
+              <span id="aboutLabel">このサイトは東京都内の新型コロナウイルス(COVID-19)の最新感染状況が一目で分かるように開発されたダッシュボードです。</span>
               <br /><br />
               <b>Credit</b><br />
               Atharva Patil · Rahul Joshi · Yoshiki Yarlagadda
@@ -320,12 +320,14 @@
               <br /><br />
               <b>データ出典</b> <br />
               <a
+                id="fukushiUpdates"
                 target="_blank"
                 href="https://www.fukushihoken.metro.tokyo.lg.jp/hodo/index.html"
                 >東京都福祉保健局報道発表</a
               >
               ＆
               <a
+                id="openData"
                 target="_blank"
                 href="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068"
                 >東京都福祉保健局オープンデータ</a
@@ -344,7 +346,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
-    <script src="news.json"></script>
+    <!--script src="news.json"></script-->
+    <script src="translate.js"></script>
     <script src="tokyo.min.js"></script>
     <script src="cases.js"></script>
     <script src="deaths.js"></script>

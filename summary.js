@@ -7,7 +7,10 @@ function parseData(data) {
       data["patients_summary"]["data"].length - 1
     ]["小計"];
 
-  var deaths = data["main_summary"]["children"][0]["children"][2]["value"];
+  var deaths = Math.min(
+    data["main_summary"]["children"][0]["children"][2]["value"],
+    data["main_summary"]["children"][0]["children"][1]["value"]
+  );
   let deathsByDate = Object.values(deathCount);
   var deathsNew = deathsByDate[deathsByDate.length - 1];
 
