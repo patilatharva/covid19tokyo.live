@@ -35,6 +35,9 @@ const plotTestedChart = (data) => {
     options: {
       plugins: {
         datalabels: {
+          font: {
+            size: 0,
+          },
           color: "black",
         },
       },
