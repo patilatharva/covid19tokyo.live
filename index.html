@@ -49,6 +49,13 @@
     />
   </head>
   <body>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"
+    ></script>
     <div class="container">
       <header>
         <div class="row">
@@ -57,6 +64,20 @@
               東京都<span style="display: inline-block;"
                 >新型コロナウイルス</span
               ><span style="display: inline-block;">感染状況</span>
+              <div
+                style="text-align: right;"
+                class="fb-share-button"
+                data-href="https://covid19tokyo.live/"
+                data-layout="button_count"
+                data-size="small"
+              >
+                <a
+                  target="_blank"
+                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcovid19tokyo.live%2F&amp;src=sdkpreparse"
+                  class="fb-xfbml-parse-ignore"
+                  >Share</a
+                >
+              </div>
             </h1>
             <div>
               最終更新&nbsp;
