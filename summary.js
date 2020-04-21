@@ -14,9 +14,17 @@ function parseData(data) {
   var critical =
     data["main_summary"]["children"][0]["children"][0]["children"][1]["value"];
 
-  var discharged = data["main_summary"]["children"][0]["children"][1]["value"];
+  //var discharged = data["main_summary"]["children"][0]["children"][1]["value"];
+  const dis = Object.values(dischargedCount);
+  var discharged = dis[dis.length - 1];
+
   var recovered = 0;
   var recoveredNew = 0;
+
+  recovered = discharged - deaths;
+  recoveredNew = discharged - dis[dis.length - 2] - deathsNew;
+
+  /*
   var today = new Date(lastUpdated);
   today =
     today.getMonth() + 1 + "-" + today.getDate() + "-" + today.getFullYear();
@@ -32,10 +40,10 @@ function parseData(data) {
       recovered++;
     }
   }
+  */
 
-  //var active = confirmed - recovered - deaths;
-  var active = confirmed - discharged - deaths;
-  //var activeNew = confirmedNew - recoveredNew - deathsNew;
+  var active = confirmed - recovered - deaths;
+  var activeNew = confirmedNew - recoveredNew - deathsNew;
 
   var tested = data["inspection_status_summary"]["value"];
   var testedNew =
@@ -55,7 +63,7 @@ function parseData(data) {
     confirmed: confirmed,
     confirmedNew: confirmedNew,
     active: active,
-    //activeNew: activeNew,
+    activeNew: activeNew,
     deaths: deaths,
     deathsNew: deathsNew,
     critical: critical,
@@ -74,28 +82,30 @@ function parseData(data) {
 function fillCards(summary) {
   //var active = confirmed - discharged - deaths;
 
+  let sign = (newCases) => newCases >= 0? '+' : '-';
+
   $("#lastUpdated").html(summary.lastUpdated);
 
   $("#confirmed .h5").html(summary.confirmed);
-  $("#confirmed .new").html("(+" + summary.confirmedNew + ")");
+  $("#confirmed .new").html("(" + sign(summary.confirmedNew) + summary.confirmedNew + ")");
 
   $("#active .h5").html(summary.active);
-  //$("#active .new").html("(+" + summary.activeNew + ")");
+  $("#active .new").html("(" + sign(summary.activeNew) + summary.activeNew + ")");
 
-  $("#recovered .h5").html(summary.discharged);
-  //$("#recovered .new").html("(+" + summary.recoveredNew + ")");
+  $("#recovered .h5").html(summary.recovered);
+  $("#recovered .new").html("(" + sign(summary.recoveredNew) + summary.recoveredNew + ")");
 
   $("#deaths .h5").html(summary.deaths);
-  $("#deaths .new").html("(+" + summary.deathsNew + ")");
+  $("#deaths .new").html("(" + sign(summary.deathsNew) + summary.deathsNew + ")");
 
-  $("#critical .h5").html(summary.critical);
-  $("#critical .new").html("(+" + "num" + ")");
+  //$("#critical .h5").html(summary.critical);
+  //$("#critical .new").html("(+" + "num" + ")");
 
   $("#tested .h5").html(summary.tested);
-  $("#tested .new").html("(+" + summary.testedNew + ")");
+  $("#tested .new").html("(" + sign(summary.testedNew) + summary.testedNew + ")");
 
   $("#tests .h5").html(summary.tests);
-  $("#tests .new").html("(+" + summary.testsNew + ")");
+  $("#tests .new").html("(" + sign(summary.testsNew) + summary.testsNew + ")");
 }
 
 function plotOverallChart(data) {
@@ -103,7 +113,8 @@ function plotOverallChart(data) {
   // patientData: array containing number of new cases each day; sample in temp.json -> patients_summary
   var patientData = data["patients_summary"]["data"];
   // dischargeData: array containing number of new discharges each day: sample in temp.json -> discharges_summary
-  var dischargeData = data["discharges_summary"]["data"];
+  //var dischargeData = data["discharges_summary"]["data"];
+  var dischargedData = Object.values(dischargedCount);
   var tokyoTestData = data["inspections_summary"]["data"]["都内"]; // "その他"
   var otherTestData = data["inspections_summary"]["data"]["その他"];
 
@@ -114,7 +125,7 @@ function plotOverallChart(data) {
   var deaths = [];
   var active = [];
 
-  let deathVals = Object.values(deathCount);
+  let deathData = Object.values(deathCount);
   var caseTotal = 0;
   var recoveredTotal = 0;
   var deathsTotal = 0;
@@ -123,14 +134,25 @@ function plotOverallChart(data) {
     caseTotal += patientData[i]["小計"];
     cases.push(caseTotal);
 
-    deathsTotal += deathVals[i];
+    deathsTotal += deathData[i];
     deaths.push(deathsTotal);
 
-    if (dischargeData[i]) recoveredTotal += dischargeData[i]["小計"] - deathVals[i];
+    if (dischargedData[i]) {
+      var recov = dischargedData[i] - deathData[i];
+      recovered.push(recov);
+      active.push(caseTotal - recov);
+    } else {
+      recovered.push(null);
+      active.push(null);
+    }
+
+    /*
+    if (dischargeData[i]) recoveredTotal += dischargeData[i]["小計"] - deathData[i];
     else recoveredTotal += 0;
     recovered.push(recoveredTotal);
 
     active.push(caseTotal - deathsTotal - recoveredTotal);
+    */
 
     var date = new Date(patientData[i]["日付"]);
     dates.push(date.getMonth() + 1 + "/" + date.getDate());
@@ -152,22 +174,22 @@ function plotOverallChart(data) {
           borderColor: "rgba(255, 7, 57, 0.8)",
           fill: false,
         },
-        /*
+        
         {
           label: "現在患者数",
           data: active.slice(active.length - 60),
           borderColor: "rgba(0, 123, 255, 0.8)",
           fill: false,
         },
-        */
-        /*
+        
+        
         {
           label: "回復者",
           data: recovered.slice(recovered.length - 60),
           borderColor: "rgba(40, 167, 69, 0.8)",
           fill: false,
         },
-        */
+        
         {
           label: "死亡者",
           data: deaths.slice(deaths.length - 60),
@@ -243,8 +265,12 @@ const drawAgeGenderChart = (data) => {
   // 10歳未満 -> under 10
   // 100歳以上 -> over 100
 
+  console.log(patients);
+
   for (var i = 0; i < patients.length; i++) {
     var age = patients[i]["年代"];
+    if (!age) continue;
+
     var gender = patients[i]["性別"];
     if (age.length == 6) {
       if (gender == "女性") females[10] += 1;
@@ -253,8 +279,11 @@ const drawAgeGenderChart = (data) => {
       if (gender == "女性") females[0] += 1;
       else males[0] += 1;
     } else {
-      var newAge = age.slice(0, 2);
-      index = parseInt(newAge) / 10;
+      var newAge = age;
+      if (typeof age === 'string') {
+        newAge = parseInt(age.slice(0, 2));
+      }
+      index = newAge / 10;
       if (gender == "女性") females[index] += 1;
       else males[index] += 1;
     }
