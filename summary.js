@@ -82,27 +82,37 @@ function parseData(data) {
 function fillCards(summary) {
   //var active = confirmed - discharged - deaths;
 
-  let sign = (newCases) => newCases >= 0? '+' : '-';
+  let sign = (newCases) => (newCases >= 0 ? "+" : "-");
 
   $("#lastUpdated").html(summary.lastUpdated);
 
   $("#confirmed .h5").html(summary.confirmed);
-  $("#confirmed .new").html("(" + sign(summary.confirmedNew) + summary.confirmedNew + ")");
+  $("#confirmed .new").html(
+    "(" + sign(summary.confirmedNew) + summary.confirmedNew + ")"
+  );
 
   $("#active .h5").html(summary.active);
-  $("#active .new").html("(" + sign(summary.activeNew) + summary.activeNew + ")");
+  $("#active .new").html(
+    "(" + sign(summary.activeNew) + summary.activeNew + ")"
+  );
 
   $("#recovered .h5").html(summary.recovered);
-  $("#recovered .new").html("(" + sign(summary.recoveredNew) + summary.recoveredNew + ")");
+  $("#recovered .new").html(
+    "(" + sign(summary.recoveredNew) + summary.recoveredNew + ")"
+  );
 
   $("#deaths .h5").html(summary.deaths);
-  $("#deaths .new").html("(" + sign(summary.deathsNew) + summary.deathsNew + ")");
+  $("#deaths .new").html(
+    "(" + sign(summary.deathsNew) + summary.deathsNew + ")"
+  );
 
   //$("#critical .h5").html(summary.critical);
   //$("#critical .new").html("(+" + "num" + ")");
 
   $("#tested .h5").html(summary.tested);
-  $("#tested .new").html("(" + sign(summary.testedNew) + summary.testedNew + ")");
+  $("#tested .new").html(
+    "(" + sign(summary.testedNew) + summary.testedNew + ")"
+  );
 
   $("#tests .h5").html(summary.tests);
   $("#tests .new").html("(" + sign(summary.testsNew) + summary.testsNew + ")");
@@ -115,8 +125,6 @@ function plotOverallChart(data) {
   // dischargeData: array containing number of new discharges each day: sample in temp.json -> discharges_summary
   //var dischargeData = data["discharges_summary"]["data"];
   var dischargedData = Object.values(dischargedCount);
-  var tokyoTestData = data["inspections_summary"]["data"]["都内"]; // "その他"
-  var otherTestData = data["inspections_summary"]["data"]["その他"];
 
   var cases = []; // number of cases
   var recovered = []; // number of discharges
@@ -174,22 +182,21 @@ function plotOverallChart(data) {
           borderColor: "rgba(255, 7, 57, 0.8)",
           fill: false,
         },
-        
+
         {
           label: "現在患者数",
           data: active.slice(active.length - 60),
           borderColor: "rgba(0, 123, 255, 0.8)",
           fill: false,
         },
-        
-        
+
         {
           label: "回復者",
           data: recovered.slice(recovered.length - 60),
           borderColor: "rgba(40, 167, 69, 0.8)",
           fill: false,
         },
-        
+
         {
           label: "死亡者",
           data: deaths.slice(deaths.length - 60),
@@ -280,7 +287,7 @@ const drawAgeGenderChart = (data) => {
       else males[0] += 1;
     } else {
       var newAge = age;
-      if (typeof age === 'string') {
+      if (typeof age === "string") {
         newAge = parseInt(age.slice(0, 2));
       }
       index = newAge / 10;
@@ -390,8 +397,8 @@ function callback(status, response) {
     data = parseData(response);
     fillCards(data);
     // plotOverallChart(response["patients_summary"]);
-
     drawAgeGenderChart(response["patients"]);
+    plotTestedChart(response);
     data = response;
   }
 }
