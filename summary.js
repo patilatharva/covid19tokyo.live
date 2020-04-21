@@ -272,7 +272,7 @@ const drawAgeGenderChart = (data) => {
   // 10歳未満 -> under 10
   // 100歳以上 -> over 100
 
-  console.log(patients);
+  // console.log(patients);
 
   for (var i = 0; i < patients.length; i++) {
     var age = patients[i]["年代"];

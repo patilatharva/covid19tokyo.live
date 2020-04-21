@@ -21,11 +21,11 @@ const plotTestedChart = (data) => {
   var testedChart = new Chart(ctx, {
     type: "bar",
     data: {
-      labels: labels,
+      labels: labels.slice(labels.length - 60),
       datasets: [
         {
           label: "検査",
-          data: tests,
+          data: tests.slice(tests.length - 60),
           backgroundColor: "rgba(0, 123, 255, 0.5)",
           borderColor: "rgba(0, 123, 255, 1)",
           borderWidth: 1,
@@ -40,6 +40,8 @@ const plotTestedChart = (data) => {
           },
           color: "black",
         },
+        responsive: true,
+        maintainAspectRatio: false,
       },
       tooltips: {
         mode: "index",
