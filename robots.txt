@@ -1,0 +1,3 @@
+Sitemap: https://covid19tokyo.live/sitemap.xml
+User-agent:*
+Disallow:
