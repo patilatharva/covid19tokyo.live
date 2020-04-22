@@ -47,4 +47,6 @@ function translate(lang) {
     for (var id of idList) {
         $('#' + id).html(lang[id]);
     }
+
+    //overallChart.data.datasets.forEach
 }
