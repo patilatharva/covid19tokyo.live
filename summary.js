@@ -85,7 +85,7 @@ function parseData(data) {
 function fillCards(summary) {
   //var active = confirmed - discharged - deaths;
 
-  let sign = (newCases) => (newCases >= 0 ? "+" : "-");
+  let sign = (newCases) => (newCases >= 0 ? "+" : "");
 
   $("#lastUpdated").html(summary.lastUpdated);
 
@@ -173,7 +173,7 @@ function plotOverallChart(data) {
   var ctx = document.getElementById("totalCasesChart").getContext("2d");
 
   // line chart of cases over time of ward that cursor hovers over on the map.
-  var lineChart = new Chart(ctx, {
+  var overallChart = new Chart(ctx, {
     type: "line",
     data: {
       // slice is used to include data from the last 60 days only.
