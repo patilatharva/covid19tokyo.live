@@ -1,5 +1,5 @@
 // charts created
-var myCharts = {}
+var myCharts = {};
 
 //  function to create chart for number of cases of all districts.
 const allWardsChart = () => {
