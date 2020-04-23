@@ -126,9 +126,8 @@ function plotOverallChart(data) {
   // patientData: array containing number of new cases each day; sample in temp.json -> patients_summary
   var patientData = data["patients_summary"]["data"];
   // dischargeData: array containing number of new discharges each day: sample in temp.json -> discharges_summary
-  //var dischargeData = data["discharges_summary"]["data"];
+  // var dischargeData = data["discharges_summary"]["data"];
   var dischargedData = Object.values(dischargedCount);
-
   var cases = []; // number of cases
   var recovered = []; // number of discharges
   var dates = []; // x axis (labels)
@@ -301,7 +300,7 @@ const drawAgeGenderChart = (data) => {
   }
 
   var labels = getAgeGroups("代");
-  
+
   var ctx = document.getElementById("ageGenderChart").getContext("2d");
 
   var ageGenderChart = new Chart(ctx, {
@@ -384,7 +383,6 @@ const drawAgeGenderChart = (data) => {
     },
   });
   myCharts.ageGender = ageGenderChart;
-  
 };
 
 function callback(status, response) {
