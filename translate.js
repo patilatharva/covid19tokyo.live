@@ -85,20 +85,20 @@ function translate(newLang) {
 
     map.removeLayer('casesLabels');
     map.addLayer({
-        id: "casesLabels",
-        type: "symbol",
-        source: "labels",
+        id: 'casesLabels',
+        type: 'symbol',
+        source: 'labels',
         layout: {
-          "text-field": ["get", lang.mapLabels],
-          "text-variable-anchor": ["top", "bottom", "left", "right"],
-          "text-radial-offset": 0,
-          "text-justify": "center",
-          "text-size": 10,
+          'text-field': ['get', lang.mapLabels],
+          'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+          'text-radial-offset': 0,
+          'text-justify': 'center',
+          'text-size': 10,
         },
         paint: {
-          "text-halo-color": "white",
-          "text-halo-width": 1.2,
-          "text-halo-blur": 0,
+          'text-halo-color': 'white',
+          'text-halo-width': 1.2,
+          'text-halo-blur': 0,
         },
       });
 
@@ -109,3 +109,15 @@ function translate(newLang) {
         title: lang.searchWard
       }).selectpicker('refresh');
 }
+
+$('#en_us').click(function(){
+    $('#ja').attr("disabled", false);
+    $('#en_us').attr("disabled", true);
+    translate(en_us);
+});
+
+$('#ja').click(function(){
+    $('#en_us').attr("disabled", false);
+    $('#ja').attr("disabled", true);
+    translate(ja);
+});
