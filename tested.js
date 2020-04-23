@@ -1,3 +1,12 @@
+$("#testsChartSelect").change(function () {
+  var item = $(this);
+  console.log(item.val());
+  var data = JSON.parse(localStorage.getItem(item.val()));
+  var labels = JSON.parse(localStorage.getItem("labels"));
+
+  plotChart(labels, data);
+});
+
 const plotTestedChart = (data) => {
   var tokyoTestData = data["inspections_summary"]["data"]["都内"]; // "その他"
   var otherTestData = data["inspections_summary"]["data"]["その他"];
@@ -6,27 +15,22 @@ const plotTestedChart = (data) => {
   var deathData = Object.values(deathCount);
   var labels = data["inspections_summary"]["labels"];
 
-  console.log(dischargeData);
-  console.log(tokyoTestData);
-  console.log(otherTestData);
-  console.log(casesData);
-  console.log(deathData);
-  console.log(labels);
-  // Testing data
   var totalTests = 0;
 
-  // All data
+  // All data arrays
   var cumulativeTests = [];
   var testsPerDay = [];
   var casesPerDay = [];
-
   var recoveriesPerDay = [];
   var deathsPerDay = [];
 
+  // Initializing all arrays
   for (var i = 0; i < tokyoTestData.length; i++) {
     var dayTests = 0;
+
     totalTests += tokyoTestData[i];
     dayTests += tokyoTestData[i];
+
     if (otherTestData[i]) {
       totalTests += otherTestData[i];
       dayTests += otherTestData[i];
@@ -37,16 +41,27 @@ const plotTestedChart = (data) => {
     testsPerDay.push(dayTests);
     cumulativeTests.push(totalTests);
   }
-  console.log(casesPerDay);
-  console.log(deathsPerDay);
-  console.log(testsPerDay);
-  console.log(cumulativeTests);
+  // setting items to local storage to prevent running this function multiple times
+  localStorage.setItem("labels", JSON.stringify(labels));
+  localStorage.setItem("testsPerDay", JSON.stringify(testsPerDay));
+  localStorage.setItem("cumulativeTests", JSON.stringify(cumulativeTests));
+  localStorage.setItem("casesPerDay", JSON.stringify(casesPerDay));
+  localStorage.setItem("deathsPerDay", JSON.stringify(deathData));
 
-  var dataset = testsPerDay;
+  // Initially setting the plot to tests per day
+  plotChart(labels, testsPerDay);
+};
+// Global variable to destroy previous instances of the chart
+var testedChart;
 
+// function called to actually plot the graph
+const plotChart = (labels, dataset) => {
   var ctx = document.getElementById("totalTestedChart").getContext("2d");
 
-  var testedChart = new Chart(ctx, {
+  // destroy previous instance of chart to prevent glitching
+  if (testedChart) testedChart.destroy();
+
+  testedChart = new Chart(ctx, {
     type: "bar",
     data: {
       labels: labels.slice(labels.length - 60),

@@ -245,13 +245,26 @@
         <div class="col-sm card">
           <h4>検査実施件数</h4>
           <hr />
-          <div>
-            <canvas
-              id="totalTestedChart"
-              style="width: 100vh;"
-              width="50"
-              height="25"
-            ></canvas>
+          <div class="row">
+            <div class="col-sm-4 offset-sm-4">
+              <select class="form-control" id="testsChartSelect">
+                <option value="testsPerDay">daily tests</option>
+                <option value="cumulativeTests">cumulative tests</option>
+                <option value="casesPerDay">daily cases</option>
+                <option value="deathsPerDay">daily deaths</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm">
+              <canvas
+                id="totalTestedChart"
+                style="width: 100vh;"
+                width="50"
+                height="25"
+              ></canvas>
+            </div>
           </div>
         </div>
       </div>
@@ -313,6 +326,9 @@
               <b>Contact</b><br />
               <a target="_blank" href="https://twitter.com/atharvap4til"
                 >@atharvap4til</a
+              >&emsp;
+              <a target="_blank" href="https://twitter.com/joshi__rahul"
+                >@joshi__rahul</a
               >
               <br /><br />
               <b>データ出典</b> <br />
