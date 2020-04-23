@@ -24,7 +24,8 @@ var en_us = {
     'wardNameTranslator': toEnglish,
     'agePostfix': 's',
     'mapLabels': 'label_en',
-    'wardLang': 'ward_en'
+    'wardLang': 'ward_en',
+    'staySafe': 'Stay safe and informed with real-time analytics from <b>covid19tokyo.live</b>.'
 };
 
 var ja = {
@@ -53,8 +54,8 @@ var ja = {
     'wardNameTranslator': toJapanese,
     'agePostfix': '代',
     'mapLabels': 'label_ja',
-    'wardLang': 'ward_ja'
-
+    'wardLang': 'ward_ja',
+    'staySafe': '<b>covid19tokyo.live</b>を使って最新情報を入手。'
 };
 
 var lang = ja;
