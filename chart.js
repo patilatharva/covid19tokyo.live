@@ -1,3 +1,6 @@
+// charts created
+var myCharts = {}
+
 //  function to create chart for number of cases of all districts.
 const allWardsChart = () => {
   const url =
@@ -49,7 +52,7 @@ const allWardsChart = () => {
 
       var ctx = document.getElementById("allWardCasesChart").getContext("2d");
 
-      var myChart = new Chart(ctx, {
+      var allWardsCountChart = new Chart(ctx, {
         type: "horizontalBar",
         data: {
           labels: labels,
@@ -100,6 +103,7 @@ const allWardsChart = () => {
           },
         },
       });
+      myCharts.allWards = allWardsCountChart;
     });
 };
 allWardsChart();
@@ -128,6 +132,8 @@ const drawWardChart = (currentWard) => {
     ctx,
     wardChartSettings(ctx, currentWard, keys, values)
   );
+
+  myCharts.wardHistory = stackedLine;
 };
 
 function wardChartSettings(ctx, currentWard, keys, values) {
@@ -165,7 +171,7 @@ function wardChartSettings(ctx, currentWard, keys, values) {
       },
       title: {
         display: true,
-        text: currentWard.properties.ward_ja + "の感染者数", //"Confirmed cases in " + currentWard.properties.ward_en,
+        text: currentWard.properties[lang.wardChartLang], //"Confirmed cases in " + currentWard.properties.ward_en,
         fontColor: "#007bff",
       },
       elements: {

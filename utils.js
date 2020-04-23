@@ -16,6 +16,16 @@ function toEnglish(name_ja) {
     return 'unknown ward';
 }
 
+// returns Japanese name of ward, assuming input name is in English
+function toJapanese(name_en) {
+    for (const ward of tokyo['features']) {
+        if (ward['properties']['ward_en'] === name_en) {
+            return ward['properties']['ward_ja'];
+        }
+    }
+    return 'unknown ward';
+}
+
 function getWardFromId(id) {
     for (ward of tokyo['features']) {
         if (ward['id'] == id) {
@@ -50,7 +60,8 @@ function selectWard(wardId) {
 function flyToPoint(point) {
     map.flyTo({
         center: point,
-        essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+        zoom: 9.5,
+        'essential': true, // this animation is considered essential with respect to prefers-reduced-motion
       });
 }
 
@@ -101,16 +112,34 @@ function onWardSelect(id) {
     }
 }
 
-function initializeOptions(selectId, geo) {
+function initializeOptions(selectId, geo, lang='ward_ja') {
     for (var ward of geo['features']) {
-        var name = ward.properties.ward_ja;
+        var name = ward.properties[lang];
         var id = ward.properties.code;
-
-        
 
         $(selectId).append($('<option>', {
             value: id,
             text: name
         })).selectpicker('refresh');
     }
+}
+
+function removeOptions(selectId) {
+    $(selectId).each(function() {
+        console.log($(this));
+        $(this).remove();
+    }).selectpicker('refresh');
+}
+
+function getAgeGroups(agePostfix) {
+    var labels = []; // labels for the chart is the age groups
+
+    for (var i = 1; i < 11; i++) {
+    var range = i * 10 + agePostfix;
+        labels[i] = range;
+    }
+    labels[0] = "<10";
+    labels[labels.length - 1] = "100+";
+
+    return labels
 }

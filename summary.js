@@ -254,6 +254,7 @@ function plotOverallChart(data) {
       },
     },
   });
+  myCharts.overall = overallChart;
 }
 
 const drawAgeGenderChart = (data) => {
@@ -299,17 +300,11 @@ const drawAgeGenderChart = (data) => {
     }
   }
 
-  var labels = []; // labels for the chart is the age groups
-
-  for (var i = 1; i < 11; i++) {
-    var range = i * 10 + "代";
-    labels[i] = range;
-  }
-  labels[0] = "<10";
-  labels[labels.length - 1] = "100+";
+  var labels = getAgeGroups("代");
+  
   var ctx = document.getElementById("ageGenderChart").getContext("2d");
 
-  var stackedBar = new Chart(ctx, {
+  var ageGenderChart = new Chart(ctx, {
     type: "bar",
     data: {
       labels: labels,
@@ -388,6 +383,8 @@ const drawAgeGenderChart = (data) => {
       },
     },
   });
+  myCharts.ageGender = ageGenderChart;
+  
 };
 
 function callback(status, response) {
