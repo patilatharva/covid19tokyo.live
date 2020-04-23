@@ -1,6 +1,6 @@
 var en_us = {
     'title': 'Tokyo COVID-19 Tracker',
-    'lastUpdatedLabel': 'Last Updated',
+    'lastUpdatedLabel': 'Last Updated:',
     'summary': 'Summary',
     'activeLabel': 'Active',
     'confirmedLabel': 'Confirmed',
