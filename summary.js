@@ -20,6 +20,7 @@ function parseData(data) {
   //var discharged = data["main_summary"]["children"][0]["children"][1]["value"];
   const dis = Object.values(dischargedCount);
   var discharged = dis[dis.length - 1];
+  var dischargedNew = discharged - dis[dis.length - 2];
 
   var recovered = 0;
   var recoveredNew = 0;
@@ -71,6 +72,7 @@ function parseData(data) {
     deathsNew: deathsNew,
     critical: critical,
     discharged: discharged,
+    dischargedNew: dischargedNew,
     recovered: recovered,
     recoveredNew: recoveredNew,
     tested: tested,
@@ -99,9 +101,9 @@ function fillCards(summary) {
     "(" + sign(summary.activeNew) + summary.activeNew + ")"
   );
 
-  $("#recovered .h5").html(summary.recovered);
+  $("#recovered .h5").html(summary.discharged);
   $("#recovered .new").html(
-    "(" + sign(summary.recoveredNew) + summary.recoveredNew + ")"
+    "(" + sign(summary.dischargedNew) + summary.dischargedNew + ")"
   );
 
   $("#deaths .h5").html(summary.deaths);
