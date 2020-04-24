@@ -138,10 +138,10 @@
               </div>
             </div>
             <div class="footnote">
-                <ul>
-                    <li>Active = Confirmed - Recovered - Deaths</li>
-                    <li>Recoveries do not include deaths</li>
-                </ul>
+              <ul>
+                <li>Active = Confirmed - Recovered - Deaths</li>
+                <li>Recoveries do not include deaths</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -153,9 +153,12 @@
               <canvas id="totalCasesChart" width="50vh"></canvas>
             </div>
             <div class="footnote">
-                <ul>
-                    <li>Recoveries reported April 19 onwards include recoveries through self-quarantine.</li>
-                </ul>
+              <ul>
+                <li>
+                  Recoveries reported April 19 onwards include recoveries
+                  through self-quarantine.
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -221,21 +224,26 @@
           <div class="card">
             <h4 id="dailyNums">Daily Numbers</h4>
             <hr />
-            
-            <div style="width: 100%">
-              <div style="width: 200px; margin: 0 auto">
+
+            <div style="width: 100%;">
+              <div style="width: 200px; margin: 0 auto;">
                 <select class="form-control" id="dailyChartSelect">
                   <!--option value="cumulativeTests">cumulative tests</option-->
-                  <option id="dailyCases" value="casesPerDay">New cases per day</option>
-                  <option id="dailyDeaths" value="deathsPerDay">New deaths per day</option>
-                  <option id="dailyTests" value="testsPerDay">New tests per day</option>
+                  <option id="dailyCases" value="casesPerDay"
+                    >New cases per day</option
+                  >
+                  <option id="dailyDeaths" value="deathsPerDay"
+                    >New deaths per day</option
+                  >
+                  <option id="dailyTests" value="testsPerDay"
+                    >New tests per day</option
+                  >
                 </select>
               </div>
             </div>
             <div style="min-height: 330px; padding: 0 30px;">
               <canvas id="dailyChart" width="50vh"></canvas>
             </div>
-            
           </div>
         </div>
       </div>
@@ -310,7 +318,8 @@
             <hr />
             <p>
               <span id="staySafe"
-                >Stay safe and informed with real-time data from <b>covid19tokyo.live</b>.</span
+                >Stay safe and informed with real-time data from
+                <b>covid19tokyo.live</b>.</span
               >
             </p>
             <div
@@ -320,7 +329,9 @@
 
             <p>
               <span id="aboutLabel"
-                >This website was created by three college students to better visualize and understand the trends of the COVID-19 outbreak in Tokyo, Japan.</span
+                >This website was created by three college students to better
+                visualize and understand the trends of the COVID-19 outbreak in
+                Tokyo, Japan.</span
               >
               <br /><br />
               <b>Credit</b><br />
@@ -340,7 +351,8 @@
                 id="fukushiUpdates"
                 target="_blank"
                 href="https://www.fukushihoken.metro.tokyo.lg.jp/hodo/index.html"
-                >Press releases from the Bureau of Social Welfare and Public Health, Tokyo Metro. Govt.</a
+                >Press releases from the Bureau of Social Welfare and Public
+                Health, Tokyo Metro. Govt.</a
               >
               ＆
               <a
@@ -350,6 +362,18 @@
                 >Tokyo Open Data</a
               >
             </p>
+            <div class="col-sm-3 offset-sm-5">
+              <a
+                type="button"
+                class="btn btn-primary btn-sm"
+                id="guidelines"
+                target="_blank"
+                href="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
+              >
+                <i class="fas fa-external-link-alt fa-sm"></i>&nbsp;About
+                Emergency Measures
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -367,7 +391,7 @@
     <script src="../js/utils.js"></script>
     <script src="../js/translate.js"></script>
     <script>
-        var lang = en_us;
+      var lang = en_us;
     </script>
     <script src="../js/tokyo.min.js"></script>
     <script src="../js/cases.js"></script>
@@ -390,7 +414,7 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
     <script>
-        //translate(en_us);
+      //translate(en_us);
     </script>
   </body>
 </html>
