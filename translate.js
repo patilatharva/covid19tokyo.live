@@ -61,9 +61,9 @@ var ja = {
     'mapLabels': 'label_ja',
     'wardLang': 'ward_ja',
     'staySafe': '<b>covid19tokyo.live</b>を使って都内の最新情報を入手。',
-    'dailyCases': '感染者数',
-    'dailyDeaths': '死亡者数',
-    'dailyTests': '検査実施件数'
+    'dailyCases': '新規感染者数',
+    'dailyDeaths': '新規死亡者数',
+    'dailyTests': '新規検査件数'
 };
 
 var lang = ja;
