@@ -124,9 +124,9 @@ function translate(newLang) {
 */
 
 $('#en_us').click(function(){
-  window.location.href='./en/index.html'
+  window.location.href='https://covid19tokyo.live/en/'
 });
 
 $('#ja').click(function(){
-  window.location.href='../index.html'
+  window.location.href='https://covid19tokyo.live/'
 });
