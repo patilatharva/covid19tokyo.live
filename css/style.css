@@ -58,8 +58,7 @@ h4 {
 }
 
 .card p {
-  padding: 0 30px
-
+  padding: 0 30px;
 }
 
 .newsItem {
@@ -68,6 +67,16 @@ h4 {
 
 .newsItem a {
   display: inline-block;
+}
+
+#guidelines {
+  display: block;
+  margin: 10px 0 0 0px;
+  align-items: left;
+  font-weight: bolder;
+  color: royalblue;
+  border: 0px;
+  background-color: rgba(65, 105, 225, 0.178);
 }
 
 #overall-info {
@@ -120,7 +129,7 @@ h4 {
 }
 
 #map {
-  min-height: 360px;/*calc(100% - 40px);*/
+  min-height: 360px; /*calc(100% - 40px);*/
   height: calc(100% - 40px);
   border: solid 1px #85929e;
   border-radius: 7px;
@@ -138,7 +147,7 @@ h4 {
   margin: 15px 0;
   height: 80px;
   text-align: center;
-  width: 50%
+  width: 50%;
 }
 
 .summary b {

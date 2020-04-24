@@ -54,6 +54,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
     <!-- <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css"
@@ -82,7 +86,7 @@
               ><span style="display: inline-block;">感染状況</span>
             </h1>
             <div>
-              <i class="fas fa-clock"></i>
+              <i class="far fa-clock fa-sm"></i>
               <span id="lastUpdatedLabel">最終更新</span>&nbsp;
               <span id="lastUpdated"></span>
             </div>
@@ -296,7 +300,11 @@
       <div class="row">
         <div class="col">
           <div class="card">
-            <h4 id="newsLabel">最新のニュース</h4>
+            <div class="row">
+              <div class="col-sm-4">
+                <h4 id="newsLabel">最新のニュース</h4>
+              </div>
+            </div>
             <hr />
             <div class="row">
               <div class="col-sm newsItem">
@@ -370,6 +378,18 @@
                 >東京都福祉保健局オープンデータ</a
               >
             </p>
+            <div class="col-sm-3 offset-sm-5">
+              <a
+                type="button"
+                class="btn btn-primary btn-sm"
+                id="guidelines"
+                target="_blank"
+                href="https://www.bousai.metro.tokyo.lg.jp/1007617/index.html"
+              >
+              <i class="fas fa-external-link-alt fa-sm"></i>&nbsp;About Emergency Measures
+              </a>
+            </div>
+            </div>
           </div>
         </div>
       </div>
@@ -383,6 +403,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
     <!--script src="news.json"></script-->
     <script src="js/utils.js"></script>
     <script src="js/translate.js"></script>
