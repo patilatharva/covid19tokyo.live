@@ -150,7 +150,7 @@ function plotOverallChart(data) {
     deaths.push(deathsTotal);
 
     if (dischargedData[i]) {
-      var recov = dischargedData[i] - deathsTotal;
+      var recov = dischargedData[i]; // - deathsTotal;
       recovered.push(recov);
       active.push(caseTotal - recov - deathsTotal);
     } else {
