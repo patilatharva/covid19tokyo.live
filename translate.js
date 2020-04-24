@@ -16,6 +16,7 @@ var en_us = {
     'confirmedByWard': 'Confirmed Cases by Ward',
     'newsLabel': 'News',
     'aboutLabel': 'This website was created by three college students to better visualize and understand the trends of the COVID-19 outbreak in Tokyo, Japan.',
+    'dataSources': 'Data Sources',
     'fukushiUpdates': 'Press releases - Bureau of Social Welfare and Public Health, Tokyo Metro. Govt.',
     'openData': 'Tokyo Metro. Gov. Open Data',
     'male': 'Male',
@@ -23,9 +24,13 @@ var en_us = {
     'wardChartLang': 'chart_en',
     'wardNameTranslator': toEnglish,
     'agePostfix': 's',
+    'dailyNums': 'Daily Numbers',
     'mapLabels': 'label_en',
     'wardLang': 'ward_en',
-    'staySafe': 'Stay safe and informed with real-time analytics from <b>covid19tokyo.live</b>.'
+    'staySafe': 'Stay safe and informed with real-time analytics from <b>covid19tokyo.live</b>.',
+    'dailyCases': 'New cases per day',
+    'dailyDeaths': 'New deaths per day',
+    'dailyTests': 'New tests per day'
 };
 
 var ja = {
@@ -46,6 +51,7 @@ var ja = {
     'confirmedByWard': '各区市町村の感染者数',
     'newsLabel': '最新のニュース',
     'aboutLabel': 'このサイトは東京都内の新型コロナウイルス(COVID-19)の最新感染状況が一目で分かるように開発されたダッシュボードです。',
+    'dataSources': 'データ出典',
     'fukushiUpdates': '東京都福祉保健局報道発表',
     'openData': '東京都福祉保健局オープンデータ',
     'male': '男性',
@@ -53,9 +59,13 @@ var ja = {
     'wardChartLang': 'chart_ja',
     'wardNameTranslator': toJapanese,
     'agePostfix': '代',
+    'dailyNums': '日別',
     'mapLabels': 'label_ja',
     'wardLang': 'ward_ja',
-    'staySafe': '<b>covid19tokyo.live</b>を使って最新情報を入手。'
+    'staySafe': '<b>covid19tokyo.live</b>を使って都内の最新情報を入手。',
+    'dailyCases': '新規感染者数',
+    'dailyDeaths': '新規死亡者数',
+    'dailyTests': '新規検査件数'
 };
 
 var lang = ja;

@@ -144,7 +144,7 @@ function wardChartSettings(ctx, currentWard, keys, values) {
       datasets: [
         {
           data: values,
-          borderColor: "rgba(29, 90, 185, 1)",
+          borderColor: "rgba(0, 123, 255, 0.8)",
           backgroundColor: blueGradient(ctx),
         },
       ],
@@ -163,8 +163,9 @@ function wardChartSettings(ctx, currentWard, keys, values) {
           labels: {
             title: {
               color: "black",
-              align: "top",
+              align: 260, // slight top-left; 3 dig values arent cropped out
               offset: 3,
+              display: (context) => {return (values.length - context.dataIndex) % 2}
             },
           },
         },
@@ -178,6 +179,10 @@ function wardChartSettings(ctx, currentWard, keys, values) {
         line: {
           tension: 0,
         },
+        point: {
+          radius: 2,
+          backgroundColor: "rgba(0, 123, 255, 0.8)"
+        }
       },
       legend: {
         display: false,

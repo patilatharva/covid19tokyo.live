@@ -150,7 +150,7 @@ function plotOverallChart(data) {
     deaths.push(deathsTotal);
 
     if (dischargedData[i]) {
-      var recov = dischargedData[i] - deathsTotal;
+      var recov = dischargedData[i]; // - deathsTotal;
       recovered.push(recov);
       active.push(caseTotal - recov - deathsTotal);
     } else {
@@ -398,7 +398,7 @@ function callback(status, response) {
     fillCards(data);
     // plotOverallChart(response["patients_summary"]);
     drawAgeGenderChart(response["patients"]);
-    plotTestedChart(response);
+    plotDailyChart(response);
     data = response;
   }
 }

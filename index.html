@@ -208,6 +208,38 @@
 
       <div class="row">
         <div class="col-md">
+          <div class="card">
+            <h4 id="dailyNums">日別件数</h4>
+            <hr />
+
+            <div style="width: 100%;">
+              <div style="width: 200px; margin: 0 auto;">
+                <select
+                  class="selectpicker text-secondary"
+                  id="dailyChartSelect"
+                >
+                  <!--option value="cumulativeTests">cumulative tests</option-->
+                  <option id="dailyCases" value="casesPerDay"
+                    >新規感染者数</option
+                  >
+                  <option id="dailyDeaths" value="deathsPerDay"
+                    >新規死亡者数</option
+                  >
+                  <option id="dailyTests" value="testsPerDay"
+                    >新規検査件数</option
+                  >
+                </select>
+              </div>
+            </div>
+            <div style="min-height: 330px; padding: 0 30px;">
+              <canvas id="dailyChart" width="50vh"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md">
           <div class="card" style="height: fit-content;">
             <h4 id="ageGenderLabel">年齢・男女別</h4>
             <hr />
@@ -239,39 +271,7 @@
         </div>
       </div>
 
-      <!-- @Rahul uncomment this once you complete this part -->
-
       <div class="row">
-        <div class="col-sm card" style="height: fit-content;">
-          <h4>検査実施件数</h4>
-          <hr />
-          <div class="row">
-            <div class="col-sm-4 offset-sm-4">
-              <center>
-                <select class="selectpicker" id="testsChartSelect">
-                  <option value="testsPerDay">daily tests</option>
-                  <option value="cumulativeTests">cumulative tests</option>
-                  <option value="casesPerDay">daily cases</option>
-                  <option value="deathsPerDay">daily deaths</option>
-                </select>
-              </center>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm" style="min-height: 320px; max-width: 100vw;">
-              <canvas
-                id="totalTestedChart"
-                style="max-width: 80%;"
-                width="50"
-                height="100"
-              ></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row" style="margin-top: 30px;">
         <div class="col">
           <div class="card">
             <h4 id="newsLabel">最新のニュース</h4>
@@ -308,7 +308,7 @@
             <hr />
             <p>
               <span id="staySafe"
-                ><b>covid19tokyo.live</b>を使って最新情報を入手。</span
+                ><b>covid19tokyo.live</b>を使って都内の最新情報を入手。</span
               >
             </p>
             <div
@@ -333,7 +333,7 @@
                 >@joshi__rahul</a
               >
               <br /><br />
-              <b>データ出典</b> <br />
+              <b id="dataSources">データ出典</b> <br />
               <a
                 id="fukushiUpdates"
                 target="_blank"
@@ -373,7 +373,7 @@
     <script src="summary.js"></script>
 
     <script src="news.js"></script>
-    <script src="tested.js"></script>
+    <script src="daily.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
