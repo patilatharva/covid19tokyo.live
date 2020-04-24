@@ -1,13 +1,21 @@
-$("#testsChartSelect").change(function () {
+$("#dailyChartSelect").change(function () {
   var item = $(this);
-  console.log(item.val());
+  if (item.val() === "casesPerDay") {
+    var type = "confirmed";
+  } else if (item.val() === "deathsPerDay") {
+    var type = "deaths";
+  } else {
+    var type = "tests";
+  }
+
+
   var data = JSON.parse(localStorage.getItem(item.val()));
   var labels = JSON.parse(localStorage.getItem("labels"));
 
-  plotChart(labels, data);
+  plotChart(labels, data, type);
 });
 
-const plotTestedChart = (data) => {
+const plotDailyChart = (data) => {
   var tokyoTestData = data["inspections_summary"]["data"]["都内"]; // "その他"
   var otherTestData = data["inspections_summary"]["data"]["その他"];
   var dischargeData = data["discharges_summary"]["data"];
@@ -49,28 +57,43 @@ const plotTestedChart = (data) => {
   localStorage.setItem("deathsPerDay", JSON.stringify(deathData));
 
   // Initially setting the plot to tests per day
-  plotChart(labels, testsPerDay);
+  plotChart(labels, casesPerDay, "confirmed");
 };
 // Global variable to destroy previous instances of the chart
-var testedChart;
+var dailyChart;
 
 // function called to actually plot the graph
-const plotChart = (labels, dataset) => {
+const plotChart = (labels, dataset, type) => {
   var ctx = document.getElementById("dailyChart").getContext("2d");
 
   // destroy previous instance of chart to prevent glitching
-  if (testedChart) testedChart.destroy();
+  if (dailyChart) dailyChart.destroy();
 
-  testedChart = new Chart(ctx, {
+  dataset = dataset.slice(dataset.length - 60);
+
+  var backgroundColor = "", borderColor = "";
+  console.log(type);
+  if (type === "confirmed") {
+    backgroundColor = "rgba(0, 123, 255, 0.5)";
+    borderColor = "rgba(0, 123, 255, 1)";
+  } else if (type === "deaths") {
+    backgroundColor = "rgba(255, 7, 58, 0.5)";
+    borderColor = "rgba(255, 7, 58, 1)";
+  } else {
+    backgroundColor = "rgba(40, 167, 69, 0.5)";
+    borderColor = "rgba(40, 167, 69, 1)";
+  }
+
+  dailyChart = new Chart(ctx, {
     type: "bar",
     data: {
       labels: labels.slice(labels.length - 60),
       datasets: [
         {
-          label: "検査",
-          data: dataset.slice(dataset.length - 60),
-          backgroundColor: "rgba(0, 123, 255, 0.5)",
-          borderColor: "rgba(0, 123, 255, 1)",
+          label: lang[type + "Label"],
+          data: dataset,
+          backgroundColor: backgroundColor,
+          borderColor: borderColor,
           borderWidth: 1,
         },
       ],
@@ -107,6 +130,7 @@ const plotChart = (labels, dataset) => {
             ticks: {
               fontSize: 12,
               beginAtZero: true,
+              suggestedMax: Math.max(...dataset) + 1
             },
           },
         ],

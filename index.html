@@ -242,16 +242,16 @@
       <div class="row">
         <div class="col-md">
           <div class="card">
-            <h4>検査実施件数</h4>
+            <h4 id="dailyNums">日別件数</h4>
             <hr />
             
             <div style="width: 100%">
               <div style="width: 200px; margin: 0 auto">
-                <select class="form-control" id="testsChartSelect">
-                  <option value="testsPerDay">daily tests</option>
+                <select class="form-control" id="dailyChartSelect">
                   <!--option value="cumulativeTests">cumulative tests</option-->
-                  <option value="casesPerDay">daily cases</option>
-                  <option value="deathsPerDay">daily deaths</option>
+                  <option id="dailyCases" value="casesPerDay">感染者数</option>
+                  <option id="dailyDeaths" value="deathsPerDay">死亡者数</option>
+                  <option id="dailyTests" value="testsPerDay">検査実施件数</option>
                 </select>
               </div>
             </div>
@@ -368,7 +368,7 @@
     <script src="summary.js"></script>
 
     <script src="news.js"></script>
-    <script src="tested.js"></script>
+    <script src="daily.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"

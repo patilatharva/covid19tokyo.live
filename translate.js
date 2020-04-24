@@ -23,9 +23,13 @@ var en_us = {
     'wardChartLang': 'chart_en',
     'wardNameTranslator': toEnglish,
     'agePostfix': 's',
+    'dailyNums': 'Daily Numbers',
     'mapLabels': 'label_en',
     'wardLang': 'ward_en',
-    'staySafe': 'Stay safe and informed with real-time analytics from <b>covid19tokyo.live</b>.'
+    'staySafe': 'Stay safe and informed with real-time analytics from <b>covid19tokyo.live</b>.',
+    'dailyCases': 'New cases per day',
+    'dailyDeaths': 'New deaths per day',
+    'dailyTests': 'New tests per day'
 };
 
 var ja = {
@@ -53,9 +57,13 @@ var ja = {
     'wardChartLang': 'chart_ja',
     'wardNameTranslator': toJapanese,
     'agePostfix': '代',
+    'dailyNums': '日別',
     'mapLabels': 'label_ja',
     'wardLang': 'ward_ja',
-    'staySafe': '<b>covid19tokyo.live</b>を使って最新情報を入手。'
+    'staySafe': '<b>covid19tokyo.live</b>を使って最新情報を入手。',
+    'dailyCases': '感染者数',
+    'dailyDeaths': '死亡者数',
+    'dailyTests': '検査実施件数'
 };
 
 var lang = ja;

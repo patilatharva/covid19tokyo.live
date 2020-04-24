@@ -398,7 +398,7 @@ function callback(status, response) {
     fillCards(data);
     // plotOverallChart(response["patients_summary"]);
     drawAgeGenderChart(response["patients"]);
-    plotTestedChart(response);
+    plotDailyChart(response);
     data = response;
   }
 }
