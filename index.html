@@ -35,21 +35,29 @@
     <link rel="alternate" hreflang="en" href="https://covid19tokyo.live/en" />
 
     <link rel="icon" type="image/png" href="images/tokyo-tower.png" />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="./assets/bootstrap-4.3.1-dist/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/bootstrap-select-1.13.14/dist/css/bootstrap-select.css"
     />
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css"
-    />
+    /> -->
     <script
       type="text/javascript"
       src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c3981e614250012f3b658&product=inline-share-buttons"
@@ -74,6 +82,7 @@
               ><span style="display: inline-block;">感染状況</span>
             </h1>
             <div>
+              <i class="fas fa-clock"></i>
               <span id="lastUpdatedLabel">最終更新</span>&nbsp;
               <span id="lastUpdated"></span>
             </div>
@@ -142,8 +151,8 @@
             </div>
             <div class="footnote">
               <ul>
-                  <li>現在患者数 = 感染者数 - 退院者数 - 死亡者数</li>
-                  <li>退院者数は死亡退院を含まない</li>
+                <li>現在患者数 = 感染者数 - 退院者数 - 死亡者数</li>
+                <li>退院者数は死亡退院を含まない</li>
               </ul>
             </div>
           </div>
@@ -157,7 +166,7 @@
             </div>
             <div class="footnote">
               <ul>
-                  <li>4月19日以降の退院者数は療養期間経過を含む</li>
+                <li>4月19日以降の退院者数は療養期間経過を含む</li>
               </ul>
             </div>
           </div>
