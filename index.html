@@ -208,6 +208,30 @@
 
       <div class="row">
         <div class="col-md">
+          <div class="card">
+            <h4 id="dailyNums">日別件数</h4>
+            <hr />
+            
+            <div style="width: 100%">
+              <div style="width: 200px; margin: 0 auto">
+                <select class="form-control" id="dailyChartSelect">
+                  <!--option value="cumulativeTests">cumulative tests</option-->
+                  <option id="dailyCases" value="casesPerDay">感染者数</option>
+                  <option id="dailyDeaths" value="deathsPerDay">死亡者数</option>
+                  <option id="dailyTests" value="testsPerDay">検査実施件数</option>
+                </select>
+              </div>
+            </div>
+            <div style="min-height: 330px; padding: 0 30px;">
+              <canvas id="dailyChart" width="50vh"></canvas>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md">
           <div class="card" style="height: fit-content;">
             <h4 id="ageGenderLabel">年齢・男女別</h4>
             <hr />
@@ -235,33 +259,6 @@
             >
               <canvas id="allWardCasesChart" width="300" height="1000"></canvas>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md">
-          <div class="card">
-            <h4 id="dailyNums">日別件数</h4>
-            <hr />
-            
-            <div style="width: 100%">
-              <div style="width: 200px; margin: 0 auto">
-                <select class="form-control" id="dailyChartSelect">
-                  <!--option value="cumulativeTests">cumulative tests</option-->
-                  <option id="dailyCases" value="casesPerDay">感染者数</option>
-                  <option id="dailyDeaths" value="deathsPerDay">死亡者数</option>
-                  <option id="dailyTests" value="testsPerDay">検査実施件数</option>
-                </select>
-              </div>
-            </div>
-              
-
-            
-            <div style="min-height: 330px; padding: 0 30px;">
-              <canvas id="dailyChart" width="50vh"></canvas>
-            </div>
-            
           </div>
         </div>
       </div>
