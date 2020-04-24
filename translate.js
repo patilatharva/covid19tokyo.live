@@ -94,6 +94,8 @@ function translate(newLang) {
     myCharts.allWards.data.labels = myCharts.allWards.data.labels.map(label =>lang.wardNameTranslator(label));
     myCharts.allWards.update();
 
+    $("#dailyChartSelect").change();
+
     map.removeLayer('casesLabels');
     map.addLayer({
         id: 'casesLabels',

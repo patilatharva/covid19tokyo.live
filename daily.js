@@ -137,4 +137,5 @@ const plotChart = (labels, dataset, type) => {
       },
     },
   });
+  myCharts.daily = dailyChart;
 };
