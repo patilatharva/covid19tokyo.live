@@ -163,8 +163,9 @@ function wardChartSettings(ctx, currentWard, keys, values) {
           labels: {
             title: {
               color: "black",
-              align: "top",
+              align: 260, // slight top-left; 3 dig values arent cropped out
               offset: 3,
+              display: (context) => {return (values.length - context.dataIndex) % 2}
             },
           },
         },
