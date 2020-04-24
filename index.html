@@ -239,37 +239,34 @@
         </div>
       </div>
 
-      <!-- @Rahul uncomment this once you complete this part -->
-
       <div class="row">
-        <div class="col-sm card">
-          <h4>検査実施件数</h4>
-          <hr />
-          <div class="row">
-            <div class="col-sm-4 offset-sm-4">
-              <select class="form-control" id="testsChartSelect">
-                <option value="testsPerDay">daily tests</option>
-                <option value="cumulativeTests">cumulative tests</option>
-                <option value="casesPerDay">daily cases</option>
-                <option value="deathsPerDay">daily deaths</option>
-              </select>
+        <div class="col-md">
+          <div class="card">
+            <h4>検査実施件数</h4>
+            <hr />
+            
+            <div style="width: 100%">
+              <div style="width: 200px; margin: 0 auto">
+                <select class="form-control" id="testsChartSelect">
+                  <option value="testsPerDay">daily tests</option>
+                  <!--option value="cumulativeTests">cumulative tests</option-->
+                  <option value="casesPerDay">daily cases</option>
+                  <option value="deathsPerDay">daily deaths</option>
+                </select>
+              </div>
             </div>
-          </div>
+              
 
-          <div class="row">
-            <div class="col-sm">
-              <canvas
-                id="totalTestedChart"
-                style="width: 100vh;"
-                width="50"
-                height="25"
-              ></canvas>
+            
+            <div style="min-height: 330px; padding: 0 30px;">
+              <canvas id="dailyChart" width="50vh"></canvas>
             </div>
+            
           </div>
         </div>
       </div>
 
-      <div class="row" style="margin-top: 30px;">
+      <div class="row">
         <div class="col">
           <div class="card">
             <h4 id="newsLabel">最新のニュース</h4>

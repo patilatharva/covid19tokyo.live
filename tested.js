@@ -56,7 +56,7 @@ var testedChart;
 
 // function called to actually plot the graph
 const plotChart = (labels, dataset) => {
-  var ctx = document.getElementById("totalTestedChart").getContext("2d");
+  var ctx = document.getElementById("dailyChart").getContext("2d");
 
   // destroy previous instance of chart to prevent glitching
   if (testedChart) testedChart.destroy();
@@ -86,6 +86,7 @@ const plotChart = (labels, dataset) => {
         responsive: true,
         maintainAspectRatio: false,
       },
+      maintainAspectRatio: false,
       tooltips: {
         mode: "index",
         intersect: false,
@@ -101,11 +102,6 @@ const plotChart = (labels, dataset) => {
         padding: 10,
       },
       scales: {
-        xAxes: [
-          {
-            position: "top",
-          },
-        ],
         yAxes: [
           {
             ticks: {
