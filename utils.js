@@ -112,9 +112,9 @@ function onWardSelect(id) {
     }
 }
 
-function initializeOptions(selectId, geo, lang='ward_ja') {
+function initializeOptions(selectId, geo) {
     for (var ward of geo['features']) {
-        var name = ward.properties[lang];
+        var name = ward.properties[lang.wardLang];
         var id = ward.properties.code;
 
         $(selectId).append($('<option>', {

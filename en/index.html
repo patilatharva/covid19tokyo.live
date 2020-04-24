@@ -1,6 +1,386 @@
-<html>
-    <head><title>test</title></head>
-    <body>
-        hello world
-    </body>
+<!DOCTYPE html lang="en_us">
+<html lang="en_us">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-163974178-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-163974178-1");
+    </script>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="content-language" content="ja" />
+    <meta
+      name="keywords"
+      content="coronavirus,tokyo,covid-19,wards,districts,cases,news,confirmed,tracker"
+    />
+    <meta
+      name="description"
+      content="A dashboard to visualize and understand the trends of the COVID-19 outbreak in Tokyo, Japan"
+    />
+    <title>Tokyo Coronavirus (COVID-19) Tracker</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link rel="alternate" hreflang="ja" href="https://covid19tokyo.live" />
+    <link rel="icon" type="image/png" href="images/tokyo-tower.png" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c3981e614250012f3b658&product=inline-share-buttons"
+      async="async"
+    ></script>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"
+    ></script>
+    <div class="container">
+      <header>
+        <div class="row">
+          <div class="col">
+            <h1 id="title">
+              Tokyo Coronavirus Tracker
+            </h1>
+            <div>
+              <span id="lastUpdatedLabel">Last updated:</span>&nbsp;
+              <span id="lastUpdated"></span>
+            </div>
+            <div style="margin-top: 5px;">
+              <button id="ja" type="button" class="btn btn-link">
+                日本語
+              </button>
+              |
+              <button id="en_us" type="button" class="btn btn-link" disabled>
+                English
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div id="overall-info" class="row">
+        <div class="col-md-5">
+          <div class="card">
+            <h4 id="summary">Summary</h4>
+            <hr />
+            <div style="display: table; width: 100%; padding: 0 20px;">
+              <div class="align-middle">
+                <div class="row">
+                  <div id="active" class="summary col-sm">
+                    <b id="activeLabel">Active</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div>
+                  <div id="confirmed" class="summary col-sm">
+                    <b id="confirmedLabel">Confirmed</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="recovered" class="summary col-sm">
+                    <b id="recoveredLabel">Recoveries</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div>
+                  <div id="deaths" class="summary col-sm">
+                    <b id="deathsLabel">Deaths</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div>
+                  <!--div id="critical" class="summary col-sm">
+                    <b>Critical</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div-->
+                </div>
+                <div class="row">
+                  <div id="tested" class="summary col-sm">
+                    <b id="testedLabel">Tested</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div>
+                  <div id="tests" class="summary col-sm">
+                    <b id="testsLabel">Tests</b>
+                    <div class="h5"></div>
+                    <span class="new"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="card" style="height: 100%; min-height: 400px;">
+            <h4 id="latestTrends">Latest trends</h4>
+            <hr />
+            <div style="min-height: 330px; padding: 0 30px;">
+              <canvas id="totalCasesChart" width="50vh"></canvas>
+            </div>
+            <div>療養期間経過を含む</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="ward-info col">
+          <div class="section">
+            <h4 id="outbreakMapLabel">Outbreak Map</h4>
+            <hr />
+            <div class="row" style="min-height: 450px;">
+              <div class="col-md-7" style="margin-top: 30px;">
+                <div id="map-container">
+                  <div id="legend" class="row">
+                    <div class="col-sm">
+                      <span id="first">▉</span>
+                      0-10
+                    </div>
+                    <div class="col-sm">
+                      <span id="second">▉</span>
+                      10-50
+                    </div>
+                    <div class="col-sm">
+                      <span id="third">▉</span>
+                      50-100
+                    </div>
+                    <div class="col-sm">
+                      <span id="fourth">▉</span>
+                      100+
+                    </div>
+                  </div>
+                  <div id="map"></div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <center>
+                  <select
+                    id="ward-picker"
+                    class="selectpicker"
+                    data-live-search="true"
+                    title="Search"
+                    onchange="onWardSelect(this.value)"
+                    data-size="15"
+                  >
+                  </select>
+                </center>
+                <div id="ward-chart-container">
+                  <canvas id="wardHistoryChart" width="50vh"></canvas>
+                  <div id="placeholder">
+                    <span id="selectLabel" class="align-middle"
+                      >Select a ward</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md">
+          <div class="card">
+            <h4 id="dailyNums">Daily Numbers</h4>
+            <hr />
+            
+            <div style="width: 100%">
+              <div style="width: 200px; margin: 0 auto">
+                <select class="form-control" id="dailyChartSelect">
+                  <!--option value="cumulativeTests">cumulative tests</option-->
+                  <option id="dailyCases" value="casesPerDay">New cases per day</option>
+                  <option id="dailyDeaths" value="deathsPerDay">New deaths per day</option>
+                  <option id="dailyTests" value="testsPerDay">New tests per day</option>
+                </select>
+              </div>
+            </div>
+            <div style="min-height: 330px; padding: 0 30px;">
+              <canvas id="dailyChart" width="50vh"></canvas>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md">
+          <div class="card" style="height: fit-content;">
+            <h4 id="ageGenderLabel">By Age and Gender</h4>
+            <hr />
+            <div style="padding: 0 30px;">
+              <canvas
+                id="ageGenderChart"
+                width="50vh"
+                style="height: 310px;"
+              ></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card" style="padding-bottom: 10px;">
+            <h4 id="confirmedByWard">Confirmed Cases by Ward</h4>
+            <hr />
+            <div
+              class="div"
+              style="
+                max-height: 320px;
+                overflow: scroll;
+                padding-right: 20px;
+                /*border-bottom: 1px solid rgba(0, 0, 0, 0.2);*/
+              "
+            >
+              <canvas id="allWardCasesChart" width="300" height="1000"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <h4 id="newsLabel">News</h4>
+            <hr />
+            <div class="row">
+              <div class="col-sm newsItem">
+                <div id="newsItem1">
+                  <span class="newsDate"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm newsItem">
+                <div id="newsItem2">
+                  <span class="newsDate"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm newsItem">
+                <div id="newsItem3">
+                  <span class="newsDate"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <h4>About</h4>
+            <hr />
+            <p>
+              <span id="staySafe"
+                >Stay safe and informed with real-time data from <b>covid19tokyo.live</b>.</span
+              >
+            </p>
+            <div
+              class="sharethis-inline-share-buttons"
+              style="margin: 10px 0 20px 30px;"
+            ></div>
+
+            <p>
+              <span id="aboutLabel"
+                >This website was created by three college students to better visualize and understand the trends of the COVID-19 outbreak in Tokyo, Japan.</span
+              >
+              <br /><br />
+              <b>Credit</b><br />
+              Atharva Patil · Rahul Joshi · Yoshiki Yarlagadda
+              <br /><br />
+
+              <b>Contact</b><br />
+              <a target="_blank" href="https://twitter.com/atharvap4til"
+                >@atharvap4til</a
+              >&emsp;
+              <a target="_blank" href="https://twitter.com/joshi__rahul"
+                >@joshi__rahul</a
+              >
+              <br /><br />
+              <b id="dataSources">Data Sources</b> <br />
+              <a
+                id="fukushiUpdates"
+                target="_blank"
+                href="https://www.fukushihoken.metro.tokyo.lg.jp/hodo/index.html"
+                >Press releases from the Bureau of Social Welfare and Public Health, Tokyo Metro. Govt.</a
+              >
+              ＆
+              <a
+                id="openData"
+                target="_blank"
+                href="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068"
+                >Tokyo Open Data</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+    <!--script src="news.json"></script-->
+    <script src="../utils.js"></script>
+    <script src="../translate.js"></script>
+    <script>
+        var lang = en_us;
+    </script>
+    <script src="../tokyo.min.js"></script>
+    <script src="../cases.js"></script>
+    <script src="../deaths.js"></script>
+    <script src="../discharged.js"></script>
+    <script src="../chart.js"></script>
+    <script src="../index.js"></script>
+    <script src="../summary.js"></script>
+
+    <script src="../news.js"></script>
+    <script src="../daily.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+    <script>
+        //translate(en_us);
+    </script>
+  </body>
 </html>

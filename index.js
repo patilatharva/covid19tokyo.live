@@ -54,19 +54,16 @@ map.on("load", function () {
         // format our geojson's id
         districts[i]["id"] = districts[i]["properties"]["code"];
 
-        var ward_ja = districts[i]["properties"]["ward_ja"];
-        var ward_en = districts[i]["properties"]["ward_en"];
+        var ward = districts[i]["properties"][lang.wardLang];
         var center = api_districts[j]["geometry"]["coordinates"];
 
         // label name
-        var label_ja = ward_ja.split(" ")[0] + "\n" + districts[i]["properties"]["cases"];
-        var label_en = ward_en.split(" ")[0] + "\n" + districts[i]["properties"]["cases"];
+        var label = ward.split(" ")[0] + "\n" + districts[i]["properties"]["cases"];
 
         labels["features"].push({
           type: "Feature",
           properties: {
-            label_ja: label_ja,
-            label_en: label_en
+            label_ja: label,
           },
           geometry: {
             type: "Point",
@@ -76,9 +73,6 @@ map.on("load", function () {
         break;
       }
     }
-
-    districts[i]["properties"]["chart_ja"] = districts[i]["properties"]["ward_ja"] + "の感染者数";
-    districts[i]["properties"]["chart_en"] = "Confirmed cases in " + districts[i]["properties"]["ward_en"];
   }
 
  initializeOptions("#ward-picker", tokyo);

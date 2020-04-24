@@ -68,8 +68,7 @@ var ja = {
     'dailyTests': '新規検査件数'
 };
 
-var lang = ja;
-
+/*
 function translate(newLang) {
     lang = newLang;
 
@@ -122,15 +121,12 @@ function translate(newLang) {
         title: lang.searchWard
       }).selectpicker('refresh');
 }
+*/
 
 $('#en_us').click(function(){
-    $('#ja').attr("disabled", false);
-    $('#en_us').attr("disabled", true);
-    translate(en_us);
+  window.location.href='./en/index.html'
 });
 
 $('#ja').click(function(){
-    $('#en_us').attr("disabled", false);
-    $('#ja').attr("disabled", true);
-    translate(ja);
+  window.location.href='../index.html'
 });

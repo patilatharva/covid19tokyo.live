@@ -181,28 +181,28 @@ function plotOverallChart(data) {
       labels: dates,
       datasets: [
         {
-          label: "感染者",
+          label: lang.confirmedLabel,
           data: cases.slice(cases.length - 60),
           borderColor: "rgba(255, 7, 57, 0.8)",
           fill: false,
         },
 
         {
-          label: "現在患者数",
+          label: lang.activeLabel,
           data: active.slice(active.length - 60),
           borderColor: "rgba(0, 123, 255, 0.8)",
           fill: false,
         },
 
         {
-          label: "回復者",
+          label: lang.recoveredLabel,
           data: recovered.slice(recovered.length - 60),
           borderColor: "rgba(40, 167, 69, 0.8)",
           fill: false,
         },
 
         {
-          label: "死亡者",
+          label: lang.deathsLabel,
           data: deaths.slice(deaths.length - 60),
           borderColor: "rgba(108, 117, 125, 0.8)",
           fill: false,
@@ -301,7 +301,7 @@ const drawAgeGenderChart = (data) => {
     }
   }
 
-  var labels = getAgeGroups("代");
+  var labels = getAgeGroups(lang.agePostfix);
 
   var ctx = document.getElementById("ageGenderChart").getContext("2d");
 
@@ -311,14 +311,14 @@ const drawAgeGenderChart = (data) => {
       labels: labels,
       datasets: [
         {
-          label: "男性",
+          label: lang.male,
           data: males,
           borderColor: "rgba(0, 123, 255, 1)",
           backgroundColor: "rgba(0, 123, 255, 0.5)",
           borderWidth: 1,
         },
         {
-          label: "女性",
+          label: lang.female,
           data: females,
           borderColor: "rgba(255, 7, 58, 1)",
           backgroundColor: "rgba(255, 7, 58, 0.5)",
