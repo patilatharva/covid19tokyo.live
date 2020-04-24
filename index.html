@@ -90,7 +90,7 @@
 
       <div id="overall-info" class="row">
         <div class="col-md-5">
-          <div class="card">
+          <div class="card" style="padding: 0;">
             <h4 id="summary">現在の状況</h4>
             <hr />
             <div style="display: table; width: 100%; padding: 0 20px;">
@@ -109,7 +109,7 @@
                 </div>
                 <div class="row">
                   <div id="recovered" class="summary col-sm">
-                    <b id="recoveredLabel">回復者数</b>
+                    <b id="recoveredLabel">退院者数</b>
                     <div class="h5"></div>
                     <span class="new"></span>
                   </div>
@@ -138,6 +138,12 @@
                 </div>
               </div>
             </div>
+            <div class="footnote">
+              <ul>
+                  <li>現在患者数 = 感染者数 - 退院者数 - 死亡者数</li>
+                  <li>退院者数は死亡退院を含まない</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="col-md-7">
@@ -147,7 +153,11 @@
             <div style="min-height: 330px; padding: 0 30px;">
               <canvas id="totalCasesChart" width="50vh"></canvas>
             </div>
-            <div>療養期間経過を含む</div>
+            <div class="footnote">
+              <ul>
+                  <li>4月19日以降の退院者数は療養期間経過を含む</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

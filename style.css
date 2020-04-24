@@ -79,6 +79,12 @@ h4 {
   display: table-cell;
 }
 
+.footnote {
+  padding: 20px 15px;
+  font-size: 11px;
+  color: #777;
+}
+
 #map-container {
   /*min-width: 350px;*/
   min-height: 360px;

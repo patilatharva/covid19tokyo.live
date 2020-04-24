@@ -39,7 +39,7 @@ var ja = {
     'summary': '現在の状況',
     'activeLabel': '現在患者数',
     'confirmedLabel': '感染者数',
-    'recoveredLabel': '回復者数',
+    'recoveredLabel': '退院者数',
     'deathsLabel': '死亡者数',
     'testedLabel': '検査実施人数',
     'testsLabel': '検査実施件数',

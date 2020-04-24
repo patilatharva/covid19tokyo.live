@@ -88,7 +88,7 @@
 
       <div id="overall-info" class="row">
         <div class="col-md-5">
-          <div class="card">
+          <div class="card" style="padding: 0;">
             <h4 id="summary">Summary</h4>
             <hr />
             <div style="display: table; width: 100%; padding: 0 20px;">
@@ -136,6 +136,12 @@
                 </div>
               </div>
             </div>
+            <div class="footnote">
+                <ul>
+                    <li>Active = Confirmed - Recovered - Deaths</li>
+                    <li>Recoveries do not include deaths</li>
+                </ul>
+            </div>
           </div>
         </div>
         <div class="col-md-7">
@@ -145,7 +151,11 @@
             <div style="min-height: 330px; padding: 0 30px;">
               <canvas id="totalCasesChart" width="50vh"></canvas>
             </div>
-            <div>療養期間経過を含む</div>
+            <div class="footnote">
+                <ul>
+                    <li>Recoveries reported April 19 onwards include recoveries through self-quarantine.</li>
+                </ul>
+            </div>
           </div>
         </div>
       </div>
