@@ -30,7 +30,7 @@ var en_us = {
     'staySafe': 'Stay safe and informed with real-time analytics from <b>covid19tokyo.live</b>.',
     'dailyCases': 'New cases per day',
     'dailyDeaths': 'New deaths per day',
-    'dailyTests': 'New tests per day'
+    'dailyTests': 'New tests per day',
 };
 
 var ja = {

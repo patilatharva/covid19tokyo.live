@@ -1,5 +1,22 @@
 function parseData(data) {
-  var lastUpdated = data["lastUpdate"];
+  var lastUpdatedDate = new Date(data["lastUpdate"]);
+  var today = new Date();
+  var minutesSinceUpdate = Math.round((today - lastUpdatedDate) / (60 * 1000));
+
+  var lastUpdated = "";
+  if (minutesSinceUpdate < 60) {
+    if (lang == ja) {
+      lastUpdated = "約" + minutesSinceUpdate + "分前";
+    } else {
+      lastUpdated = "around " + minutesSinceUpdate + " minutes ago";
+    }
+  } else {
+    if (lang == ja) {
+      lastUpdated = "約" + Math.round(minutesSinceUpdate/60) + "時間前";
+    } else {
+      lastUpdated = "around " + Math.round(minutesSinceUpdate/60) + " hours ago";
+    }
+  }
 
   var confirmed = data["main_summary"]["children"][0]["value"];
   var confirmedNew =
