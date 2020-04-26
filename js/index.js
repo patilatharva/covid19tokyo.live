@@ -93,10 +93,10 @@ map.on("load", function () {
         property: "cases",
         stops: [
           [0, "#ffffb2"],
-          [10, "#fecc5c"],
-          [50, "#fd8d3c"],
-          [100, "#e31a1c"],
-          [200, "#bd0026"],
+          [50, "#fecc5c"],
+          [100, "#fd8d3c"],
+          [200, "#e31a1c"],
+          [300, "#bd0026"],
         ],
       },
       "fill-opacity": [
