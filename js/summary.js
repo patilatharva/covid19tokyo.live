@@ -46,8 +46,8 @@ function parseData(data) {
   }
   */
 
-  var active = confirmed - recovered - deaths;
-  var activeNew = confirmedNew - recoveredNew - deathsNew;
+  var active = confirmed - discharged - deaths;
+  var activeNew = confirmedNew - dischargedNew - deathsNew;
 
   var tested = data["inspection_status_summary"]["value"];
   var testedNew =
