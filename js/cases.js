@@ -49134,6 +49134,1494 @@ var cases = {
         "Column9" : null, 
         "FID" : 1116
       }
+    },
+    {
+      "type" : "Feature", 
+      "id" : 1055, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.753586, 35.694041
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13101, 
+        "団体名" : "千代田区", 
+        "公表日" : 1588518000000, 
+        "件数" : 30, 
+        "経度" : 139.753586, 
+        "緯度" : 35.694041, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1055
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1056, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.772108, 35.670711
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13102, 
+        "団体名" : "中央区", 
+        "公表日" : 1588518000000, 
+        "件数" : 89, 
+        "経度" : 139.772108, 
+        "緯度" : 35.670711, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1056
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1057, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.751405, 35.658073
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13103, 
+        "団体名" : "港区", 
+        "公表日" : 1588518000000, 
+        "件数" : 285, 
+        "経度" : 139.751405, 
+        "緯度" : 35.658073, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1057
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1058, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.70341, 35.693887
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13104, 
+        "団体名" : "新宿区", 
+        "公表日" : 1588518000000, 
+        "件数" : 329, 
+        "経度" : 139.70341, 
+        "緯度" : 35.693887, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1058
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1059, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.752216, 35.708053
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13105, 
+        "団体名" : "文京区", 
+        "公表日" : 1588518000000, 
+        "件数" : 63, 
+        "経度" : 139.752216, 
+        "緯度" : 35.708053, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1059
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1060, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.779998, 35.712607
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13106, 
+        "団体名" : "台東区", 
+        "公表日" : 1588518000000, 
+        "件数" : 75, 
+        "経度" : 139.779998, 
+        "緯度" : 35.712607, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1060
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1061, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.80156, 35.710407
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13107, 
+        "団体名" : "墨田区", 
+        "公表日" : 1588518000000, 
+        "件数" : 116, 
+        "経度" : 139.80156, 
+        "緯度" : 35.710407, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1061
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1062, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.816968, 35.673078
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13108, 
+        "団体名" : "江東区", 
+        "公表日" : 1588518000000, 
+        "件数" : 126, 
+        "経度" : 139.816968, 
+        "緯度" : 35.673078, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1062
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1063, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.730308, 35.608906
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13109, 
+        "団体名" : "品川区", 
+        "公表日" : 1588518000000, 
+        "件数" : 174, 
+        "経度" : 139.730308, 
+        "緯度" : 35.608906, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1063
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1064, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.698188, 35.641418
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13110, 
+        "団体名" : "目黒区", 
+        "公表日" : 1588518000000, 
+        "件数" : 128, 
+        "経度" : 139.698188, 
+        "緯度" : 35.641418, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1064
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1065, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.716047, 35.5614
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13111, 
+        "団体名" : "大田区", 
+        "公表日" : 1588518000000, 
+        "件数" : 191, 
+        "経度" : 139.716047, 
+        "緯度" : 35.5614, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1065
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1066, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.653249, 35.646575
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13112, 
+        "団体名" : "世田谷区", 
+        "公表日" : 1588518000000, 
+        "件数" : 406, 
+        "経度" : 139.653249, 
+        "緯度" : 35.646575, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1066
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1067, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.697701, 35.663685
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13113, 
+        "団体名" : "渋谷区", 
+        "公表日" : 1588518000000, 
+        "件数" : 160, 
+        "経度" : 139.697701, 
+        "緯度" : 35.663685, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1067
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1068, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.663838, 35.707398
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13114, 
+        "団体名" : "中野区", 
+        "公表日" : 1588518000000, 
+        "件数" : 166, 
+        "経度" : 139.663838, 
+        "緯度" : 35.707398, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1068
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1069, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.636385, 35.699574
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13115, 
+        "団体名" : "杉並区", 
+        "公表日" : 1588518000000, 
+        "件数" : 202, 
+        "経度" : 139.636385, 
+        "緯度" : 35.699574, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1069
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1070, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.716608, 35.726117
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13116, 
+        "団体名" : "豊島区", 
+        "公表日" : 1588518000000, 
+        "件数" : 124, 
+        "経度" : 139.716608, 
+        "緯度" : 35.726117, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1070
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1071, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.734018, 35.751164
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13117, 
+        "団体名" : "北区", 
+        "公表日" : 1588518000000, 
+        "件数" : 75, 
+        "経度" : 139.734018, 
+        "緯度" : 35.751164, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1071
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1072, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.783336, 35.736144
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13118, 
+        "団体名" : "荒川区", 
+        "公表日" : 1588518000000, 
+        "件数" : 45, 
+        "経度" : 139.783336, 
+        "緯度" : 35.736144, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1072
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1073, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.709246, 35.751164
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13119, 
+        "団体名" : "板橋区", 
+        "公表日" : 1588518000000, 
+        "件数" : 97, 
+        "経度" : 139.709246, 
+        "緯度" : 35.751164, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1073
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1074, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.65166, 35.735623
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13120, 
+        "団体名" : "練馬区", 
+        "公表日" : 1588518000000, 
+        "件数" : 187, 
+        "経度" : 139.65166, 
+        "緯度" : 35.735623, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1074
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1075, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.804501, 35.775633
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13121, 
+        "団体名" : "足立区", 
+        "公表日" : 1588518000000, 
+        "件数" : 112, 
+        "経度" : 139.804501, 
+        "緯度" : 35.775633, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1075
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1076, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.847221, 35.743494
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13122, 
+        "団体名" : "葛飾区", 
+        "公表日" : 1588518000000, 
+        "件数" : 109, 
+        "経度" : 139.847221, 
+        "緯度" : 35.743494, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1076
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1077, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.868326, 35.706978
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13123, 
+        "団体名" : "江戸川区", 
+        "公表日" : 1588518000000, 
+        "件数" : 121, 
+        "経度" : 139.868326, 
+        "緯度" : 35.706978, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1077
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1078, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.315805, 35.666342
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13201, 
+        "団体名" : "八王子市", 
+        "公表日" : 1588518000000, 
+        "件数" : 41, 
+        "経度" : 139.315805, 
+        "緯度" : 35.666342, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1078
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1079, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.407846, 35.714016
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13202, 
+        "団体名" : "立川市", 
+        "公表日" : 1588518000000, 
+        "件数" : 13, 
+        "経度" : 139.407846, 
+        "緯度" : 35.714016, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1079
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1080, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.56626, 35.717784
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13203, 
+        "団体名" : "武蔵野市", 
+        "公表日" : 1588518000000, 
+        "件数" : 16, 
+        "経度" : 139.56626, 
+        "緯度" : 35.717784, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1080
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1081, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.559723, 35.683276
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13204, 
+        "団体名" : "三鷹市", 
+        "公表日" : 1588518000000, 
+        "件数" : 27, 
+        "経度" : 139.559723, 
+        "緯度" : 35.683276, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1081
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1082, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.275791, 35.78799
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13205, 
+        "団体名" : "青梅市", 
+        "公表日" : 1588518000000, 
+        "件数" : 3, 
+        "経度" : 139.275791, 
+        "緯度" : 35.78799, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1082
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1083, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.477611, 35.669184
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13206, 
+        "団体名" : "府中市", 
+        "公表日" : 1588518000000, 
+        "件数" : 66, 
+        "経度" : 139.477611, 
+        "緯度" : 35.669184, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1083
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1084, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.353548, 35.705755
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13207, 
+        "団体名" : "昭島市", 
+        "公表日" : 1588518000000, 
+        "件数" : 8, 
+        "経度" : 139.353548, 
+        "緯度" : 35.705755, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1084
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1085, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.540993, 35.650716
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13208, 
+        "団体名" : "調布市", 
+        "公表日" : 1588518000000, 
+        "件数" : 35, 
+        "経度" : 139.540993, 
+        "緯度" : 35.650716, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1085
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1086, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.438618, 35.54663
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13209, 
+        "団体名" : "町田市", 
+        "公表日" : 1588518000000, 
+        "件数" : 45, 
+        "経度" : 139.438618, 
+        "緯度" : 35.54663, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1086
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1087, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.502996, 35.699465
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13210, 
+        "団体名" : "小金井市", 
+        "公表日" : 1588518000000, 
+        "件数" : 14, 
+        "経度" : 139.502996, 
+        "緯度" : 35.699465, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1087
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1088, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.477522, 35.728433
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13211, 
+        "団体名" : "小平市", 
+        "公表日" : 1588518000000, 
+        "件数" : 16, 
+        "経度" : 139.477522, 
+        "緯度" : 35.728433, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1088
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1089, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.394862, 35.671448
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13212, 
+        "団体名" : "日野市", 
+        "公表日" : 1588518000000, 
+        "件数" : 18, 
+        "経度" : 139.394862, 
+        "緯度" : 35.671448, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1089
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1090, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.4683, 35.754566
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13213, 
+        "団体名" : "東村山市", 
+        "公表日" : 1588518000000, 
+        "件数" : 10, 
+        "経度" : 139.4683, 
+        "緯度" : 35.754566, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1090
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1091, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.463188, 35.71034
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13214, 
+        "団体名" : "国分寺市", 
+        "公表日" : 1588518000000, 
+        "件数" : 11, 
+        "経度" : 139.463188, 
+        "緯度" : 35.71034, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1091
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1092, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.441383, 35.683884
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13215, 
+        "団体名" : "国立市", 
+        "公表日" : 1588518000000, 
+        "件数" : 6, 
+        "経度" : 139.441383, 
+        "緯度" : 35.683884, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1092
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1093, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.326688, 35.738747
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13218, 
+        "団体名" : "福生市", 
+        "公表日" : 1588518000000, 
+        "件数" : 1, 
+        "経度" : 139.326688, 
+        "緯度" : 35.738747, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1093
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1094, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.578718, 35.63498
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13219, 
+        "団体名" : "狛江市", 
+        "公表日" : 1588518000000, 
+        "件数" : 17, 
+        "経度" : 139.578718, 
+        "緯度" : 35.63498, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1094
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1095, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.426473, 35.745357
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13220, 
+        "団体名" : "東大和市", 
+        "公表日" : 1588518000000, 
+        "件数" : 6, 
+        "経度" : 139.426473, 
+        "緯度" : 35.745357, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1095
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1096, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.526441, 35.78575
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13221, 
+        "団体名" : "清瀬市", 
+        "公表日" : 1588518000000, 
+        "件数" : 11, 
+        "経度" : 139.526441, 
+        "緯度" : 35.78575, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1096
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1097, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.529853, 35.758159
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13222, 
+        "団体名" : "東久留米市", 
+        "公表日" : 1588518000000, 
+        "件数" : 12, 
+        "経度" : 139.529853, 
+        "緯度" : 35.758159, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1097
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1098, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.387402, 35.754861
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13223, 
+        "団体名" : "武蔵村山市", 
+        "公表日" : 1588518000000, 
+        "件数" : 2, 
+        "経度" : 139.387402, 
+        "緯度" : 35.754861, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1098
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1099, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.446284, 35.637031
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13224, 
+        "団体名" : "多摩市", 
+        "公表日" : 1588518000000, 
+        "件数" : 29, 
+        "経度" : 139.446284, 
+        "緯度" : 35.637031, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1099
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1100, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.504566, 35.637926
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13225, 
+        "団体名" : "稲城市", 
+        "公表日" : 1588518000000, 
+        "件数" : 10, 
+        "経度" : 139.504566, 
+        "緯度" : 35.637926, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1100
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1101, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.311016, 35.767138
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13227, 
+        "団体名" : "羽村市", 
+        "公表日" : 1588518000000, 
+        "件数" : 5, 
+        "経度" : 139.311016, 
+        "緯度" : 35.767138, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1101
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1102, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.293697, 35.728898
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13228, 
+        "団体名" : "あきる野市", 
+        "公表日" : 1588518000000, 
+        "件数" : 7, 
+        "経度" : 139.293697, 
+        "緯度" : 35.728898, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1102
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1103, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.538145, 35.725515
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13229, 
+        "団体名" : "西東京市", 
+        "公表日" : 1588518000000, 
+        "件数" : 36, 
+        "経度" : 139.538145, 
+        "緯度" : 35.725515, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1103
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1104, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.353848, 35.772036
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13303, 
+        "団体名" : "瑞穂町", 
+        "公表日" : 1588518000000, 
+        "件数" : 1, 
+        "経度" : 139.353848, 
+        "緯度" : 35.772036, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1104
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1105, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.257444, 35.742145
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13305, 
+        "団体名" : "日の出町", 
+        "公表日" : 1588518000000, 
+        "件数" : null, 
+        "経度" : 139.257444, 
+        "緯度" : 35.742145, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1105
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1106, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.148866, 35.726839
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13307, 
+        "団体名" : "檜原村", 
+        "公表日" : 1588518000000, 
+        "件数" : null, 
+        "経度" : 139.148866, 
+        "緯度" : 35.726839, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1106
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1107, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.096199, 35.809546
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13308, 
+        "団体名" : "奥多摩町", 
+        "公表日" : 1588518000000, 
+        "件数" : null, 
+        "経度" : 139.096199, 
+        "緯度" : 35.809546, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1107
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1108, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.099702, 36.380425
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13361, 
+        "団体名" : "大島町", 
+        "公表日" : 1588518000000, 
+        "件数" : null, 
+        "経度" : 139.099702, 
+        "緯度" : 36.380425, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1108
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1109, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.281948, 34.529138
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13362, 
+        "団体名" : "利島村", 
+        "公表日" : 1588518000000, 
+        "件数" : null, 
+        "経度" : 139.281948, 
+        "緯度" : 34.529138, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1109
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1110, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.256574, 34.377137
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13363, 
+        "団体名" : "新島村", 
+        "公表日" : 1588518000000, 
+        "件数" : null, 
+        "経度" : 139.256574, 
+        "緯度" : 34.377137, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1110
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1111, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.134258, 34.205269
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13364, 
+        "団体名" : "神津島村", 
+        "公表日" : 1588518000000, 
+        "件数" : null, 
+        "経度" : 139.134258, 
+        "緯度" : 34.205269, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1111
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1112, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.479747, 34.075776
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13381, 
+        "団体名" : "三宅村", 
+        "公表日" : 1588518000000, 
+        "件数" : null, 
+        "経度" : 139.479747, 
+        "緯度" : 34.075776, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1112
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1113, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.596119, 33.897365
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13382, 
+        "団体名" : "御蔵島村", 
+        "公表日" : 1588518000000, 
+        "件数" : null, 
+        "経度" : 139.596119, 
+        "緯度" : 33.897365, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1113
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1114, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.789067, 33.112742
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13401, 
+        "団体名" : "八丈町", 
+        "公表日" : 1588518000000, 
+        "件数" : null, 
+        "経度" : 139.789067, 
+        "緯度" : 33.112742, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1114
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1115, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          139.763314, 32.466459
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13402, 
+        "団体名" : "青ヶ島村", 
+        "公表日" : 1588518000000, 
+        "件数" : null, 
+        "経度" : 139.763314, 
+        "緯度" : 32.466459, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1115
+      }
+    }, 
+    {
+      "type" : "Feature", 
+      "id" : 1116, 
+      "geometry" : 
+      {
+        "type" : "Point", 
+        "coordinates" : [
+          142.191907, 27.094358
+        ]
+      }, 
+      "properties" : {
+        "自治体コード" : 13421, 
+        "団体名" : "小笠原村", 
+        "公表日" : 1588518000000, 
+        "件数" : null, 
+        "経度" : 142.191907, 
+        "緯度" : 27.094358, 
+        "Column6" : null, 
+        "Column7" : null, 
+        "Column8" : null, 
+        "Column9" : null, 
+        "FID" : 1116
+      }
     }
   ]
 }
