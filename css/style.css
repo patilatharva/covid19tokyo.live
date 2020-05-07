@@ -242,3 +242,22 @@ h4 {
 #wardHistoryChart {
   display: none;
 }
+
+#supported-by {
+  margin: 10px 0;
+  text-align: center;
+  color: #606368;
+}
+
+#supported-by a:hover {
+  text-decoration: none;
+}
+
+#supported-by img {
+  height: 25px;
+  margin-left: 3px;
+}
+
+#mapbox-logo {
+  vertical-align: text-top;
+}
