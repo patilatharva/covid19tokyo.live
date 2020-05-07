@@ -147,21 +147,38 @@
               </div>
             </div>
             <div class="footnote">
-              <ul>
-                <li>Active = Confirmed - Recovered - Deaths</li>
-                <li>Number of discharges does not include deaths.</li>
-                <li>
-                  Some people have been tested multiple times.
-                </li>
-              </ul>
+              <div class="accordion" id="footnote-acc">
+                <div class="card" style="box-shadow: none;">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Notes
+                      </button>
+                    </h2>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#footnote-acc">
+                    <div class="card-body">
+                      <ul>
+                        <li>Active = Confirmed - Recovered - Deaths</li>
+                        <li><b>Tested People</b> excludes examinations covered by insurance conducted at medical institutions.</li>
+                        <li>Insurance-covered testing data is updated on Fridays. Until then, testing data from Thursday to the following Wednesday will consist solely of insinsured tests.</li>
+                        <li>
+                          Some people have been tested multiple times.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-md-7">
-          <div class="card" style="height: 100%; min-height: 400px;">
+          <div class="card" style="height: fit-content; min-height: 400px;">
             <h4 id="latestTrends">Trends</h4>
             <hr />
-            <div style="min-height: 330px; padding: 0 30px;">
+            <div style="min-height: 338px; padding: 0 30px;">
               <canvas id="totalCasesChart" width="50vh"></canvas>
             </div>
             <div class="footnote">

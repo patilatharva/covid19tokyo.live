@@ -90,6 +90,7 @@ h4 {
 
 #overall-info .card {
   padding-bottom: 0;
+  overflow: hidden;
 }
 
 #overall-info .align-middle {
@@ -97,10 +98,29 @@ h4 {
 }
 
 .footnote {
-  padding: 20px 15px;
   font-size: 11px;
   color: #777;
-  height: 80px;
+  height: fit-content;
+  margin-top: 15px;
+}
+
+.footnote h2 {
+  text-align: center;
+}
+
+.footnote .card {
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.125);
+  border-radius: 0;
+}
+
+.footnote .card-header {
+  padding: 0;
+}
+
+.footnote .card-body {
+  padding-left: 0;
+  padding-bottom: 0;
 }
 
 #map-container {
