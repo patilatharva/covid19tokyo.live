@@ -133,11 +133,13 @@ function fillCards(summary) {
 
   $("#tested .h5").html(summary.tested);
   $("#tested .new").html(
-    "(" + sign(summary.testedNew) + summary.testedNew + ")"
+    "(" + sign(summary.testedNew) + summary.testedNew + ") <sup>*1</sup>"
   );
 
   $("#tests .h5").html(summary.tests);
-  $("#tests .new").html("(" + sign(summary.testsNew) + summary.testsNew + ")");
+  $("#tests .new").html(
+    "(" + sign(summary.testsNew) + summary.testsNew + ") <sup>*2</sup>"
+  );
 }
 
 function plotOverallChart(data) {
