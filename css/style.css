@@ -263,6 +263,17 @@ h4 {
   display: none;
 }
 
+#ward-list {
+  padding: 20px 20px 0 30px;
+  font-size: 12px;
+}
+
+#ward-list p {
+  padding: 0;
+}
+
+
+
 #supported-by {
   margin: 10px 0;
   text-align: center;
