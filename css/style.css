@@ -276,6 +276,14 @@ h4 {
   font-weight: bold;
 }
 
+#terms {
+  padding: 0 10px;
+}
+
+#terms b {
+  padding-left: 20px;
+}
+
 #supported-by {
   margin: 10px 0;
   text-align: center;
