@@ -272,7 +272,9 @@ h4 {
   padding: 0;
 }
 
-
+#ward-list h6 {
+  font-weight: bold;
+}
 
 #supported-by {
   margin: 10px 0;
