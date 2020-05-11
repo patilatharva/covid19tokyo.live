@@ -8,13 +8,13 @@ function parseData(data) {
     if (lang == ja) {
       lastUpdated = "約" + minutesSinceUpdate + "分前";
     } else {
-      lastUpdated = "approx. " + minutesSinceUpdate + " minutes ago";
+      lastUpdated = "around " + minutesSinceUpdate + " minutes ago";
     }
   } else {
     if (lang == ja) {
       lastUpdated = "約" + Math.round(minutesSinceUpdate/60) + "時間前";
     } else {
-      lastUpdated = "approx. " + Math.round(minutesSinceUpdate/60) + " hours ago";
+      lastUpdated = "around " + Math.round(minutesSinceUpdate/60) + " hours ago";
     }
   }
 
