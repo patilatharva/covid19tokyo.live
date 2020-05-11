@@ -290,13 +290,16 @@ h4 {
   color: #606368;
 }
 
+#supported-by a {
+  margin: 0 10px;
+}
+
 #supported-by a:hover {
   text-decoration: none;
 }
 
 #supported-by img {
   height: 25px;
-  margin-left: 3px;
 }
 
 #mapbox-logo {
