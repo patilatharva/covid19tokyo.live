@@ -276,6 +276,12 @@ h4 {
   font-weight: bold;
 }
 
+.linkedin {
+  display: inline-block;
+  margin-right: 30px;
+  margin-bottom: 10px;
+}
+
 #terms {
   padding: 0 10px;
 }
