@@ -28,6 +28,7 @@ const allWardsChart = () => {
     var ward = districtsData[i]["properties"]["団体名"];
     if (lang == en_us) {
       ward = toEnglish(ward);
+      ward = ward.replace(' ', '-');
     }
     //ward = ward.split(" ")[0];
     var num = districtsData[i]["properties"]["件数"] || 0;
