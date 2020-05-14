@@ -1,6 +1,8 @@
 export {drawWardChart};
 
-var stackedLine;
+// variable to store the latest ward chart instance
+// necessary to check if an existing ward chart needs to be destroyed
+var wardChart;
 
 const drawWardChart = (currentWard, history) => {
     var keys = Object.keys(history.history);
@@ -19,7 +21,7 @@ const drawWardChart = (currentWard, history) => {
   
     // line chart of cases over time of ward that cursor hovers over on the map.
     // if previous chart exists, destroy it
-    if (stackedLine) stackedLine.destroy();
+    if (wardChart) wardChart.destroy();
 
     if (lang == en_us) {
         var chartTitle =
@@ -36,7 +38,7 @@ const drawWardChart = (currentWard, history) => {
     blueGradient.addColorStop(0.8, "rgba(0, 123, 255, 0.2)");
     blueGradient.addColorStop(1, "rgba(0, 123, 255, 0.1)");
   
-    stackedLine = new Chart(
+    wardChart = new Chart(
       ctx,
       {
         type: "line",
@@ -64,7 +66,7 @@ const drawWardChart = (currentWard, history) => {
               labels: {
                 title: {
                   color: "black",
-                  align: 260, // slight top-left; 3 dig values arent cropped out
+                  align: 260, // slight top-lefts so that 3-digit values aren't cropped out
                   offset: 3,
                   display: (context) => {
                     return (values.length - context.dataIndex) % 2;
@@ -81,7 +83,7 @@ const drawWardChart = (currentWard, history) => {
           },
           title: {
             display: true,
-            text: chartTitle, //currentWard.properties[lang.wardChartLang], //
+            text: chartTitle, 
             fontColor: "#007bff",
           },
           elements: {
