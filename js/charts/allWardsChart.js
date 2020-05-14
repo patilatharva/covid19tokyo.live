@@ -1,4 +1,4 @@
-export const allWardsChart = (casesByWard) => {
+export const plotAllWardsChart = (casesByWard) => {
     var api_districts = casesByWard["features"];
     // Obtains data for the current date.
     var districtsData = api_districts.slice(api_districts.length - 62);

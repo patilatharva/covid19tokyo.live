@@ -1,42 +1,71 @@
-import {initializeMap, loadMapData, addWards, addLabels} from './drawMap.js';
-import {allWardsChart} from './charts/allWards.js';
+import {initializeMap, plotMapData, addWards, addLabels} from './drawMap.js';
+import {plotAllWardsChart} from './charts/allWardsChart.js';
 import {plotDailyChart, plotDailyChartHelper} from './charts/dailyChart.js';
 import {plotOverallChart} from './charts/overallChart.js';
 import {plotAgeGenderChart} from './charts/ageGenderChart.js';
-import {parseCoronaData, fillCards} from './summary.js';
+import {getTodaysData, fillCards} from './summary.js';
+import {initializeOptions} from './utils.js';
 
-var data = {};
-let url =
-  "https://raw.githubusercontent.com/tokyo-metropolitan-gov/covid19/master/data/data.json";
-//getJSON(url);
+var casesByWard, deaths, discharged;
 
-fetch(url)
-    .then(response => response.json())
-	.then(json => {
-		data = json;
-		plotOverallChart(json);
-	
-		data = parseCoronaData(json);
-		fillCards(data);
-		plotAgeGenderChart(json["patients"]);
-		plotDailyChart(json);
-		data = json;
-	});
+$(document).ready(function() {
+	let url =
+		"https://raw.githubusercontent.com/tokyo-metropolitan-gov/covid19/master/data/data.json";
+
+	fetch('../data/deaths.json')
+		.then(response => response.json())
+		.then(json => {
+			deaths = json;
+		});
+
+	fetch('../data/discharged.json')
+		.then(response => response.json())
+		.then(json => {
+			discharged = json;
+		});
+
+	fetch(url)
+		.then(response => response.json())
+		.then(json => {
+			plotOverallChart({
+				deaths: deaths,
+				discharged: discharged,
+				other: json
+			});
+
+			var latestData = getTodaysData({
+				summary: json,
+				deaths: deaths,
+				discharged: discharged,
+			});
+			fillCards(latestData);
+
+			plotAgeGenderChart(json["patients"]);
+			plotDailyChart({
+				summary: json,
+				deaths: deaths
+			});
+		});
 
 	fetch('../data/cases.json')
-    .then(response => response.json())
-	.then(json => {
-		var casesByWard = json;
-		allWardsChart(casesByWard);
+		.then(response => response.json())
+		.then(json => {
+			casesByWard = json;
+			plotAllWardsChart(casesByWard);
+		});
+
+	fetch('../data/tokyo.geojson')
+		.then(response => response.json())
+		.then(json => {
+			initializeOptions("#ward-picker", json);
+		});
+	
+
+	var map = initializeMap();
+	map.on("load", function () {
+		plotMapData(map, casesByWard);
 	});
-
-
-var map = initializeMap();
-
-map.on("load", function () {
-	loadMapData(map);
 });
-
 
 $("#dailyChartSelect").change(function () {
 	var item = $(this);
@@ -52,4 +81,12 @@ $("#dailyChartSelect").change(function () {
 	var labels = JSON.parse(localStorage.getItem("labels"));
 
 	plotDailyChartHelper(labels, data, type);
+});
+
+$('#en_us').click(function(){
+	window.location.href='https://covid19tokyo.live/en/'
+});
+  
+$('#ja').click(function(){
+	window.location.href='https://covid19tokyo.live/'
 });

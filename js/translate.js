@@ -22,7 +22,7 @@ var en_us = {
     'male': 'Male',
     'female': 'Female',
     'wardChartLang': 'chart_en',
-    'wardNameTranslator': toEnglish,
+    //'wardNameTranslator': toEnglish,
     'agePostfix': 's',
     'dailyNums': 'Daily Numbers',
     'mapLabels': 'label_en',
@@ -57,7 +57,7 @@ var ja = {
     'male': '男性',
     'female': '女性',
     'wardChartLang': 'chart_ja',
-    'wardNameTranslator': toJapanese,
+    //'wardNameTranslator': toJapanese,
     'agePostfix': '代',
     'dailyNums': '日別',
     'mapLabels': 'label_ja',
@@ -67,66 +67,3 @@ var ja = {
     'dailyDeaths': '新規死亡者数',
     'dailyTests': '新規検査件数'
 };
-
-/*
-function translate(newLang) {
-    lang = newLang;
-
-    let idList = Object.keys(lang);
-    for (var id of idList) {
-        $('#' + id).html(lang[id]);
-    }
-
-    myCharts.ageGender.data.datasets[0].label = lang.male;
-    myCharts.ageGender.data.datasets[1].label = lang.female;
-    myCharts.ageGender.data.labels = getAgeGroups(lang.agePostfix);
-    myCharts.ageGender.update();
-
-    myCharts.overall.data.datasets[0].label = lang.confirmedLabel;
-    myCharts.overall.data.datasets[1].label = lang.activeLabel;
-    myCharts.overall.data.datasets[2].label = lang.recoveredLabel;
-    myCharts.overall.data.datasets[3].label = lang.deathsLabel;
-    myCharts.overall.update();
-
-    myCharts.allWards.data.datasets[0].label = lang.confirmedLabel;
-    
-    myCharts.allWards.data.labels = myCharts.allWards.data.labels.map(label =>lang.wardNameTranslator(label));
-    myCharts.allWards.update();
-
-    $("#dailyChartSelect").change();
-
-    map.removeLayer('casesLabels');
-    map.addLayer({
-        id: 'casesLabels',
-        type: 'symbol',
-        source: 'labels',
-        layout: {
-          'text-field': ['get', lang.mapLabels],
-          'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
-          'text-radial-offset': 0,
-          'text-justify': 'center',
-          'text-size': 10,
-        },
-        paint: {
-          'text-halo-color': 'white',
-          'text-halo-width': 1.2,
-          'text-halo-blur': 0,
-        },
-      });
-
-      $('#ward-picker').empty();
-      initializeOptions('#ward-picker', tokyo, lang.wardLang)
-
-      $('#ward-picker').selectpicker({
-        title: lang.searchWard
-      }).selectpicker('refresh');
-}
-*/
-
-$('#en_us').click(function(){
-  window.location.href='https://covid19tokyo.live/en/'
-});
-
-$('#ja').click(function(){
-  window.location.href='https://covid19tokyo.live/'
-});

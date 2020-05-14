@@ -1,12 +1,16 @@
 export {plotDailyChart, plotDailyChartHelper};
 
 const plotDailyChart = (data) => {
-	var tokyoTestData = data["inspections_summary"]["data"]["都内"]; // "その他"
-	var otherTestData = data["inspections_summary"]["data"]["その他"];
-	var dischargeData = data["discharges_summary"]["data"];
-	var casesData = data["patients_summary"]["data"];
-	var deathData = Object.values(deathCount);
-	var labels = data["inspections_summary"]["labels"];
+
+  const summary = data.summary;
+  const deaths = data.deaths;
+  
+	var tokyoTestData = summary["inspections_summary"]["data"]["都内"]; // "その他"
+	var otherTestData = summary["inspections_summary"]["data"]["その他"];
+	var dischargeData = summary["discharges_summary"]["data"];
+	var casesData = summary["patients_summary"]["data"];
+	var deathData = Object.values(deaths);
+	var labels = summary["inspections_summary"]["labels"];
 
 	var totalTests = 0;
 

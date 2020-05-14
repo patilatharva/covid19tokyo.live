@@ -1,4 +1,4 @@
-export {initializeMap, loadMapData, addWards, addLabels};
+export {initializeMap, plotMapData, addWards, addLabels};
 
 //var map;
 
@@ -28,13 +28,13 @@ const initializeMap = () => {
 	return map;
 }
 
-const loadMapData = (map) => {
+const plotMapData = (map, casesByWard) => {
 	fetch("../data/tokyo.geojson")
 		.then(response => response.json())
 		.then(json => {
 			var tokyo = json;
 			var districts = tokyo["features"];
-			var api_districts = cases["features"];
+			var api_districts = casesByWard["features"];
 		
 			// get the latest 62 records (62 districts in total)
 			api_districts = api_districts.slice(api_districts.length - 62);
@@ -76,7 +76,7 @@ const loadMapData = (map) => {
 				}
 			}
 
-			initializeOptions("#ward-picker", tokyo);
+			//initializeOptions("#ward-picker", tokyo);
 			addWards(map, tokyo);
 			addLabels(map, labels)
 		});

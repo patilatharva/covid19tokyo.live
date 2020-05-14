@@ -54,88 +54,66 @@ const plotAgeGenderChart = (data) => {
         }
     }
   
-    var labels = getAgeGroups(lang.agePostfix);
-  
+	var labels = []; // labels for the chart is the age groups
+
+    for (var i = 1; i <= 10; i++) {
+        var range = i * 10 + lang.agePostfix;
+        labels[i] = range;
+    }
+    labels[0] = "<10";
+	labels[labels.length - 1] = "100+";
+	
+	
     var ctx = document.getElementById("ageGenderChart").getContext("2d");
   
     var ageGenderChart = new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: labels,
-        datasets: [
-          {
-            label: lang.male,
-            data: males,
-            borderColor: "rgba(0, 123, 255, 1)",
-            backgroundColor: "rgba(0, 123, 255, 0.5)",
-            borderWidth: 1,
-          },
-          {
-            label: lang.female,
-            data: females,
-            borderColor: "rgba(255, 7, 58, 1)",
-            backgroundColor: "rgba(255, 7, 58, 0.5)",
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        maintainAspectRatio: false,
-        plugins: {
-          datalabels: {
-            font: {
-              // weight: "bold",
-            },
-            color: "black",
-            align: "center",
-          },
-        },
-        tooltips: {
-          mode: "index",
-          intersect: false,
-        },
-        hover: {
-          mode: "index",
-          intersect: false,
-        },
-        // elements: {
-        //   line: {
-        //     tension: 0,
-        //   },
-        // },
-        legend: {
-          display: true,
-        },
-        // maintainAspectRatio: false,
-        // layout: {
-        //   backgroundColor: "blue",
-        // },
-        scales: {
-          xAxes: [
-            {
-              // scaleLabel: {
-              //   display: true,
-              //   labelString: "age range",
-              //   fontSize: 16,
-              // },
-              stacked: true,
-            },
-          ],
-          yAxes: [
-            {
-              // scaleLabel: {
-              //   display: true,
-              //   labelString: "# of cases",
-              //   fontSize: 16,
-              // },
-              stacked: true,
-              ticks: {
-                suggestedMin: 0,
-              },
-            },
-          ],
-        },
-      },
+		type: "bar",
+		data: {
+			labels: labels,
+			datasets: [{
+				label: lang.male,
+				data: males,
+				borderColor: "rgba(0, 123, 255, 1)",
+				backgroundColor: "rgba(0, 123, 255, 0.5)",
+				borderWidth: 1,
+			}, {
+				label: lang.female,
+				data: females,
+				borderColor: "rgba(255, 7, 58, 1)",
+				backgroundColor: "rgba(255, 7, 58, 0.5)",
+				borderWidth: 1,	
+			}]
+		},
+		options: {
+			maintainAspectRatio: false,
+			plugins: {
+				datalabels: {
+					color: "black",
+					align: "center",
+				}
+			},
+			tooltips: {
+				mode: "index",
+				intersect: false,
+			},
+			hover: {
+				mode: "index",
+				intersect: false,
+			},
+			legend: {
+				display: true,
+			},
+			scales: {
+				xAxes: [{
+					stacked: true,
+				}],
+				yAxes: [{
+					stacked: true,
+					ticks: {
+						suggestedMin: 0,
+					}
+				}]
+			},
+		},
     });
-    //myCharts.ageGender = ageGenderChart;
 };

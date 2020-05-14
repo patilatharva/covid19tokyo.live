@@ -1,21 +1,21 @@
 
-export {plotOverallChart};
-
-function plotOverallChart(data) {
+export const plotOverallChart = (data) => {
     // plot chart
     // patientData: array containing number of new cases each day; sample in temp.json -> patients_summary
-    var patientData = data["patients_summary"]["data"];
+    var patientData = data['other']["patients_summary"]["data"];
     // dischargeData: array containing number of new discharges each day: sample in temp.json -> discharges_summary
     // var dischargeData = data["discharges_summary"]["data"];
-    var dischargedData = Object.values(dischargedCount);
+    var dischargedData = Object.values(data['discharged']);
     var cases = []; // number of cases
     var recovered = []; // number of discharges
     var dates = []; // x axis (labels)
     var tests = [];
     var deaths = [];
     var active = [];
-  
-    let deathData = Object.values(deathCount);
+
+
+
+    let deathData = Object.values(data['deaths']);
     var caseTotal = 0;
     var recoveredTotal = 0;
     var deathsTotal = 0;

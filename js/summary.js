@@ -1,7 +1,12 @@
-export {parseCoronaData, fillCards};
+export {getTodaysData, fillCards};
 
-function parseCoronaData(data) {
-  var lastUpdatedDate = new Date(data["lastUpdate"]);
+function getTodaysData(data) {
+
+  const summary = data.summary;
+  const deathCount = data.deaths;
+  const dischargedCount = data.discharged;
+
+  var lastUpdatedDate = new Date(summary["lastUpdate"]);
   var today = new Date();
   var minutesSinceUpdate = Math.round((today - lastUpdatedDate) / (60 * 1000));
 
@@ -20,23 +25,23 @@ function parseCoronaData(data) {
     }
   }
 
-  var confirmed = data["main_summary"]["children"][0]["value"];
+  var confirmed = summary["main_summary"]["children"][0]["value"];
   var confirmedNew =
-    data["patients_summary"]["data"][
-      data["patients_summary"]["data"].length - 1
+    summary["patients_summary"]["data"][
+      summary["patients_summary"]["data"].length - 1
     ]["小計"];
 
   var deaths = Math.min(
-    data["main_summary"]["children"][0]["children"][2]["value"],
-    data["main_summary"]["children"][0]["children"][1]["value"]
+    summary["main_summary"]["children"][0]["children"][2]["value"],
+    summary["main_summary"]["children"][0]["children"][1]["value"]
   );
   let deathsByDate = Object.values(deathCount);
   var deathsNew = deathsByDate[deathsByDate.length - 1];
 
   var critical =
-    data["main_summary"]["children"][0]["children"][0]["children"][1]["value"];
+    summary["main_summary"]["children"][0]["children"][0]["children"][1]["value"];
 
-  //var discharged = data["main_summary"]["children"][0]["children"][1]["value"];
+  //var discharged = summary["main_summary"]["children"][0]["children"][1]["value"];
   const dis = Object.values(dischargedCount);
   var discharged = dis[dis.length - 1];
   var dischargedNew = discharged - dis[dis.length - 2];
@@ -52,7 +57,7 @@ function parseCoronaData(data) {
   today =
     today.getMonth() + 1 + "-" + today.getDate() + "-" + today.getFullYear();
 
-  for (patient of data["patients"]["data"]) {
+  for (patient of summary["patients"]["data"]) {
     if (patient["退院"]) {
       var date = new Date(patient["リリース日"]);
       var releasedDate =
@@ -68,15 +73,15 @@ function parseCoronaData(data) {
   var active = confirmed - discharged - deaths;
   var activeNew = confirmedNew - dischargedNew - deathsNew;
 
-  var tested = data["inspection_status_summary"]["value"];
+  var tested = summary["inspection_status_summary"]["value"];
   var testedNew =
-    data["inspection_persons"]["datasets"][0]["data"][
-      data["inspection_persons"]["datasets"][0]["data"].length - 1
+    summary["inspection_persons"]["datasets"][0]["data"][
+      summary["inspection_persons"]["datasets"][0]["data"].length - 1
     ];
 
-  var tests = data["inspection_status_summary"]["children"][0]["value"];
+  var tests = summary["inspection_status_summary"]["children"][0]["value"];
 
-  var testData = data["inspections_summary"]["data"];
+  var testData = summary["inspections_summary"]["data"];
   var testsNew =
     testData["都内"][testData["都内"].length - 1] +
     testData["その他"][testData["その他"].length - 1];

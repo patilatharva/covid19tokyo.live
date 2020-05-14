@@ -1,3 +1,5 @@
+export {initializeOptions};
+
 function removePlaceholder() {
     var placeholder = document.getElementById('placeholder');
     placeholder.style.display = 'none';
@@ -131,11 +133,11 @@ function removeOptions(selectId) {
     }).selectpicker('refresh');
 }
 
-function getAgeGroups(agePostfix) {
+const getAgeGroups = (agePostfix) => {
     var labels = []; // labels for the chart is the age groups
 
-    for (var i = 1; i < 11; i++) {
-    var range = i * 10 + agePostfix;
+    for (var i = 1; i <= 10; i++) {
+        var range = i * 10 + agePostfix;
         labels[i] = range;
     }
     labels[0] = "<10";
