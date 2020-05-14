@@ -1,6 +1,8 @@
 import {casesByWard} from '../index.js';
-import {flyToPoint, selectWard, deselectCurrentWard, getWardFromId} from '../utils.js';
+import {flyToPoint, selectWard, onWardSelect, deselectCurrentWard, getWardFromId} from '../utils.js';
 import {drawWardChart} from './wardChart.js';
+
+export {map};
 
 
 //var map;
@@ -201,4 +203,10 @@ map.on("mousemove", "wards", function (e) {
 // Change cursor back to default when it leaves
 map.on("mouseleave", "wards", function (e) {
 	map.getCanvas().style.cursor = "";
+});
+
+$( "#ward-picker" ).change(function() {
+	const wardId = $(this).children("option:selected").val();
+	onWardSelect(tokyo, map, hoveredWardId, wardId);
+	hoveredWardId = wardId;
 });

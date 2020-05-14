@@ -1,5 +1,6 @@
 import {drawWardChart} from './charts/wardChart.js';
-export {flyToPoint, selectWard, getWardFromId, deselectCurrentWard};
+import {map} from './charts/tokyoMap.js';
+export {flyToPoint, selectWard, getWardFromId, deselectCurrentWard, onWardSelect};
 
 function removePlaceholder() {
     var placeholder = document.getElementById('placeholder');
@@ -77,10 +78,10 @@ function getHistory(currentWard, cases) {
     return history;
 }
 
-function onWardSelect(id) {
-    for (ward of tokyo['features']) {
-        if (ward.id == id) {
-            selectWard(id);
+function onWardSelect(tokyo, map, hoveredWardId, wardId) {
+    for (const ward of tokyo['features']) {
+        if (ward.id == wardId) {
+            selectWard(tokyo, map, hoveredWardId, wardId);
             var center = eval(ward['properties']['center']);
             //alert(center);
             //alert(typeof center);
