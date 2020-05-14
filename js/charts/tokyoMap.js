@@ -1,11 +1,5 @@
-import {casesByWard} from '../index.js';
 import {flyToPoint, selectWard, onWardSelect, deselectCurrentWard, getWardFromId} from '../utils.js';
-import {drawWardChart} from './wardChart.js';
-
 export {map};
-
-
-//var map;
 
 const initializeMap = () => {
 	// replace the following with your Mapbox token
@@ -34,14 +28,16 @@ const initializeMap = () => {
 }
 
 var map = initializeMap();
-var tokyo;
+
+// geojson object of Tokyo's districts
+var tokyoGeo;
 
 const plotMapData = (map, casesByWard) => {
 	fetch("../data/tokyo.geojson")
 		.then(response => response.json())
 		.then(json => {
-			tokyo = json;
-			var districts = tokyo["features"];
+			tokyoGeo = json;
+			var districts = tokyoGeo["features"];
 			var api_districts = casesByWard["features"];
 		
 			// get the latest 62 records (62 districts in total)
@@ -84,17 +80,17 @@ const plotMapData = (map, casesByWard) => {
 				}
 			}
 
-			//initializeOptions("#ward-picker", tokyo);
-			addWards(map, tokyo);
+			//initializeOptions("#ward-picker", tokyoGeo);
+			addWards(map, tokyoGeo);
 			addLabels(map, labels)
 		});
 }
 
-const addWards = (map, tokyo) => {
+const addWards = (map, tokyoGeo) => {
 	// district shapes
     map.addSource("wards", {
 		type: "geojson",
-		data: tokyo,
+		data: tokyoGeo,
 	});
 	
 	// fill district shapes
@@ -195,7 +191,7 @@ map.on("mousemove", "wards", function (e) {
   
     // select ward and plot chart if user hovers on ward
     if (!hoveredWardId || hoveredWardId != e.features[0].id) {
-		selectWard(tokyo, map, hoveredWardId, e.features[0].id);
+		selectWard(tokyoGeo, map, hoveredWardId, e.features[0].id);
 		hoveredWardId = e.features[0].id;
     }
 });
@@ -207,6 +203,6 @@ map.on("mouseleave", "wards", function (e) {
 
 $( "#ward-picker" ).change(function() {
 	const wardId = $(this).children("option:selected").val();
-	onWardSelect(tokyo, map, hoveredWardId, wardId);
+	onWardSelect(tokyoGeo, map, hoveredWardId, wardId);
 	hoveredWardId = wardId;
 });

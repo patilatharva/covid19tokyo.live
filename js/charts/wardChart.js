@@ -1,6 +1,5 @@
 export {drawWardChart};
 
-
 var stackedLine;
 
 const drawWardChart = (currentWard, history) => {

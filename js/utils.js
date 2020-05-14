@@ -10,8 +10,8 @@ function removePlaceholder() {
     chart.style.display = 'block';
 }
 
-function getWardFromId(tokyo, id) {
-    for (const ward of tokyo['features']) {
+function getWardFromId(tokyoGeo, id) {
+    for (const ward of tokyoGeo['features']) {
         if (ward['id'] == id) {
             return ward
         }
@@ -27,7 +27,7 @@ function deselectCurrentWard(map, hoveredWardId) {
     }
 }
 
-function selectWard(tokyo, map, prevWardId, wardId) {
+function selectWard(tokyoGeo, map, prevWardId, wardId) {
     removePlaceholder();
     deselectCurrentWard(map, prevWardId);
 
@@ -36,7 +36,7 @@ function selectWard(tokyo, map, prevWardId, wardId) {
         { hover: true }
     );
 
-    var currentWard = getWardFromId(tokyo, wardId);
+    var currentWard = getWardFromId(tokyoGeo, wardId);
 
     fetch('../data/cases.json')
 		.then(response => response.json())
@@ -78,10 +78,10 @@ function getHistory(currentWard, cases) {
     return history;
 }
 
-function onWardSelect(tokyo, map, hoveredWardId, wardId) {
-    for (const ward of tokyo['features']) {
+function onWardSelect(tokyoGeo, map, hoveredWardId, wardId) {
+    for (const ward of tokyoGeo['features']) {
         if (ward.id == wardId) {
-            selectWard(tokyo, map, hoveredWardId, wardId);
+            selectWard(tokyoGeo, map, hoveredWardId, wardId);
             var center = eval(ward['properties']['center']);
             //alert(center);
             //alert(typeof center);

@@ -1,4 +1,3 @@
-//import {initializeMap, plotMapData, addWards, addLabels} from './charts/tokyoMap.js';
 import {plotAllWardsChart} from './charts/allWardsChart.js';
 import {plotDailyChart, plotDailyChartHelper} from './charts/dailyChart.js';
 import {plotOverallChart} from './charts/overallChart.js';
@@ -6,9 +5,8 @@ import {plotAgeGenderChart} from './charts/ageGenderChart.js';
 import {getTodaysData, fillCards} from './summary.js';
 import {getNews} from './news.js';
 
-export {casesByWard};
 
-var casesByWard, deaths, discharged;
+var deaths, discharged;
 
 $(document).ready(function() {
 	let url =
@@ -52,8 +50,8 @@ $(document).ready(function() {
 	fetch('../data/cases.json')
 		.then(response => response.json())
 		.then(json => {
-			casesByWard = json;
-			plotAllWardsChart(casesByWard);
+			// json = cases by ward
+			plotAllWardsChart(json);
 		});
 
 	getNews();
