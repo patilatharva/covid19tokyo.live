@@ -1,5 +1,6 @@
 import {casesByWard} from '../index.js';
 import {flyToPoint, selectWard, deselectCurrentWard, getWardFromId} from '../utils.js';
+import {drawWardChart} from './wardChart.js';
 
 
 //var map;

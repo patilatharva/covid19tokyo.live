@@ -1,3 +1,4 @@
+import {drawWardChart} from './charts/wardChart.js';
 export {flyToPoint, selectWard, getWardFromId, deselectCurrentWard};
 
 function removePlaceholder() {
@@ -35,7 +36,14 @@ function selectWard(tokyo, map, prevWardId, wardId) {
     );
 
     var currentWard = getWardFromId(tokyo, wardId);
-    drawWardChart(currentWard);
+
+    fetch('../data/cases.json')
+		.then(response => response.json())
+		.then(json => {
+			// json = cases by ward
+			const wardHistory = getHistory(currentWard, json);
+            drawWardChart(currentWard, wardHistory);
+        });
 }
 
 function flyToPoint(point) {
@@ -46,7 +54,7 @@ function flyToPoint(point) {
       });
 }
 
-function getHistory(currentWard) {
+function getHistory(currentWard, cases) {
     var history = cases["features"].filter(
     (ward) =>
         ward["properties"]["団体名"] === currentWard.properties.ward_ja
