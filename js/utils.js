@@ -28,7 +28,7 @@ function deselectCurrentWard(map, hoveredWardId) {
 
 function selectWard(tokyo, map, prevWardId, wardId) {
     removePlaceholder();
-    deselectCurrentWard(prevWardId);
+    deselectCurrentWard(map, prevWardId);
 
     map.setFeatureState(
         { source: "wards", id: wardId },
@@ -88,4 +88,15 @@ function onWardSelect(id) {
             break;
         }
     }
+}
+
+function blueGradient(context) {
+    var gradient = context.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, "rgba(0, 123, 255, 0.8)");
+    gradient.addColorStop(0.2, "rgba(0, 123, 255, 0.6)");
+    gradient.addColorStop(0.5, "rgba(0, 123, 255, 0.4)");
+    gradient.addColorStop(0.8, "rgba(0, 123, 255, 0.2)");
+    gradient.addColorStop(1, "rgba(0, 123, 255, 0.1)");
+    
+    return gradient
 }

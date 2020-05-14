@@ -15,6 +15,7 @@ const drawWardChart = (currentWard, history) => {
     });
   
     var values = Object.values(history.history);
+    const casesMaxValue = 500;
     var ctx = document.getElementById("wardHistoryChart").getContext("2d");
   
     // line chart of cases over time of ward that cursor hovers over on the map.
@@ -24,9 +25,17 @@ const drawWardChart = (currentWard, history) => {
     if (lang == en_us) {
         var chartTitle =
           "Confirmed cases in " + currentWard.properties[lang.wardLang];
-      } else {
+    } else {
         var chartTitle = currentWard.properties[lang.wardLang] + "の感染者数";
-      }
+    }
+
+
+    var blueGradient = ctx.createLinearGradient(0, 0, 0, 400);
+    blueGradient.addColorStop(0, "rgba(0, 123, 255, 0.8)");
+    blueGradient.addColorStop(0.2, "rgba(0, 123, 255, 0.6)");
+    blueGradient.addColorStop(0.5, "rgba(0, 123, 255, 0.4)");
+    blueGradient.addColorStop(0.8, "rgba(0, 123, 255, 0.2)");
+    blueGradient.addColorStop(1, "rgba(0, 123, 255, 0.1)");
   
     stackedLine = new Chart(
       ctx,
@@ -38,7 +47,7 @@ const drawWardChart = (currentWard, history) => {
             {
               data: values,
               borderColor: "rgba(0, 123, 255, 0.8)",
-              backgroundColor: blueGradient(ctx),
+              backgroundColor: blueGradient,
             },
           ],
         },
@@ -64,6 +73,9 @@ const drawWardChart = (currentWard, history) => {
                   opacity: (context) => {
                     return context.dataIndex == values.length - 1? 1: 0.5;
                   },
+                  font: {
+                    size: 10
+                  }
                 },
               },
             },
