@@ -1,21 +1,21 @@
 export {plotDailyChart, plotDailyChartHelper};
 
 const plotDailyChart = (data) => {
-  var tokyoTestData = data["inspections_summary"]["data"]["都内"]; // "その他"
-  var otherTestData = data["inspections_summary"]["data"]["その他"];
-  var dischargeData = data["discharges_summary"]["data"];
-  var casesData = data["patients_summary"]["data"];
-  var deathData = Object.values(deathCount);
-  var labels = data["inspections_summary"]["labels"];
+	var tokyoTestData = data["inspections_summary"]["data"]["都内"]; // "その他"
+	var otherTestData = data["inspections_summary"]["data"]["その他"];
+	var dischargeData = data["discharges_summary"]["data"];
+	var casesData = data["patients_summary"]["data"];
+	var deathData = Object.values(deathCount);
+	var labels = data["inspections_summary"]["labels"];
 
-  var totalTests = 0;
+	var totalTests = 0;
 
-  // All data arrays
-  var cumulativeTests = [];
-  var testsPerDay = [];
-  var casesPerDay = [];
-  var recoveriesPerDay = [];
-  var deathsPerDay = [];
+	// All data arrays
+	var cumulativeTests = [];
+	var testsPerDay = [];
+	var casesPerDay = [];
+	var recoveriesPerDay = [];
+	var deathsPerDay = [];
 
   // Initializing all arrays
   for (var i = 0; i < tokyoTestData.length; i++) {

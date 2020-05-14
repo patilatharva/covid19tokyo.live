@@ -1,8 +1,9 @@
-import {map} from './drawMap.js';
+import {initializeMap, loadMapData, addWards, addLabels} from './drawMap.js';
 import {allWardsChart} from './charts/allWards.js';
 import {plotDailyChart, plotDailyChartHelper} from './charts/dailyChart.js';
 import {plotOverallChart} from './charts/overallChart.js';
-import {parseData, fillCards} from './summary.js';
+import {plotAgeGenderChart} from './charts/ageGenderChart.js';
+import {parseCoronaData, fillCards} from './summary.js';
 
 var data = {};
 let url =
@@ -15,56 +16,27 @@ fetch(url)
 		data = json;
 		plotOverallChart(json);
 	
-		data = parseData(json);
+		data = parseCoronaData(json);
 		fillCards(data);
-		// plotOverallChart(json["patients_summary"]);
-		//drawAgeGenderChart(json["patients"]);
+		plotAgeGenderChart(json["patients"]);
 		plotDailyChart(json);
 		data = json;
 	});
 
-/*
-function callback(status, response) {
-	if (status) {
-		alert(status);
-	} else {
-		data = response;
-		plotOverallChart(response);
-	
-		data = parseData(response);
-		fillCards(data);
-		// plotOverallChart(response["patients_summary"]);
-		drawAgeGenderChart(response["patients"]);
-		plotDailyChart(response);
-		data = response;
-	}
-}
-	
-var getJSON = function (url) {
-	var xhr = new XMLHttpRequest();
-	xhr.open("GET", url, true);
-	xhr.responseType = "json";
-	xhr.onload = function () {
-		var status = xhr.status;
-		if (status === 200) {
-			callback(null, xhr.response);
-		} else {
-			callback(status, xhr.response);
-		}
-	};
-	xhr.send();
-};
-	
-*/
+	fetch('../data/cases.json')
+    .then(response => response.json())
+	.then(json => {
+		var casesByWard = json;
+		allWardsChart(casesByWard);
+	});
 
 
+var map = initializeMap();
 
+map.on("load", function () {
+	loadMapData(map);
+});
 
-
-
-
-
-allWardsChart();
 
 $("#dailyChartSelect").change(function () {
 	var item = $(this);

@@ -35,15 +35,7 @@ function plotOverallChart(data) {
         recovered.push(null);
         active.push(null);
       }
-  
-      /*
-      if (dischargeData[i]) recoveredTotal += dischargeData[i]["小計"] - deathData[i];
-      else recoveredTotal += 0;
-      recovered.push(recoveredTotal);
-  
-      active.push(caseTotal - deathsTotal - recoveredTotal);
-      */
-  
+      
       var date = new Date(patientData[i]["日付"]);
       dates.push(date.getMonth() + 1 + "/" + date.getDate());
     }
