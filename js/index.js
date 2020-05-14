@@ -1,11 +1,12 @@
-import {initializeMap, plotMapData, addWards, addLabels} from './charts/tokyoMap.js';
+//import {initializeMap, plotMapData, addWards, addLabels} from './charts/tokyoMap.js';
 import {plotAllWardsChart} from './charts/allWardsChart.js';
 import {plotDailyChart, plotDailyChartHelper} from './charts/dailyChart.js';
 import {plotOverallChart} from './charts/overallChart.js';
 import {plotAgeGenderChart} from './charts/ageGenderChart.js';
 import {getTodaysData, fillCards} from './summary.js';
 import {getNews} from './news.js';
-import {initializeOptions} from './utils.js';
+
+export {casesByWard};
 
 var casesByWard, deaths, discharged;
 
@@ -54,20 +55,6 @@ $(document).ready(function() {
 			casesByWard = json;
 			plotAllWardsChart(casesByWard);
 		});
-
-	/*
-	fetch('../data/tokyo.geojson')
-		.then(response => response.json())
-		.then(json => {
-			initializeOptions("#ward-picker", json);
-		});
-	*/
-	
-
-	var map = initializeMap();
-	map.on("load", function () {
-		plotMapData(map, casesByWard);
-	});
 
 	getNews();
 });

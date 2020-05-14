@@ -1,4 +1,4 @@
-export {initializeOptions};
+export {flyToPoint, selectWard, getWardFromId, deselectCurrentWard};
 
 function removePlaceholder() {
     var placeholder = document.getElementById('placeholder');
@@ -8,25 +8,15 @@ function removePlaceholder() {
     chart.style.display = 'block';
 }
 
-// returns Japanese name of ward, assuming input name is in English
-function toJapanese(name_en) {
+function getWardFromId(tokyo, id) {
     for (const ward of tokyo['features']) {
-        if (ward['properties']['ward_en'] === name_en) {
-            return ward['properties']['ward_ja'];
-        }
-    }
-    return 'unknown';
-}
-
-function getWardFromId(id) {
-    for (ward of tokyo['features']) {
         if (ward['id'] == id) {
             return ward
         }
     }
 }
 
-function deselectCurrentWard() {
+function deselectCurrentWard(map, hoveredWardId) {
     if (hoveredWardId) {
         map.setFeatureState(
             { source: "wards", id: hoveredWardId },
@@ -35,17 +25,16 @@ function deselectCurrentWard() {
     }
 }
 
-function selectWard(wardId) {
+function selectWard(tokyo, map, prevWardId, wardId) {
     removePlaceholder();
-    deselectCurrentWard();
+    deselectCurrentWard(prevWardId);
 
     map.setFeatureState(
         { source: "wards", id: wardId },
         { hover: true }
     );
-    hoveredWardId = wardId
 
-    var currentWard = getWardFromId(wardId);
+    var currentWard = getWardFromId(tokyo, wardId);
     drawWardChart(currentWard);
 }
 
@@ -55,17 +44,6 @@ function flyToPoint(point) {
         zoom: 9.5,
         'essential': true, // this animation is considered essential with respect to prefers-reduced-motion
       });
-}
-
-function blueGradient(context) {
-    var gradient = context.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0, "rgba(0, 123, 255, 0.8)");
-    gradient.addColorStop(0.2, "rgba(0, 123, 255, 0.6)");
-    gradient.addColorStop(0.5, "rgba(0, 123, 255, 0.4)");
-    gradient.addColorStop(0.8, "rgba(0, 123, 255, 0.2)");
-    gradient.addColorStop(1, "rgba(0, 123, 255, 0.1)");
-    
-    return gradient
 }
 
 function getHistory(currentWard) {
@@ -102,36 +80,4 @@ function onWardSelect(id) {
             break;
         }
     }
-}
-
-function initializeOptions(selectId, geo) {
-    for (var ward of geo['features']) {
-        var name = ward.properties[lang.wardLang];
-        var id = ward.properties.code;
-
-        $(selectId).append($('<option>', {
-            value: id,
-            text: name
-        })).selectpicker('refresh');
-    }
-}
-
-function removeOptions(selectId) {
-    $(selectId).each(function() {
-        console.log($(this));
-        $(this).remove();
-    }).selectpicker('refresh');
-}
-
-const getAgeGroups = (agePostfix) => {
-    var labels = []; // labels for the chart is the age groups
-
-    for (var i = 1; i <= 10; i++) {
-        var range = i * 10 + agePostfix;
-        labels[i] = range;
-    }
-    labels[0] = "<10";
-    labels[labels.length - 1] = "100+";
-
-    return labels
 }

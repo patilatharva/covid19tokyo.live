@@ -1,4 +1,6 @@
-export {initializeMap, plotMapData, addWards, addLabels};
+import {casesByWard} from '../index.js';
+import {flyToPoint, selectWard, deselectCurrentWard, getWardFromId} from '../utils.js';
+
 
 //var map;
 
@@ -28,11 +30,14 @@ const initializeMap = () => {
 	return map;
 }
 
+var map = initializeMap();
+var tokyo;
+
 const plotMapData = (map, casesByWard) => {
 	fetch("../data/tokyo.geojson")
 		.then(response => response.json())
 		.then(json => {
-			var tokyo = json;
+			tokyo = json;
 			var districts = tokyo["features"];
 			var api_districts = casesByWard["features"];
 		
@@ -138,13 +143,10 @@ const addWards = (map, tokyo) => {
 
 // place labels
 const addLabels = (map, labels) => {
-	
-	console.log(labels);
 	map.addSource("labels", {
 		type: "geojson",
 		data: labels,
 	});
-	
 	
 	map.addLayer({
 		id: "casesLabels",
@@ -163,30 +165,39 @@ const addLabels = (map, labels) => {
 			"text-halo-blur": 0,
 		},
 	});
-	
 }
+  
 
-/*
+map.on("load", function () {
+	fetch('../data/cases.json')
+		.then(response => response.json())
+		.then(json => {
+			// json = cases by ward
+			plotMapData(map, json);
+		});
+});
+
 map.on("click", "wards", function (e) {
 	var center = eval(e.features[0].properties.center);
 	flyToPoint(center);
 });
-*/
-  /*
-  // access ward data on hover
-  map.on("mousemove", "wards", function (e) {
+
+
+var hoveredWardId = null;
+
+// access ward data on hover
+map.on("mousemove", "wards", function (e) {
     // change cursor to pointer
     map.getCanvas().style.cursor = "pointer";
   
     // select ward and plot chart if user hovers on ward
     if (!hoveredWardId || hoveredWardId != e.features[0].id) {
-      selectWard(e.features[0].id);
+		selectWard(tokyo, map, hoveredWardId, e.features[0].id);
+		hoveredWardId = e.features[0].id;
     }
-  });
+});
   
-  // Change cursor back to default when it leaves
-  map.on("mouseleave", "wards", function (e) {
-    map.getCanvas().style.cursor = "";
-  });
-  */
-  
+// Change cursor back to default when it leaves
+map.on("mouseleave", "wards", function (e) {
+	map.getCanvas().style.cursor = "";
+});
