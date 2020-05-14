@@ -15,7 +15,7 @@ function toEnglish(name_ja) {
             return ward['properties']['ward_en'];
         }
     }
-    return 'unknown ward';
+    return 'unknown';
 }
 
 // returns Japanese name of ward, assuming input name is in English
@@ -25,7 +25,7 @@ function toJapanese(name_en) {
             return ward['properties']['ward_ja'];
         }
     }
-    return 'unknown ward';
+    return 'unknown';
 }
 
 function getWardFromId(id) {
@@ -39,10 +39,10 @@ function getWardFromId(id) {
 function deselectCurrentWard() {
     if (hoveredWardId) {
         map.setFeatureState(
-          { source: "wards", id: hoveredWardId },
-          { hover: false }
+            { source: "wards", id: hoveredWardId },
+            { hover: false }
         );
-      }
+    }
 }
 
 function selectWard(wardId) {
@@ -50,8 +50,8 @@ function selectWard(wardId) {
     deselectCurrentWard();
 
     map.setFeatureState(
-      { source: "wards", id: wardId },
-      { hover: true }
+        { source: "wards", id: wardId },
+        { hover: true }
     );
     hoveredWardId = wardId
 

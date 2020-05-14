@@ -54,11 +54,13 @@ $(document).ready(function() {
 			plotAllWardsChart(casesByWard);
 		});
 
+	/*
 	fetch('../data/tokyo.geojson')
 		.then(response => response.json())
 		.then(json => {
 			initializeOptions("#ward-picker", json);
 		});
+	*/
 	
 
 	var map = initializeMap();
