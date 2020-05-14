@@ -1,5 +1,5 @@
 // charts created
-var myCharts = {};
+//var myCharts = {};
 
 //  function to create chart for number of cases of all districts.
 const allWardsChart = () => {
@@ -105,10 +105,11 @@ const allWardsChart = () => {
       },
     },
   });
-  myCharts.allWards = allWardsCountChart;
+  //myCharts.allWards = allWardsCountChart;
 };
 allWardsChart();
 
+/*
 // function to create chart of selected ward from map/drop down
 const drawWardChart = (currentWard) => {
   var history = getHistory(currentWard);
@@ -217,3 +218,4 @@ function wardChartSettings(ctx, currentWard, keys, values) {
     },
   };
 }
+*/

@@ -1,19 +1,4 @@
-$("#dailyChartSelect").change(function () {
-  var item = $(this);
-  if (item.val() === "casesPerDay") {
-    var type = "confirmed";
-  } else if (item.val() === "deathsPerDay") {
-    var type = "deaths";
-  } else {
-    var type = "tests";
-  }
-
-
-  var data = JSON.parse(localStorage.getItem(item.val()));
-  var labels = JSON.parse(localStorage.getItem("labels"));
-
-  plotChart(labels, data, type);
-});
+export {plotDailyChart, plotDailyChartHelper};
 
 const plotDailyChart = (data) => {
   var tokyoTestData = data["inspections_summary"]["data"]["都内"]; // "その他"
@@ -57,13 +42,13 @@ const plotDailyChart = (data) => {
   localStorage.setItem("deathsPerDay", JSON.stringify(deathData));
 
   // Initially setting the plot to tests per day
-  plotChart(labels, casesPerDay, "confirmed");
+  plotDailyChartHelper(labels, casesPerDay, "confirmed");
 };
 // Global variable to destroy previous instances of the chart
 var dailyChart;
 
 // function called to actually plot the graph
-const plotChart = (labels, dataset, type) => {
+const plotDailyChartHelper = (labels, dataset, type) => {
   var ctx = document.getElementById("dailyChart").getContext("2d");
 
   // destroy previous instance of chart to prevent glitching
@@ -137,5 +122,5 @@ const plotChart = (labels, dataset, type) => {
       },
     },
   });
-  myCharts.daily = dailyChart;
+  //myCharts.daily = dailyChart;
 };
