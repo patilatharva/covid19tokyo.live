@@ -1,6 +1,4 @@
-export {plotAgeGenderChart};
-
-const plotAgeGenderChart = (data) => {
+export const plotAgeGenderChart = (data) => {
     const patients = data["data"];
   
     var males = []; // stores number of male patients

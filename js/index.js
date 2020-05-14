@@ -1,9 +1,10 @@
-import {initializeMap, plotMapData, addWards, addLabels} from './drawMap.js';
+import {initializeMap, plotMapData, addWards, addLabels} from './charts/tokyoMap.js';
 import {plotAllWardsChart} from './charts/allWardsChart.js';
 import {plotDailyChart, plotDailyChartHelper} from './charts/dailyChart.js';
 import {plotOverallChart} from './charts/overallChart.js';
 import {plotAgeGenderChart} from './charts/ageGenderChart.js';
 import {getTodaysData, fillCards} from './summary.js';
+import {getNews} from './news.js';
 import {initializeOptions} from './utils.js';
 
 var casesByWard, deaths, discharged;
@@ -67,6 +68,8 @@ $(document).ready(function() {
 	map.on("load", function () {
 		plotMapData(map, casesByWard);
 	});
+
+	getNews();
 });
 
 $("#dailyChartSelect").change(function () {
