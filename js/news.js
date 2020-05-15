@@ -1,4 +1,4 @@
-export const getNews = () => {
+const getNews = () => {
     // announcements from Tokyo govt  
     const url =
     	"https://raw.githubusercontent.com/tokyo-metropolitan-gov/covid19/development/data/news.json";
@@ -34,3 +34,5 @@ export const getNews = () => {
         $("#newsItem3").append(newsItem);
     });
 };
+
+export default getNews;

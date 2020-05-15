@@ -3,7 +3,7 @@ import {initializeDailyChart, plotDailyChart} from './charts/dailyChart.js';
 import plotOverallChart from './charts/overallChart.js';
 import plotAgeGenderChart from './charts/ageGenderChart.js';
 import {getTodayData, fillSummaryCard} from './summary.js';
-import {getNews} from './news.js';
+import getNews from './news.js';
 
 $(document).ready(function() {
 
