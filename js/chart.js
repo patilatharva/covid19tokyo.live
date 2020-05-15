@@ -179,6 +179,9 @@ function wardChartSettings(ctx, currentWard, keys, values) {
               opacity: (context) => {
                 return context.dataIndex == values.length - 1? 1: 0.5;
               },
+              font: {
+								size: 10
+							}
             },
           },
         },
