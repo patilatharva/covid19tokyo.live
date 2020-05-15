@@ -205,7 +205,7 @@ map.on("click", "wards", function (e) {
 var hoveredWardId = null;
 
 /**
- * access ward data on hover.
+ *  'select' a ward data on hover -> highlight ward and show ward history chart.
  */
 map.on("mousemove", "wards", function (e) {
     // change cursor to pointer
@@ -219,14 +219,14 @@ map.on("mousemove", "wards", function (e) {
 });
 
 /**
- * Change cursor back to default when it leaves.
+ * Change cursor back to default when it leaves the wards.
  */
 map.on("mouseleave", "wards", function (e) {
 	map.getCanvas().style.cursor = "";
 });
 
 /**
- * Zoom towards and highlight ward selected from <select> menu
+ * Zoom towards and highlight ward selected from <select> menu.
  */
 $( "#ward-picker" ).change(function() {
 	const wardId = $(this).children("option:selected").val();
