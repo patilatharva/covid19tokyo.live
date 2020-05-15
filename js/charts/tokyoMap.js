@@ -200,7 +200,7 @@ map.on("click", "wards", function (e) {
 });
 
 
-// id of ward user is currently hovering on
+// id of the ward that user is currently hovering on
 // this ward will have a thicker border than the others
 var hoveredWardId = null;
 
