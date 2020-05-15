@@ -12,13 +12,11 @@ export const plotAgeGenderChart = (data) => {
   
     // Age ranges: 0-10, 10-20, 20-30, 30-40, 40-50, 50-60, 60-70, 70-80, 80-90, 90-100
     // data is 10, it means patient is in his 10s
-    // corrposond each age range to an index, 0s -> 0, 10 -> 1, 20 -> 2, 100s -> 10, etc.
+    // correspond each age range to an index, 0s -> 0, 10 -> 1, 20 -> 2, 100s -> 10, etc.
   
     // 10歳未満 -> under 10
     // 100歳以上 -> over 100
-  
-    // console.log(patients);
-  
+    
     for (var i = 0; i < patients.length; i++) {
         var age = patients[i]["年代"];
         if (!age) {

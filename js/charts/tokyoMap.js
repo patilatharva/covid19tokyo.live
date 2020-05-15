@@ -1,6 +1,9 @@
 import {flyToPoint, selectWard, onWardSelect, deselectCurrentWard, getWardFromId} from '../utils.js';
 export {map};
 
+/**
+ * Initializes interactive Mapbox map.
+ */
 const initializeMap = () => {
 	// replace the following with your Mapbox token
 	mapboxgl.accessToken =
@@ -23,7 +26,7 @@ const initializeMap = () => {
 			showZoom: true,
 		})
 	);
-	
+
 	return map;
 }
 
@@ -32,6 +35,11 @@ var map = initializeMap();
 // geojson object of Tokyo's districts
 var tokyoGeo;
 
+/**
+ * 
+ * @param {Mapbox map} map			map object which is to be populated
+ * @param {GeoJSON} casesByWard 	object containing the history of cases in each ward
+ */
 const plotMapData = (map, casesByWard) => {
 	fetch("../data/tokyo.geojson")
 		.then(response => response.json())
@@ -45,9 +53,9 @@ const plotMapData = (map, casesByWard) => {
 		
 			// geojson of all labels
 			var labels = {
-			name: "labels",
-			type: "FeatureCollection",
-			features: [],
+				name: "labels",
+				type: "FeatureCollection",
+				features: [],
 			};
 		
 			for (let district of districts) {
@@ -86,6 +94,12 @@ const plotMapData = (map, casesByWard) => {
 		});
 }
 
+/**
+ * adds ward shapes to map
+ *  
+ * @param {Mapbox map} map 		interative map
+ * @param {GeoJSON} tokyoGeo	GEOJSON of tokyo's wards
+ */
 const addWards = (map, tokyoGeo) => {
 	// district shapes
     map.addSource("wards", {
@@ -140,7 +154,12 @@ const addWards = (map, tokyoGeo) => {
 	});
 };
 
-// place labels
+/**
+ * adds ward borders to map
+ * 
+ * @param {Mapbox map} map
+ * @param {GeoJSON} labels 		GeoJSON object containing labels' text and coordinates
+ */
 const addLabels = (map, labels) => {
 	map.addSource("labels", {
 		type: "geojson",
@@ -182,9 +201,13 @@ map.on("click", "wards", function (e) {
 });
 
 
+// id of ward user is currently hovering on
+// this ward will have a thicker border than the others
 var hoveredWardId = null;
 
-// access ward data on hover
+/**
+ * access ward data on hover.
+ */
 map.on("mousemove", "wards", function (e) {
     // change cursor to pointer
     map.getCanvas().style.cursor = "pointer";
@@ -195,12 +218,17 @@ map.on("mousemove", "wards", function (e) {
 		hoveredWardId = e.features[0].id;
     }
 });
-  
-// Change cursor back to default when it leaves
+
+/**
+ * Change cursor back to default when it leaves.
+ */
 map.on("mouseleave", "wards", function (e) {
 	map.getCanvas().style.cursor = "";
 });
 
+/**
+ * Zoom towards and highlight ward selected from <select> menu
+ */
 $( "#ward-picker" ).change(function() {
 	const wardId = $(this).children("option:selected").val();
 	onWardSelect(tokyoGeo, map, hoveredWardId, wardId);

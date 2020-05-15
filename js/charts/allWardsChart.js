@@ -89,7 +89,5 @@ export const plotAllWardsChart = (casesByWard) => {
 			},
 		},
     });
-    //myCharts.allWards = allWardsCountChart;
-  };
-  //allWardsChart();
+  }
   

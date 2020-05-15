@@ -4,15 +4,24 @@ export {drawWardChart};
 // necessary to check if an existing ward chart needs to be destroyed
 var wardChart;
 
+/**
+ * plots a line chart of a ward's timeline of covid-19 cases.
+ * 
+ * @param {GeoJSON} currentWard   this ward's GeoJSON, used for en/ja name and id
+ * @param {dictionary} history    {history: dictionary of date timestamps to cases, name_en: English name, name_jp: Japanese name}       
+ */
 const drawWardChart = (currentWard, history) => {
+    console.log(currentWard, history);
+
+    // list of dates
     var keys = Object.keys(history.history);
   
     keys = keys.map((timestamp) => {
-      timestamp; // -= 24*60*60*1000;
-      var date = new Date(parseInt(timestamp));
-      var month = date.getMonth();
-      var day = date.getDate();
-      return month + 1 + "/" + day;
+		timestamp; // -= 24*60*60*1000;
+		var date = new Date(parseInt(timestamp));
+		var month = date.getMonth();
+		var day = date.getDate();
+		return month + 1 + "/" + day;
     });
   
     var values = Object.values(history.history);
@@ -25,7 +34,7 @@ const drawWardChart = (currentWard, history) => {
 
     if (lang == en_us) {
         var chartTitle =
-          "Confirmed cases in " + currentWard.properties[lang.wardLang];
+        	"Confirmed cases in " + currentWard.properties[lang.wardLang];
     } else {
         var chartTitle = currentWard.properties[lang.wardLang] + "の感染者数";
     }
@@ -39,81 +48,75 @@ const drawWardChart = (currentWard, history) => {
     blueGradient.addColorStop(1, "rgba(0, 123, 255, 0.1)");
   
     wardChart = new Chart(
-      ctx,
-      {
-        type: "line",
-        data: {
-          labels: keys,
-          datasets: [
-            {
-              data: values,
-              borderColor: "rgba(0, 123, 255, 0.8)",
-              backgroundColor: blueGradient,
-            },
-          ],
-        },
-        options: {
-          tooltips: {
-            mode: "index",
-            intersect: false,
-          },
-          hover: {
-            mode: "index",
-            intersect: false,
-          },
-          plugins: {
-            datalabels: {
-              labels: {
-                title: {
-                  color: "black",
-                  align: 260, // slight top-lefts so that 3-digit values aren't cropped out
-                  offset: 3,
-                  display: (context) => {
-                    return (values.length - context.dataIndex) % 2;
-                  },
-                  opacity: (context) => {
-                    return context.dataIndex == values.length - 1? 1: 0.5;
-                  },
-                  font: {
-                    size: 10
-                  }
-                },
-              },
-            },
-          },
-          title: {
-            display: true,
-            text: chartTitle, 
-            fontColor: "#007bff",
-          },
-          elements: {
-            line: {
-              tension: 0,
-            },
-            point: {
-              radius: 2,
-              backgroundColor: "rgba(0, 123, 255, 0.8)",
-            },
-          },
-          legend: {
-            display: false,
-          },
-          maintainAspectRatio: false,
-          layout: {
-            backgroundColor: "blue",
-          },
-          scales: {
-            yAxes: [
-              {
-                ticks: {
-                  suggestedMin: 0,
-                  suggestedMax: casesMaxValue,
-                },
-              },
-            ],
-          },
-        },
-      }
-    );
-  
+		ctx,
+		{
+			type: "line",
+			data: {
+				labels: keys,
+				datasets: [{
+					data: values,
+					borderColor: "rgba(0, 123, 255, 0.8)",
+					backgroundColor: blueGradient,
+				}]
+			},
+			options: {
+			tooltips: {
+				mode: "index",
+				intersect: false,
+			},
+			hover: {
+				mode: "index",
+				intersect: false,
+			},
+			plugins: {
+				datalabels: {
+					labels: {
+						title: {
+							color: "black",
+							align: 260, // slight top-lefts so that 3-digit values aren't cropped out
+							offset: 3,
+							display: (context) => {
+								return (values.length - context.dataIndex) % 2;
+							},
+							opacity: (context) => {
+								return context.dataIndex == values.length - 1? 1: 0.5;
+							},
+							font: {
+								size: 10
+							}
+						}
+					}
+				}
+			},
+			title: {
+				display: true,
+				text: chartTitle, 
+				fontColor: "#007bff",
+			},
+			elements: {
+				line: {
+					tension: 0,
+				},
+				point: {
+					radius: 2,
+					backgroundColor: "rgba(0, 123, 255, 0.8)",
+				}
+			},
+			legend: {
+				display: false,
+			},
+			maintainAspectRatio: false,
+			layout: {
+				backgroundColor: "blue",
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+					suggestedMin: 0,
+					suggestedMax: casesMaxValue,
+					}
+				}]
+			}
+		}
+	});
   }

@@ -1,5 +1,6 @@
 export const getNews = () => {
-  	const url =
+    // announcements from Tokyo govt  
+    const url =
     	"https://raw.githubusercontent.com/tokyo-metropolitan-gov/covid19/development/data/news.json";
 	fetch(url, {
 		method: "GET",

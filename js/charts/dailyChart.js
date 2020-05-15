@@ -1,13 +1,21 @@
-export {plotDailyChart, plotDailyChartHelper};
+export {initializeDailyChart, plotDailyChart};
 
-const plotDailyChart = (data) => {
+// Variable to destroy previous instances of the chart
+var dailyChart;
 
-  const summary = data.summary;
-  const deaths = data.deaths;
+/**
+ * store lists for new cases, deaths and tests per day in localStorage.
+ * initially plot a chart for new cases per day.
+ * 
+ * @param {JSON} data	Tokyo covid-19 data
+ */
+const initializeDailyChart = (data) => {
+
+	const summary = data.summary;
+	const deaths = data.deaths;
   
 	var tokyoTestData = summary["inspections_summary"]["data"]["都内"]; // "その他"
 	var otherTestData = summary["inspections_summary"]["data"]["その他"];
-	var dischargeData = summary["discharges_summary"]["data"];
 	var casesData = summary["patients_summary"]["data"];
 	var deathData = Object.values(deaths);
 	var labels = summary["inspections_summary"]["labels"];
@@ -18,113 +26,112 @@ const plotDailyChart = (data) => {
 	var cumulativeTests = [];
 	var testsPerDay = [];
 	var casesPerDay = [];
-	var recoveriesPerDay = [];
 	var deathsPerDay = [];
 
-  // Initializing all arrays
-  for (var i = 0; i < tokyoTestData.length; i++) {
-    var dayTests = 0;
+	// Initializing all arrays
+	for (var i = 0; i < tokyoTestData.length; i++) {
+		var dayTests = 0;
 
-    totalTests += tokyoTestData[i];
-    dayTests += tokyoTestData[i];
+		totalTests += tokyoTestData[i];
+		dayTests += tokyoTestData[i];
 
-    if (otherTestData[i]) {
-      totalTests += otherTestData[i];
-      dayTests += otherTestData[i];
-    } else totalTests += 0;
+		if (otherTestData[i]) {
+			totalTests += otherTestData[i];
+			dayTests += otherTestData[i];
+		} else {
+			totalTests += 0;
+		}
 
-    casesPerDay.push(casesData[i]["小計"]);
-    deathsPerDay.push(deathData[i]);
-    testsPerDay.push(dayTests);
-    cumulativeTests.push(totalTests);
-  }
-  // setting items to local storage to prevent running this function multiple times
-  localStorage.setItem("labels", JSON.stringify(labels));
-  localStorage.setItem("testsPerDay", JSON.stringify(testsPerDay));
-  localStorage.setItem("cumulativeTests", JSON.stringify(cumulativeTests));
-  localStorage.setItem("casesPerDay", JSON.stringify(casesPerDay));
-  localStorage.setItem("deathsPerDay", JSON.stringify(deathData));
+		casesPerDay.push(casesData[i]["小計"]);
+		deathsPerDay.push(deathData[i]);
+		testsPerDay.push(dayTests);
+		cumulativeTests.push(totalTests);
+	}
+	// setting items to local storage to prevent running this function multiple times
+	localStorage.setItem("labels", JSON.stringify(labels));
+	localStorage.setItem("testsPerDay", JSON.stringify(testsPerDay));
+	localStorage.setItem("cumulativeTests", JSON.stringify(cumulativeTests));
+	localStorage.setItem("casesPerDay", JSON.stringify(casesPerDay));
+	localStorage.setItem("deathsPerDay", JSON.stringify(deathData));
 
-  // Initially setting the plot to tests per day
-  plotDailyChartHelper(labels, casesPerDay, "confirmed");
+	// Initially setting the plot to tests per day
+	plotDailyChart(labels, casesPerDay, "confirmed");
 };
-// Global variable to destroy previous instances of the chart
-var dailyChart;
 
-// function called to actually plot the graph
-const plotDailyChartHelper = (labels, dataset, type) => {
-  var ctx = document.getElementById("dailyChart").getContext("2d");
+/**
+ * 
+ * @param {string list} labels		x-axis labels; dates of past 60 days
+ * @param {int list} dataset 		new cases, deaths or tests per day depending on user selection
+ * @param {string} type 			"confirmed", "deaths" or "tests"
+ */
+const plotDailyChart = (labels, dataset, type) => {
+	var ctx = document.getElementById("dailyChart").getContext("2d");
 
-  // destroy previous instance of chart to prevent glitching
-  if (dailyChart) dailyChart.destroy();
+	// destroy previous instance of chart to prevent glitching
+	if (dailyChart) dailyChart.destroy();
 
-  dataset = dataset.slice(dataset.length - 60);
+	dataset = dataset.slice(dataset.length - 60);
 
-  var backgroundColor = "", borderColor = "";
-  console.log(type);
-  if (type === "confirmed") {
-    backgroundColor = "rgba(0, 123, 255, 0.5)";
-    borderColor = "rgba(0, 123, 255, 1)";
-  } else if (type === "deaths") {
-    backgroundColor = "rgba(255, 7, 58, 0.5)";
-    borderColor = "rgba(255, 7, 58, 1)";
-  } else {
-    backgroundColor = "rgba(40, 167, 69, 0.5)";
-    borderColor = "rgba(40, 167, 69, 1)";
-  }
+	var backgroundColor = "", borderColor = "";
 
-  dailyChart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: labels.slice(labels.length - 60),
-      datasets: [
-        {
-          label: lang[type + "Label"],
-          data: dataset,
-          backgroundColor: backgroundColor,
-          borderColor: borderColor,
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      plugins: {
-        datalabels: {
-          font: {
-            size: 0,
-          },
-          color: "black",
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-      },
-      maintainAspectRatio: false,
-      tooltips: {
-        mode: "index",
-        intersect: false,
-      },
-      hover: {
-        mode: "index",
-        intersect: false,
-      },
-      legend: {
-        display: false,
-      },
-      layout: {
-        padding: 10,
-      },
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              fontSize: 12,
-              beginAtZero: true,
-              suggestedMax: Math.max(...dataset) + 1
-            },
-          },
-        ],
-      },
-    },
-  });
-  //myCharts.daily = dailyChart;
+	if (type === "confirmed") {
+		backgroundColor = "rgba(0, 123, 255, 0.5)";
+		borderColor = "rgba(0, 123, 255, 1)";
+	} else if (type === "deaths") {
+		backgroundColor = "rgba(255, 7, 58, 0.5)";
+		borderColor = "rgba(255, 7, 58, 1)";
+	} else {
+		backgroundColor = "rgba(40, 167, 69, 0.5)";
+		borderColor = "rgba(40, 167, 69, 1)";
+	}
+
+	dailyChart = new Chart(ctx, {
+		type: "bar",
+		data: {
+			labels: labels.slice(labels.length - 60),
+			datasets: [{
+				label: lang[type + "Label"],
+				data: dataset,
+				backgroundColor: backgroundColor,
+				borderColor: borderColor,
+				borderWidth: 1,
+			}],
+		},
+		options: {
+			plugins: {
+				datalabels: {
+					font: {
+						size: 0,
+					},
+					color: "black",
+				},
+				responsive: true,
+				maintainAspectRatio: false,
+			},
+			maintainAspectRatio: false,
+			tooltips: {
+				mode: "index",
+				intersect: false,
+			},
+			hover: {
+				mode: "index",
+				intersect: false,
+			},
+			legend: {
+				display: false,
+			},
+			layout: {
+				padding: 10,
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						fontSize: 12,
+						beginAtZero: true,
+						suggestedMax: Math.max(...dataset) + 1
+					}
+				}],
+			}
+		},
+	});
 };

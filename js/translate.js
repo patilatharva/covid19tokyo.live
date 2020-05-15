@@ -1,3 +1,6 @@
+// dictionaries with terminology in English and Japanese.
+// Most entries are no longer used after we switched to static translation.
+
 var en_us = {
     'title': 'Tokyo COVID-19 Tracker',
     'lastUpdatedLabel': 'Last Updated:',
@@ -22,7 +25,6 @@ var en_us = {
     'male': 'Male',
     'female': 'Female',
     'wardChartLang': 'chart_en',
-    //'wardNameTranslator': toEnglish,
     'agePostfix': 's',
     'dailyNums': 'Daily Numbers',
     'mapLabels': 'label_en',
@@ -57,7 +59,6 @@ var ja = {
     'male': '男性',
     'female': '女性',
     'wardChartLang': 'chart_ja',
-    //'wardNameTranslator': toJapanese,
     'agePostfix': '代',
     'dailyNums': '日別',
     'mapLabels': 'label_ja',
