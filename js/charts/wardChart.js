@@ -6,7 +6,7 @@ var wardChart;
  * plots a line chart of a ward's timeline of covid-19 cases.
  * 
  * @param {GeoJSON} currentWard   this ward's GeoJSON, used for en/ja name and id
- * @param {dictionary} history    {history: dictionary of date timestamps to cases, name_en: English name, name_jp: Japanese name}       
+ * @param {object} history    {history: object of date timestamps to cases, name_en: English name, name_jp: Japanese name}       
  */
 const drawWardChart = (currentWard, history) => {
     console.log(currentWard, history);

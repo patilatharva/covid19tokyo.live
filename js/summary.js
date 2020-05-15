@@ -1,9 +1,9 @@
 export {getTodayData, fillSummaryCard};
 
 /**
- * return a dictionary with latest (current day's) covid-19 stats. 
+ * return an object with latest (current day's) covid-19 stats. 
  * 
- * @param {dictionary} data		covid-19 data from Tokyo govt 
+ * @param {object} data		covid-19 data from Tokyo govt 
  */
 
 const getTodayData = (data) => {
@@ -93,7 +93,7 @@ const getTodayData = (data) => {
 /**
  * populate Summary card with latest numbers.
  * 
- * @param {dictionary} summary 	summary dictionary from getTodayData()
+ * @param {object} summary 	summary object from getTodayData()
  */
 const fillSummaryCard = (summary) => {
 	const sign = (newCases) => (newCases >= 0 ? "+" : "");

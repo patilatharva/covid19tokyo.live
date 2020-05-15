@@ -1,8 +1,7 @@
-// dictionaries with terminology in English and Japanese.
+// terminology in English and Japanese.
 // Most entries are no longer used after we switched to static translation.
 
 var en_us = {
-    'title': 'Tokyo COVID-19 Tracker',
     'lastUpdatedLabel': 'Last Updated:',
     'summary': 'Summary',
     'activeLabel': 'Active',
@@ -36,7 +35,6 @@ var en_us = {
 };
 
 var ja = {
-    'title': '東京都<span style="display: inline-block;">新型コロナウイルス</span><span style="display: inline-block;">感染状況</span>',
     'lastUpdatedLabel': '最終更新',
     'summary': '現在の状況',
     'activeLabel': '現在患者数',
