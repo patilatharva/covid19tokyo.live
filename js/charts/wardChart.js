@@ -1,5 +1,3 @@
-export {drawWardChart};
-
 // variable to store the latest ward chart instance
 // necessary to check if an existing ward chart needs to be destroyed
 var wardChart;
@@ -120,3 +118,5 @@ const drawWardChart = (currentWard, history) => {
 		}
 	});
   }
+
+  export default drawWardChart;

@@ -1,5 +1,5 @@
-import {drawWardChart} from './charts/wardChart.js';
-import {map} from './charts/tokyoMap.js';
+import drawWardChart from './charts/wardChart.js';
+import map from './charts/tokyoMap.js';
 export {flyToPoint, selectWard, getWardFromId, deselectCurrentWard, onWardSelect};
 
 /**
@@ -12,7 +12,6 @@ const removePlaceholder = () => {
     var chart = document.getElementById('wardHistoryChart');
     chart.style.display = 'block';
 }
-
 
 /**
  * takes a ward's id and returns it GeoJSON object.

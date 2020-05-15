@@ -1,5 +1,4 @@
 import {flyToPoint, selectWard, onWardSelect, deselectCurrentWard, getWardFromId} from '../utils.js';
-export {map};
 
 /**
  * Initializes interactive Mapbox map.
@@ -234,3 +233,5 @@ $( "#ward-picker" ).change(function() {
 	onWardSelect(tokyoGeo, map, hoveredWardId, wardId);
 	hoveredWardId = wardId;
 });
+
+export default map;

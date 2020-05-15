@@ -1,5 +1,4 @@
-
-export const plotOverallChart = (data) => {
+const plotOverallChart = (data) => {
     // plot chart
     // patientData: array containing number of new cases each day; sample in temp.json -> patients_summary
     var patientData = data["summary"]["patients_summary"]["data"];
@@ -112,3 +111,4 @@ export const plotOverallChart = (data) => {
     });
 }
   
+export default plotOverallChart;
