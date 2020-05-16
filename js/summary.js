@@ -5,7 +5,6 @@ export {getTodayData, fillSummaryCard};
  * 
  * @param {object} data		covid-19 data from Tokyo govt 
  */
-
 const getTodayData = (data) => {
 	const summary = data.summary;
 	const deathCount = data.deaths;
@@ -119,9 +118,6 @@ const fillSummaryCard = (summary) => {
 	$("#deaths .new").html(
 		"(" + sign(summary.deathsNew) + summary.deathsNew + ")"
 	);
-
-	//$("#critical .h5").html(summary.critical);
-	//$("#critical .new").html("(+" + "num" + ")");
 
 	$("#tested .h5").html(summary.tested);
 	$("#tested .new").html(

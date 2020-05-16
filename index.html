@@ -201,9 +201,12 @@
       <div class="row">
         <div class="col">
           <div class="card">
-            <h4 id="outbreakMapLabel"></h4>
-            <hr />
-
+            <h4 id="outbreakMapLabel">検査実施人数と陽性率</h4>
+            <hr/>
+            <!-- すでに陽性確認された患者の陰性確認のための検査を除く。-->
+            <div style="min-height: 338px; padding: 0 30px;">
+              <canvas id="positivityChart" width="50vh"></canvas>
+            </div>
             
           </div>
         </div>

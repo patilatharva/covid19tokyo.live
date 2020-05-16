@@ -1,6 +1,7 @@
 import plotAllWardsChart from './charts/allWardsChart.js';
 import {initializeDailyChart, plotDailyChart} from './charts/dailyChart.js';
 import plotOverallChart from './charts/overallChart.js';
+import plotPositivityChart from './charts/positivityChart.js';
 import plotAgeGenderChart from './charts/ageGenderChart.js';
 import {getTodayData, fillSummaryCard} from './summary.js';
 import getNews from './news.js';
@@ -22,10 +23,10 @@ $(document).ready(function() {
 		});
 
 	// data from Tokyo Govt's official covid-19 website
-	const url =
+	const overallDataUrl =
 		"https://raw.githubusercontent.com/tokyo-metropolitan-gov/covid19/master/data/data.json";
 
-	fetch(url)
+	fetch(overallDataUrl)
 		.then(response => response.json())
 		.then(json => {
 			plotOverallChart({
@@ -48,11 +49,14 @@ $(document).ready(function() {
 			});
 		});
 
-	fetch('../data/cases.json')
+	const positivityUrl = 
+		"https://raw.githubusercontent.com/tokyo-metropolitan-gov/covid19/development/data/positive_rate.json";
+
+	fetch(positivityUrl)
 		.then(response => response.json())
 		.then(json => {
 			// json = cases by ward
-			plotAllWardsChart(json);
+			plotPositivityChart(json);
 		});
 
 	getNews();
