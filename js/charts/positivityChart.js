@@ -16,9 +16,16 @@ const plotPositivityChart = (data) => {
 	console.log(positive);
   
     var ctx = document.getElementById("positivityChart").getContext("2d");
-  
+
     // line chart of cases over time of ward that cursor hovers over on the map.
-    var overallChart = new Chart(ctx, {
+    var positivityChart = new Chart(ctx, {
+		plugins: [{
+			beforeInit: function(chart, options) {
+			  chart.legend.afterFit = function() {
+				this.height = this.height + 10;
+			  };
+			}
+		  }],
 		type: "bar",
 		data: {
 			// slice is used to include data from the last 60 days only.
@@ -36,7 +43,7 @@ const plotPositivityChart = (data) => {
 					label: lang.positivePeople,
 					data: positive.slice(positive.length - 60),
 					borderColor: "rgba(65, 105, 225, 1)",
-					backgroundColor: "rgba(65, 105, 225, 1)",
+					backgroundColor: "rgba(65, 105, 225, 0.8)",
 					borderWidth: 1,
 					fill: true,
 					yAxisID: 'count'

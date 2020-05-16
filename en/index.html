@@ -201,6 +201,53 @@
       </div>
 
       <div class="row">
+        <div class="col-md">
+          <div class="card" id="testing-info">
+            <h4>Testing and Positivity Rate</h4>
+            <hr/>
+            <div id="positivity-chart-container">
+              <canvas id="positivityChart" width="50vh"></canvas>
+            </div>
+            <div class="footnote">
+              <ul>
+                <li>Excludes tests performed to test recovery.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md">
+          <div class="card" itemprop="daily">
+            <h4>Daily Numbers</h4>
+            <hr />
+
+            <div class="select-container">
+              <div style="width: 200px; margin: 0 auto;">
+                <select class="selectpicker" id="dailyChartSelect">
+                  <!--option value="cumulativeTests">cumulative tests</option-->
+                  <option id="dailyCases" value="casesPerDay"
+                    >New cases per day</option
+                  >
+                  <option id="dailyDeaths" value="deathsPerDay"
+                    >New deaths per day</option
+                  >
+                  <option id="dailyTests" value="testsPerDay"
+                    >New tests per day</option
+                  >
+                </select>
+              </div>
+            </div>
+            <div style="min-height: 330px; padding: 0 30px;">
+              <canvas id="dailyChart" width="50vh"></canvas>
+            </div>
+            <div style="padding: 0 20px; font-size: 12px; color: #37474fc5">
+              Note: Insurance-covered testing data is updated on Fridays. Until then, testing data from Thursday to the following Wednesday will consist only of uninsured tests.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="ward-info col">
           <div class="section" itemprop="map">
             <h4 id="outbreakMapLabel">Outbreak Map</h4>
@@ -311,38 +358,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md">
-          <div class="card" itemprop="daily">
-            <h4 id="dailyNums">Daily Numbers</h4>
-            <hr />
-
-            <div style="width: 100%;">
-              <div style="width: 200px; margin: 0 auto;">
-                <select class="selectpicker" id="dailyChartSelect">
-                  <!--option value="cumulativeTests">cumulative tests</option-->
-                  <option id="dailyCases" value="casesPerDay"
-                    >New cases per day</option
-                  >
-                  <option id="dailyDeaths" value="deathsPerDay"
-                    >New deaths per day</option
-                  >
-                  <option id="dailyTests" value="testsPerDay"
-                    >New tests per day</option
-                  >
-                </select>
-              </div>
-            </div>
-            <div style="min-height: 330px; padding: 0 30px;">
-              <canvas id="dailyChart" width="50vh"></canvas>
-            </div>
-            <div style="padding: 0 20px; font-size: 12px; color: #37474fc5">
-              Note: Insurance-covered testing data is updated on Fridays. Until then, testing data from Thursday to the following Wednesday will consist only of uninsured tests.
             </div>
           </div>
         </div>

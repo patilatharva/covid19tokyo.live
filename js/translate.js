@@ -32,9 +32,9 @@ var en_us = {
     "dailyCases": "New cases per day",
     "dailyDeaths": "New deaths per day",
     "dailyTests": "New tests per day",
-    "positivityLabel": "Positivity",
-    "positivePeople": "People testing positive",
-    "negativePeople": "People testing negative",
+    "positivityLabel": "Positivity rate",
+    "positivePeople": "Positive tests",
+    "negativePeople": "Negative tests",
 };
 
 var ja = {

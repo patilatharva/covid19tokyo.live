@@ -55,8 +55,15 @@ $(document).ready(function() {
 	fetch(positivityUrl)
 		.then(response => response.json())
 		.then(json => {
-			// json = cases by ward
+			// json = testing data and positivity per day
 			plotPositivityChart(json);
+		});
+
+	fetch("../data/cases.json")
+		.then(response => response.json())
+		.then(json => {
+			// json = cases by ward
+			plotAllWardsChart(json);
 		});
 
 	getNews();

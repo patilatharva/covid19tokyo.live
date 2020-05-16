@@ -199,19 +199,52 @@
       </div>
 
       <div class="row">
-        <div class="col">
-          <div class="card">
+        <div class="col-md">
+          <div class="card" id="testing-info">
             <h4 id="outbreakMapLabel">検査実施人数と陽性率</h4>
             <hr/>
-            <!-- すでに陽性確認された患者の陰性確認のための検査を除く。-->
-            <div style="min-height: 338px; padding: 0 30px;">
+            <div id="positivity-chart-container">
               <canvas id="positivityChart" width="50vh"></canvas>
             </div>
-            
+            <div class="footnote">
+              <ul>
+                <li>すでに陽性確認された患者の陰性確認のための検査を除く。</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card"></div>
+        
+        <div class="col-md">
+          <div class="card" itemprop="日別">
+            <h4 id="dailyNums">日別件数</h4>
+            <hr />
+
+            <div class="select-container">
+              <div style="width: 200px; margin: 0 auto;">
+                <select
+                  class="selectpicker text-secondary"
+                  id="dailyChartSelect"
+                >
+                  <!--option value="cumulativeTests">cumulative tests</option-->
+                  <option id="dailyCases" value="casesPerDay"
+                    >新規感染者数</option
+                  >
+                  <option id="dailyDeaths" value="deathsPerDay"
+                    >新規死亡者数</option
+                  >
+                  <option id="dailyTests" value="testsPerDay"
+                    >新規検査件数</option
+                  >
+                </select>
+              </div>
+            </div>
+            <div style="min-height: 337px; padding: 0 30px;">
+              <canvas id="dailyChart" width="50vh"></canvas>
+            </div>
+            <div style="padding: 0 20px; color: #37474fc5; font-size: 11px;">
+              （注）医療機関が保険適用で行った検査件数を含む検査実施件数は、毎週金曜日に前週木曜日から当該週水曜日までの日々の保険適用分の件数を反映して更新。
+            </div>
+          </div>
         </div>
       </div>
 
@@ -332,38 +365,7 @@
       </div>
 
       <div class="row">
-        <div class="col-md">
-          <div class="card" itemprop="日別">
-            <h4 id="dailyNums">日別件数</h4>
-            <hr />
-
-            <div style="width: 100%;">
-              <div style="width: 200px; margin: 0 auto;">
-                <select
-                  class="selectpicker text-secondary"
-                  id="dailyChartSelect"
-                >
-                  <!--option value="cumulativeTests">cumulative tests</option-->
-                  <option id="dailyCases" value="casesPerDay"
-                    >新規感染者数</option
-                  >
-                  <option id="dailyDeaths" value="deathsPerDay"
-                    >新規死亡者数</option
-                  >
-                  <option id="dailyTests" value="testsPerDay"
-                    >新規検査件数</option
-                  >
-                </select>
-              </div>
-            </div>
-            <div style="min-height: 330px; padding: 0 30px;">
-              <canvas id="dailyChart" width="50vh"></canvas>
-            </div>
-            <div style="padding: 0 20px; font-size: 12px; color: #37474fc5">
-              （注）医療機関が保険適用で行った検査件数を含む検査実施件数は、毎週金曜日に前週木曜日から当該週水曜日までの日々の保険適用分の件数を反映して更新。
-            </div>
-          </div>
-        </div>
+        
       </div>
 
       <div class="row">
