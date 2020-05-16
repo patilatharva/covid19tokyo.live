@@ -32,7 +32,9 @@ var en_us = {
     "dailyCases": "New cases per day",
     "dailyDeaths": "New deaths per day",
     "dailyTests": "New tests per day",
-    "positivityLabel": "Positivity"
+    "positivityLabel": "Positivity",
+    "positivePeople": "People testing positive",
+    "negativePeople": "People testing negative",
 };
 
 var ja = {
@@ -66,5 +68,7 @@ var ja = {
     "dailyCases": "新規感染者数",
     "dailyDeaths": "新規死亡者数",
     "dailyTests": "新規検査件数",
-    "positivityLabel": "陽性率"
+    "positivityLabel": "陽性率",
+    "positivePeople": "陽性患者数",
+    "negativePeople": "陰性患者数",
 };
