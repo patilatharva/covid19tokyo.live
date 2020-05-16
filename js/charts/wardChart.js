@@ -110,8 +110,8 @@ const drawWardChart = (currentWard, history) => {
 			scales: {
 				yAxes: [{
 					ticks: {
-					suggestedMin: 0,
-					suggestedMax: casesMaxValue,
+						suggestedMin: 0,
+						suggestedMax: casesMaxValue,
 					}
 				}]
 			}

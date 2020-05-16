@@ -1,9 +1,9 @@
 const plotPositivityChart = (data) => {
     
-    const dates = [];
-	const positivity = [];
-	const positive = [];
-	const negative = [];
+    var dates = [];
+	var positivity = [];
+	var positive = [];
+	var negative = [];
   
     for (const record of data.data) {
 		const date = new Date(record.diagnosed_date);
@@ -13,7 +13,11 @@ const plotPositivityChart = (data) => {
 		negative.push(record.negative_count);
 	}
 	
-	console.log(positive);
+	// show data of the last 60 days
+	dates = dates.slice(dates.length - 60);
+	positivity = positivity.slice(positivity.length - 60);
+	positive= positive.slice(positive.length - 60);
+	negative = negative.slice(negative.length - 60);
   
     var ctx = document.getElementById("positivityChart").getContext("2d");
 
@@ -29,11 +33,11 @@ const plotPositivityChart = (data) => {
 		type: "bar",
 		data: {
 			// slice is used to include data from the last 60 days only.
-			labels: dates.slice(dates.length - 60),
+			labels: dates,
 			datasets: [
 				{
 					label: lang.positivityLabel,
-					data: positivity.slice(positivity.length - 60),
+					data: positivity,
 					borderColor: "rgba(255, 7, 57, 0.8)",
 					fill: false,
 					type: "line",
@@ -41,7 +45,7 @@ const plotPositivityChart = (data) => {
 				},
 				{
 					label: lang.positivePeople,
-					data: positive.slice(positive.length - 60),
+					data: positive,
 					borderColor: "rgba(65, 105, 225, 1)",
 					backgroundColor: "rgba(65, 105, 225, 0.8)",
 					borderWidth: 1,
@@ -50,7 +54,7 @@ const plotPositivityChart = (data) => {
 				},
 				{
 					label: lang.negativePeople,
-					data: negative.slice(negative.length - 60),
+					data: negative,
 					borderColor: "rgba(135, 206, 235, 1)",
 					backgroundColor: "rgba(135, 206, 235, 0.8)",
 					borderWidth: 1,
@@ -111,7 +115,7 @@ const plotPositivityChart = (data) => {
 						ticks: {
 							suggestedMin: 0,
 						},
-						stacked: true
+						stacked: true,
 					},
 					{
 						id: 'percentage',
