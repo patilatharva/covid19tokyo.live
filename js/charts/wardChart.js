@@ -14,9 +14,8 @@ const drawWardChart = (currentWard, history) => {
     // list of dates
     var keys = Object.keys(history.history);
   
-    keys = keys.map((timestamp) => {
-		timestamp; // -= 24*60*60*1000;
-		var date = new Date(parseInt(timestamp));
+    keys = keys.map((dateString) => {
+		var date = new Date(dateString);
 		var month = date.getMonth();
 		var day = date.getDate();
 		return month + 1 + "/" + day;
