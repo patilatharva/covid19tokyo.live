@@ -53,3 +53,5 @@ The data used in this website has been gathered from:
 - [Yoshiki Yarlagadda](https://github.com/y0shiki)
 ## License
 This project is licensed under the MIT License. 
+## Acknowledgments
+Special thanks to [Mapbox](https://www.mapbox.com/) and [Google Cloud](https://cloud.google.com/gcp/?utm_source=google&utm_medium=cpc&utm_campaign=na-US-all-en-dr-bkws-all-all-trial-b-dr-1008076&utm_content=text-ad-none-any-DEV_c-CRE_115268617687-ADGP_Hybrid+%7C+AW+SEM+%7C+BKWS+%7C+US+%7C+en+%7C+BMM+~+Clouds+Google-KWID_43700010161690057-kwd-64595508764&utm_term=KW_%2Bclouds%20%2Bgoogle-ST_%2Bclouds+%2Bgoogle&gclid=CjwKCAjwwYP2BRBGEiwAkoBpAlJ15rBc-pSeBrcqWuwA8luX6rSgruz6bCpINjO5uCrLihJ4XRm_JBoCfZwQAvD_BwE) for supporting this website.
