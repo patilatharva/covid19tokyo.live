@@ -39,8 +39,4 @@ http-server
 ## Built With
 - [Bootstrap](https://getbootstrap.com/) - Front end framework.
 - [Mapbox](https://www.mapbox.com/) - Provides responsive maps to use in web applications.
-- [charts.js](https://www.chartjs.org/) - Open source JavaScript charting library.
-### Summary
-
-
-
+- [Charts.js](https://www.chartjs.org/) - Open source JavaScript charting library.
