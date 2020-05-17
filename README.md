@@ -19,13 +19,13 @@ http-server
      - `index.html`: the Japanese version
      - `en/index.html`: the English version of the site
 
-   - The purpose of js files are as follows
-     -`js/translate.js` is used to translate the files to Japanese and English, respectively.
-     -`js/index.js` is used to initialize all the data arrays used in the charts.
-     -`js/summary.js` initalizes the "summary" card of the site.
-     -`js/util.js` contains various methods used in creation of the map.
-     -`js/news.js` fetches news data from the Tokyo government and displays them on the "News" card.
-     -`js/charts` directory contains all the charts used in the site.
+   - The purpose of the js files are as follows:
+     - `js/translate.js` is used to translate the files to Japanese and English, respectively.
+     - `js/index.js` is used to initialize all the data arrays used in the charts.
+     - `js/summary.js` initalizes the "summary" card of the site.
+     - `js/util.js` contains various methods used in creation of the map.
+     - `js/news.js` fetches news data from the Tokyo government and displays them on the "News" card.
+     - `js/charts` directory contains all the charts used in the site.
   
    -`css/style.css` contains all the styling used for elements throughout the website.
    - `./data` stores some data used in the website in JSON format.
