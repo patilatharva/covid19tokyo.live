@@ -59,11 +59,11 @@ $(document).ready(function() {
 			plotPositivityChart(json);
 		});
 
-	fetch("../data/cases.json")
+	fetch("../data/cases2.json")
 		.then(response => response.json())
 		.then(json => {
 			// json = cases by ward
-			plotAllWardsChart(json);
+			plotAllWardsChart(json.wardHistory);
 		});
 
 	getNews();

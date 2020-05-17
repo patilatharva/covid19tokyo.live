@@ -1,34 +1,24 @@
 const plotAllWardsChart = (casesByWard) => {
-    var api_districts = casesByWard["features"];
-    // Obtains data for the current date.
-    var districtsData = api_districts.slice(api_districts.length - 62);
-  
+
     // Declaring arrays to use in the chart.
     var labels = [];
     var data = [];
-    var backgroundColor = [];
-    var borderColor = [];
   
-    // Setting the labels and the data of the chart.
-    for (var i = 0; i < districtsData.length; i++) {
-		var ward;
+	for (const ward of casesByWard) {
 		if (lang == en_us) {
-			ward = districtsData[i]["properties"]["ward"];
-			ward = ward.replace(' ', '-');
+			labels.push(ward.name_en.replace(' ', '-'));
 		} else {
-			ward = districtsData[i]["properties"]["団体名"];
+			labels.push(ward.name_ja);
 		}
+		
+		// latest no. of cases in ward
+		const cases = Object.values(ward.history)
+		data.push(cases[cases.length - 1]);
+	}
 
-		var num = districtsData[i]["properties"]["件数"] || 0;
-		backgroundColor.push("rgba(29, 90, 185, 0.5)");
-		borderColor.push("rgba(29, 90, 185, 1)");
-		labels.push(ward);
-		data.push(num);
-    }
-  
     // Sorting the array of cases in descending order.
-    for (var i = 0; i < districtsData.length - 1; i++) {
-		for (var j = 0; j < districtsData.length - i - 1; j++) {
+    for (var i = 0; i < labels.length - 1; i++) {
+		for (var j = 0; j < labels.length - i - 1; j++) {
 			if (data[j] < data[j + 1]) {
 				var temp1 = data[j];
 				var temp2 = labels[j];
