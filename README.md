@@ -14,6 +14,8 @@ npm i -g http-server
 ```
 http-server
 ```
+Files of dependencies such as bootstrap are stored locally, and do not need to be installed. Other dependencies are already listed on `package-lock.json`.
+
 ## Code Organization
 - There are two main html that are displayed: 
   - `index.html`: the Japanese version
