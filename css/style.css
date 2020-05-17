@@ -102,6 +102,7 @@ h4 {
   color: #37474fc5;
   height: fit-content;
   margin-top: 5px;
+  padding-right: 10px;
 }
 
 .footnote h2 {
@@ -132,6 +133,10 @@ h4 {
   min-height: 358px;
   padding: 0 30px;
   margin-top: 7px;
+}
+
+#daily {
+  height: 100%;
 }
 
 .select-container {

@@ -203,13 +203,15 @@
       <div class="row">
         <div class="col-md">
           <div class="card" id="testing-info">
-            <h4>Testing and Positivity Rate</h4>
+            <h4>Positivity Rate</h4>
             <hr/>
             <div id="positivity-chart-container">
               <canvas id="positivityChart" width="50vh"></canvas>
             </div>
             <div class="footnote">
               <ul>
+                <li>Positivity rate = No. of people tested positive / No. of people tested</li>
+                <li>The positivity rate for each day is shown as its 7-day rolling average.</li>
                 <li>Includes both private and public testing data</li>
                 <li>Excludes tests performed to test recovery.</li>
               </ul>
@@ -218,7 +220,7 @@
         </div>
 
         <div class="col-md">
-          <div class="card" itemprop="daily">
+          <div id="daily" class="card" itemprop="daily">
             <h4>Daily Numbers</h4>
             <hr />
 
