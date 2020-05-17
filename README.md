@@ -1,5 +1,5 @@
 # [covid19tokyo.live](https://covid19tokyo.live/en/) · [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-Website for tracking covid19 cases in the greater Tokyo area.
+Website for tracking the coronavirus outbreak in Tokyo, Japan.
 ## Getting Started
 To get this project up and running on your machine, follow these steps.
 1. Start by cloning the repository.
@@ -46,8 +46,8 @@ The data used in this website has been gathered from:
 
 ## Built With
 - [Bootstrap](https://getbootstrap.com/) - Front end framework.
-- [Mapbox](https://www.mapbox.com/) - Provides responsive maps to use in web applications.
-- [Charts.js](https://www.chartjs.org/) - Open source JavaScript charting library.
+- [Mapbox](https://www.mapbox.com/) - Provides interactive maps to use in web applications.
+- [Chart.js](https://www.chartjs.org/) - Open source JavaScript charting library.
 
 ## Authors
 - [Atharva Patil](https://github.com/patilatharva)
