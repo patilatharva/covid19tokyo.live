@@ -57,6 +57,7 @@ $(document).ready(function() {
 		.then(json => {
 			// json = testing data and positivity per day
 			plotPositivityChart(json);
+			showLatestPositivity(json);
 		});
 
 	fetch("../data/wardCases.json")
@@ -68,6 +69,21 @@ $(document).ready(function() {
 
 	getNews();
 });
+
+const showLatestPositivity = (positivityData) => {
+	const posValues = positivityData.data;
+	const latest = posValues[posValues.length - 1];
+	
+	const posRate = latest.positive_rate;
+	var timestamp = new Date(latest.diagnosed_date);
+	const periodEnd = (timestamp.getMonth() + 1) + "/" + (timestamp.getDate());
+	timestamp.setDate(timestamp.getDate() - 6);
+	const periodStart = (timestamp.getMonth() + 1) + "/" + (timestamp.getDate());
+
+	$("#pos-latest-rate").html(posRate + "%");
+	$("#pos-latest-period").html(`${periodStart}-${periodEnd} ${lang.average}`);
+	//alert(periodStart + " - " + periodEnd);
+}
 
 /**
  * Show cases/death/testing daily numbers depending on selection

@@ -35,6 +35,7 @@ var en_us = {
     "positivityLabel": "Positivity rate",
     "positivePeople": "Positive tests",
     "negativePeople": "Negative tests",
+    "average": "avg."
 };
 
 var ja = {
@@ -71,4 +72,5 @@ var ja = {
     "positivityLabel": "陽性率",
     "positivePeople": "陽性患者数",
     "negativePeople": "陰性患者数",
+    "average": "平均"
 };
