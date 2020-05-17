@@ -200,23 +200,6 @@
 
       <div class="row">
         <div class="col-md">
-          <div class="card" id="testing-info">
-            <h4 id="outbreakMapLabel">検査実施人数と陽性率</h4>
-            <hr/>
-            <div id="positivity-chart-container">
-              <canvas id="positivityChart" width="50vh"></canvas>
-            </div>
-            <div class="footnote">
-              <ul>
-                <li>陽性率：陽性判明数の移動平均／（陽性判明数＋陰性判明数）の移動平均</li>
-                <li>陽性率は過去7日間の移動平均値を陽性率として算出</li>
-                <li>すでに陽性確認された患者の陰性確認のための検査を除く。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md">
           <div id="daily" class="card" itemprop="日別">
             <h4>日別件数</h4>
             <hr />
@@ -245,6 +228,25 @@
             </div>
             <div style="padding: 0 20px; color: #37474fc5; font-size: 11px;">
               （注）医療機関が保険適用で行った検査件数を含む検査実施件数は、毎週金曜日に前週木曜日から当該週水曜日までの日々の保険適用分の件数を反映して更新。
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md">
+          <div class="card" id="testing-info">
+            <h4 id="outbreakMapLabel">検査実施人数と陽性率</h4>
+            <hr/>
+            <div id="positivity-chart-container">
+              <canvas id="positivityChart" width="50vh"></canvas>
+            </div>
+            <div class="footnote">
+              <div style="padding-right: 20px;">
+                <ul>
+                  <li>陽性率：陽性判明数の移動平均／（陽性判明数＋陰性判明数）の移動平均</li>
+                  <li>陽性率は過去7日間の移動平均値を陽性率として算出</li>
+                  <li>すでに陽性確認された患者の陰性確認のための検査を除く。</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -372,19 +374,6 @@
 
       <div class="row">
         <div class="col-md">
-          <div class="card" style="height: fit-content;" itemprop="年齢">
-            <h4 id="ageGenderLabel">年齢・男女別</h4>
-            <hr />
-            <div style="padding: 0 30px;">
-              <canvas
-                id="ageGenderChart"
-                width="50vh"
-                style="height: 310px;"
-              ></canvas>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
           <div class="card" style="padding-bottom: 10px;" itemprop="区別"">
             <h4 id="confirmedByWard">各区市町村の感染者数</h4>
             <hr />
@@ -408,6 +397,20 @@
                   八王子市, 立川市, 武蔵野市, 三鷹市, 青梅市, 府中市, 昭島市, 調布市, 町田市, 小金井市, 小平市, 日野市, 東村山市, 国分寺市, 国立市, 福生市, 狛江市, 東大和市, 清瀬市, 東久留米市, 武蔵村山市, 多摩市, 稲城市, 羽村市, あきる野市, 西東京市, 瑞穂町, 日の出町, 檜原村, 奥多摩町, 大島町, 利島村, 新島村, 神津島村, 三宅村, 御蔵島村, 八丈町, 青ヶ島村, 小笠原村
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md">
+          <div class="card" style="height: fit-content;" itemprop="年齢">
+            <h4 id="ageGenderLabel">年齢・男女別</h4>
+            <hr />
+            <div style="padding: 0 30px;">
+              <canvas
+                id="ageGenderChart"
+                width="50vh"
+                style="height: 310px;"
+              ></canvas>
             </div>
           </div>
         </div>

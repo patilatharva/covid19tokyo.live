@@ -62,7 +62,7 @@ const selectWard = (tokyoGeo, map, prevWardId, wardId) => {
 
     var currentWard = getWardFromId(tokyoGeo, wardId);
 
-    fetch('../data/cases2.json')
+    fetch('../data/wardCases.json')
 		.then(response => response.json())
 		.then(json => {
             // json = cases by ward
