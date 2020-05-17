@@ -33,7 +33,8 @@ http-server
      - `cases.json` contains data of cases by ward.
      - `deaths.json` stores the count of deaths by day, starting from 01-24-20.
      - `discharged.json` stores the count of discharges by day, starting from 03-27-20.
-    
+   - `./images` contains all the image assets used in the website.
+   - `./assets` contains files of dependencies such as bootstrap.
    
 
 
