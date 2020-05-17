@@ -1,5 +1,5 @@
 # [covid19tokyo.live](https://covid19tokyo.live/en/)
-Website for tracking covid19 cases in the greater Tokyo area. Developed by 3 college students to better understand the numbers behind the coronavirus outbreak in Tokyo. 
+Website for tracking covid19 cases in the greater Tokyo area.
 ## Getting Started
 To get this project up and running on your machine, follow these steps.
 1. Start by cloning the repository.
@@ -40,3 +40,10 @@ http-server
 - [Bootstrap](https://getbootstrap.com/) - Front end framework.
 - [Mapbox](https://www.mapbox.com/) - Provides responsive maps to use in web applications.
 - [Charts.js](https://www.chartjs.org/) - Open source JavaScript charting library.
+
+## Authors
+- [Atharva Patil](https://github.com/patilatharva)
+- [Rahul Joshi](https://github.com/rahuljoshi44)
+- [Yoshiki Yarlagadda](https://github.com/y0shiki)
+## License
+This project is licensed under the MIT License. 
