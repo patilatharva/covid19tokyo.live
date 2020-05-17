@@ -11,7 +11,8 @@ import {
  */
 const initializeMap = () => {
   // replace the following with your Mapbox token
-  mapboxgl.accessToken = process.env.MAPBOX_KEY;
+  mapboxgl.accessToken =
+    "pk.eyJ1IjoicGF0aWxhdGhhcnZhIiwiYSI6ImNrOHN3MG5yczAzNzYzcW53anExZXZhNzkifQ.tZlhVCnq5qVYs3cEQbdSdw";
   var map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/patilatharva/ck976z7w94gsc1in2kam1txd5",
