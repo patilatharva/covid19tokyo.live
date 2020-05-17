@@ -18,7 +18,7 @@ http-server
    - There are two main html that are displayed: 
      - `index.html`: the Japanese version
      - `en/index.html`: the English version of the site
-     `traslate.js` is used to translate the html files.
+   `translate.js` is used to translate the files to Japanese and English, respectively.
 The purpose of js files are as follows
 `index.js` is used to initialize all the data arrays used in the charts.
 All the js files that create charts are stored in the directory js/charts.
