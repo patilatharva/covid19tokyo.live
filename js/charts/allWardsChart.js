@@ -65,11 +65,9 @@ const plotAllWardsChart = (casesByWard) => {
 				padding: 10,
 			},
 			scales: {
-				xAxes: [
-					{
+				xAxes: [{
 					position: "top",
-					},
-				],
+				}],
 				yAxes: [{
 					ticks: {
 						fontSize: 12,
