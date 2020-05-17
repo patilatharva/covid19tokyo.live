@@ -1,4 +1,4 @@
-# covid19tokyo.live
+# [covid19tokyo.live](https://covid19tokyo.live/en/)
 Website for tracking covid19 cases in the greater Tokyo area. Developed by 3 college students to better understand the numbers behind the coronavirus outbreak in Tokyo. 
 ## Getting Started
 To get this project up and running on your machine, follow these steps.
@@ -35,10 +35,6 @@ http-server
      - `discharged.json` stores the count of discharges by day, starting from 03-27-20.
    - `./images` contains all the image assets used in the website.
    - `./assets` contains files of dependencies such as bootstrap.
-   
-
-
-
 
 ## Features
 covid19tokyo features a range of data visualization elmenets, including:
