@@ -36,6 +36,12 @@ http-server
 - `./images` contains all the image assets used in the website.
 - `./assets` contains files of dependencies such as bootstrap.
 
+## Data Sources
+The data used in this website has been gathered from:
+- [Press releases from the Bureau of Social Welfare and Public Health, Tokyo Metro. Govt.](https://www.fukushihoken.metro.tokyo.lg.jp/hodo/index.html)
+- [Tokyo Open Data](https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068)
+- [Tokyo Metro. Gov. Official COVID-19 Information Site](https://stopcovid19.metro.tokyo.lg.jp/)
+
 ## Built With
 - [Bootstrap](https://getbootstrap.com/) - Front end framework.
 - [Mapbox](https://www.mapbox.com/) - Provides responsive maps to use in web applications.
