@@ -62,11 +62,19 @@ const selectWard = (tokyoGeo, map, prevWardId, wardId) => {
 
     var currentWard = getWardFromId(tokyoGeo, wardId);
 
-    fetch('../data/cases.json')
+    fetch('../data/cases2.json')
 		.then(response => response.json())
 		.then(json => {
-			// json = cases by ward
-			const wardHistory = getHistory(currentWard, json);
+            // json = cases by ward
+            var wardHistory = {};
+            for (const ward of json.wardHistory) {
+                if (ward.name_en == currentWard.properties.ward_en) {
+                    wardHistory = ward;
+                }
+            }
+
+            //const wardHistory = getHistory(currentWard, json);
+            console.log('currentWard', currentWard);
             drawWardChart(currentWard, wardHistory);
         });
 }
@@ -82,35 +90,6 @@ const flyToPoint = (point) => {
         zoom: 9.5,
         'essential': true, // this animation is considered essential with respect to prefers-reduced-motion
       });
-}
-
-/**
- * Returns the history of cases for a ward.
- * 
- * @param {GeoJSON} currentWard 	GeoJSON of selected ward
- * @param {GeoJSON} cases 			History of cases in all wards
- */
-const getHistory = (currentWard, cases) => {
-    var history = cases["features"].filter(
-    (ward) =>
-        ward["properties"]["団体名"] === currentWard.properties.ward_ja
-    );
-
-    // key: timestamp of date, val: num of cases
-    var casesHistory = {};
-    history.forEach((ward) => {
-    var timestamp = ward["properties"]["公表日"];
-    casesHistory[timestamp] = ward["properties"]["件数"] || 0;
-    });
-
-    history = {
-        name_en: currentWard.properties.ward_en,
-        name_ja: currentWard.properties.ward_ja,
-        history: casesHistory,
-    };
-
-    // see history of that ward in console
-    return history;
 }
 
 /**
