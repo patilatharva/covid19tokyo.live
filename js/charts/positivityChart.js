@@ -55,7 +55,7 @@ const plotPositivityChart = (data) => {
 				{
 					label: lang.negativePeople,
 					data: negative,
-					borderColor: "rgba(135, 206, 235, 1)",
+					borderColor: "rgba(65, 105, 225, 0.4)",
 					backgroundColor: "rgba(135, 206, 235, 0.8)",
 					borderWidth: 1,
 					fill: true,
