@@ -1,4 +1,4 @@
-# [covid19tokyo.live](https://covid19tokyo.live/en/)
+# [covid19tokyo.live](https://covid19tokyo.live/en/) · [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 Website for tracking covid19 cases in the greater Tokyo area.
 ## Getting Started
 To get this project up and running on your machine, follow these steps.
