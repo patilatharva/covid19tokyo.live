@@ -83,6 +83,16 @@ h4 {
   text-decoration: none;
 }
 
+#trends {
+  height: fit-content;
+  min-height: 400px;
+}
+
+#trends .chart-container {
+  min-height: 338px;
+  padding: 0 30px;
+}
+
 #overall-info {
   min-height: 370px;
   height: fit-content;
@@ -157,6 +167,12 @@ h4 {
 
 #daily {
   height: 100%;
+  padding: 0;
+}
+
+#daily .chart-container {
+  min-height: 336px;
+  padding: 0 30px;
 }
 
 .select-container {
@@ -225,6 +241,12 @@ h4 {
   font-size: 30px;
   margin-bottom: 0;
   display: inline-block;
+}
+
+.summary-wrapper {
+  display: table;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .summary .new {
@@ -304,6 +326,16 @@ h4 {
   display: none;
 }
 
+#confirmedByWard {
+  padding-bottom: 10px;
+}
+
+#confirmedByWard .chart-container {
+  max-height: 320px;
+  overflow: scroll;
+  padding-right: 20px;
+}
+
 #ward-list {
   padding: 20px 20px 0 30px;
   font-size: 12px;
@@ -315,6 +347,18 @@ h4 {
 
 #ward-list h6 {
   font-weight: bold;
+}
+
+#ageGender {
+  height: fit-content
+}
+
+#ageGender .chart-container {
+  padding: 0 30px;
+}
+
+#about {
+  height: fit-content;
 }
 
 .linkedin {
@@ -331,10 +375,19 @@ h4 {
   padding-left: 20px;
 }
 
+#about .fa-github {
+  margin-right: 4px;
+}
+
 #supported-by {
   margin: 10px 0;
   text-align: center;
   color: #606368;
+}
+
+#supported-by span {
+  display: inline-block;
+  margin-top: 10px;
 }
 
 #supported-by a {
