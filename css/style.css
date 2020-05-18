@@ -128,6 +128,10 @@ h4 {
   height: 100%;
 }
 
+#pos-title {
+  margin-right: 110px;
+}
+
 #pos-latest {
   position: absolute;
   top: 0;
