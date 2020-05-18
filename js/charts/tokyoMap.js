@@ -6,7 +6,7 @@ import {
   getWardFromId,
 } from "../utils.js";
 
-import config from "../../config";
+import config from "../../config.js";
 
 /**
  * Initializes interactive Mapbox map.
