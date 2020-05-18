@@ -6,12 +6,14 @@ import {
   getWardFromId,
 } from "../utils.js";
 
+import config from "../../config";
+
 /**
  * Initializes interactive Mapbox map.
  */
 const initializeMap = () => {
   // replace the following with your Mapbox token
-  mapboxgl.accessToken = MAPBOX_KEY;
+  mapboxgl.accessToken = config.MAPBOX_KEY;
   var map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/patilatharva/ck976z7w94gsc1in2kam1txd5",
