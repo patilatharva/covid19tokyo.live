@@ -352,3 +352,9 @@ h4 {
 #mapbox-logo {
   vertical-align: text-top;
 }
+
+@media screen and (max-width: 420px) {
+  #pos-latest {
+    margin-top: 13px
+  }
+}
