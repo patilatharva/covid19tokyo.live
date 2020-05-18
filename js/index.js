@@ -70,6 +70,12 @@ $(document).ready(function() {
 	getNews();
 });
 
+/**
+ * Displays the latest positivity rate next to the "Testing and 
+ * Positivity Rate" card's title
+ * 
+ * @param {object} positivityData object positivity rates for each day
+ */
 const showLatestPositivity = (positivityData) => {
 	const posValues = positivityData.data;
 	const latest = posValues[posValues.length - 1];
@@ -82,7 +88,6 @@ const showLatestPositivity = (positivityData) => {
 
 	$("#pos-latest-rate").html(posRate + "%");
 	$("#pos-latest-period").html(`${periodStart}-${periodEnd} ${lang.average}`);
-	//alert(periodStart + " - " + periodEnd);
 }
 
 /**
