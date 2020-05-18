@@ -8,45 +8,47 @@ import getNews from './news.js';
 
 $(document).ready(function() {
 
-	var deaths;
 	fetch('../data/deaths.json')
 		.then(response => response.json())
 		.then(json => {
-			deaths = json;
-		});
+			var deaths = json;
+			
+			fetch('../data/discharged.json')
+				.then(response => response.json())
+				.then(json => {
+					var discharged = json;
+					
+					// data from Tokyo Govt's official covid-19 website
+					const overallDataUrl =
+						"https://raw.githubusercontent.com/tokyo-metropolitan-gov/covid19/master/data/data.json";
+					
+					fetch(overallDataUrl)
+						.then(response => response.json())
+						.then(json => {
+							const summary = json;
 
-	var discharged;
-	fetch('../data/discharged.json')
-		.then(response => response.json())
-		.then(json => {
-			discharged = json;
-		});
+							plotOverallChart({
+								deaths: deaths,
+								discharged: discharged,
+								summary: summary
+							});
+							
+							const latestData = getTodayData({
+								summary: summary,
+								deaths: deaths,
+								discharged: discharged,
+							});
+							fillSummaryCard(latestData);
 
-	// data from Tokyo Govt's official covid-19 website
-	const overallDataUrl =
-		"https://raw.githubusercontent.com/tokyo-metropolitan-gov/covid19/master/data/data.json";
+							plotAgeGenderChart(summary["patients"]);
 
-	fetch(overallDataUrl)
-		.then(response => response.json())
-		.then(json => {
-			plotOverallChart({
-				deaths: deaths,
-				discharged: discharged,
-				summary: json
-			});
-
-			const latestData = getTodayData({
-				summary: json,
-				deaths: deaths,
-				discharged: discharged,
-			});
-			fillSummaryCard(latestData);
-
-			plotAgeGenderChart(json["patients"]);
-			initializeDailyChart({
-				summary: json,
-				deaths: deaths
-			});
+							initializeDailyChart({
+								summary: summary,
+								deaths: deaths
+							});
+				
+						});
+				});	
 		});
 
 	const positivityUrl = 
