@@ -353,6 +353,12 @@ h4 {
   vertical-align: text-top;
 }
 
+@media screen and (max-width: 765px) {
+  #daily, #testing-info {
+    height: fit-content;
+  }
+}
+
 @media screen and (max-width: 420px) {
   #pos-latest {
     margin-top: 13px
