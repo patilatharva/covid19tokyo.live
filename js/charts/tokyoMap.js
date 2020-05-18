@@ -1,37 +1,36 @@
 import {
-	flyToPoint,
-	selectWard,
-	onWardSelect,
-	deselectCurrentWard,
-	getWardFromId,
+  flyToPoint,
+  selectWard,
+  onWardSelect,
+  deselectCurrentWard,
+  getWardFromId,
 } from "../utils.js";
 
 /**
  * Initializes interactive Mapbox map.
  */
 const initializeMap = () => {
-	// replace the following with your Mapbox token
-	mapboxgl.accessToken =
-		"pk.eyJ1IjoicGF0aWxhdGhhcnZhIiwiYSI6ImNrOHN3MG5yczAzNzYzcW53anExZXZhNzkifQ.tZlhVCnq5qVYs3cEQbdSdw";
-	var map = new mapboxgl.Map({
-		container: "map",
-		style: "mapbox://styles/patilatharva/ck976z7w94gsc1in2kam1txd5",
-		center: [139.7338123, 35.684163],
-		zoom: 9,
-		minZoom: 8,
-		maxZoom: 11,
-	});
+  // replace the following with your Mapbox token
+  mapboxgl.accessToken = config.MAPBOX_KEY;
+  var map = new mapboxgl.Map({
+    container: "map",
+    style: "mapbox://styles/patilatharva/ck976z7w94gsc1in2kam1txd5",
+    center: [139.7338123, 35.684163],
+    zoom: 9,
+    minZoom: 8,
+    maxZoom: 11,
+  });
 
-  	map.scrollZoom.disable();
+  map.scrollZoom.disable();
 
-  	map.addControl(
-		new mapboxgl.NavigationControl({
-			showCompass: false,
-			showZoom: true,
-		})
-	);
+  map.addControl(
+    new mapboxgl.NavigationControl({
+      showCompass: false,
+      showZoom: true,
+    })
+  );
 
-  	return map;
+  return map;
 };
 
 var map = initializeMap();
@@ -45,57 +44,57 @@ var tokyoGeo;
  * @param {GeoJSON} casesByWard 	object containing the history of cases in each ward
  */
 const plotMapData = (map, casesByWard) => {
-	fetch("../data/tokyo.geojson")
-		.then((response) => response.json())
-		.then((json) => {
-			tokyoGeo = json;
-			var districts = tokyoGeo["features"];
-			var api_districts = casesByWard;
+  fetch("../data/tokyo.geojson")
+    .then((response) => response.json())
+    .then((json) => {
+      tokyoGeo = json;
+      var districts = tokyoGeo["features"];
+      var api_districts = casesByWard;
 
-			// get the latest 62 records (62 districts in total)
-			//api_districts = api_districts.slice(api_districts.length - 62);
+      // get the latest 62 records (62 districts in total)
+      //api_districts = api_districts.slice(api_districts.length - 62);
 
-			// geojson of all labels
-			const labels = {
-				name: "labels",
-				type: "FeatureCollection",
-				features: [],
-			};
+      // geojson of all labels
+      const labels = {
+        name: "labels",
+        type: "FeatureCollection",
+        features: [],
+      };
 
-			for (var district of districts) {
-				const name = district.properties.ward_en;
+      for (var district of districts) {
+        const name = district.properties.ward_en;
 
-			for (const api_district of api_districts) {
-				const api_name = api_district.name_en;
-				if (name === api_name) {
-					const history = Object.values(api_district.history);
-					const count = history[history.length - 1];
-					district.properties.cases = count;
-					const ward = district.properties[lang.wardLang];
-					const center = district.properties.center;
+        for (const api_district of api_districts) {
+          const api_name = api_district.name_en;
+          if (name === api_name) {
+            const history = Object.values(api_district.history);
+            const count = history[history.length - 1];
+            district.properties.cases = count;
+            const ward = district.properties[lang.wardLang];
+            const center = district.properties.center;
 
-					// label name
-					const label = ward.split(" ")[0] + "\n" + count;
+            // label name
+            const label = ward.split(" ")[0] + "\n" + count;
 
-					// add label
-					labels["features"].push({
-						type: "Feature",
-						properties: {
-							ward_label: label,
-						},
-						geometry: {
-							type: "Point",
-							coordinates: center,
-						}
-					});
-					break;
-				}
-			}
-		}
+            // add label
+            labels["features"].push({
+              type: "Feature",
+              properties: {
+                ward_label: label,
+              },
+              geometry: {
+                type: "Point",
+                coordinates: center,
+              },
+            });
+            break;
+          }
+        }
+      }
 
-		//initializeOptions("#ward-picker", tokyoGeo);
-		addWards(map, tokyoGeo);
-		addLabels(map, labels);
+      //initializeOptions("#ward-picker", tokyoGeo);
+      addWards(map, tokyoGeo);
+      addLabels(map, labels);
     });
 };
 
