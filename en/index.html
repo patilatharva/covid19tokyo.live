@@ -22,8 +22,14 @@
     <meta property="og:title" content="Tokyo Coronavirus Tracker" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://covid19tokyo.live/en" />
-    <meta property="og:image" content="https://covid19tokyo.live/images/covid19tokyo_light_caption.png" />
-    <meta property="og:description" content="A dashboard to visualize the trends of the COVID-19 outbreak in Tokyo" />
+    <meta
+      property="og:image"
+      content="https://covid19tokyo.live/images/covid19tokyo_light_caption.png"
+    />
+    <meta
+      property="og:description"
+      content="A dashboard to visualize the trends of the COVID-19 outbreak in Tokyo"
+    />
 
     <meta
       name="keywords"
@@ -69,6 +75,7 @@
       src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c3981e614250012f3b658&product=inline-share-buttons"
       async="async"
     ></script>
+    <script type="module" src="config.js"></script>
   </head>
   <body>
     <div id="fb-root"></div>
@@ -158,18 +165,38 @@
                 <div class="card" style="box-shadow: none;">
                   <div class="card-header" id="headingOne">
                     <h2 class="mb-0">
-                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <button
+                        class="btn btn-link"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapseOne"
+                        aria-expanded="true"
+                        aria-controls="collapseOne"
+                      >
                         Notes
                       </button>
                     </h2>
                   </div>
-              
-                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#footnote-acc">
+
+                  <div
+                    id="collapseOne"
+                    class="collapse"
+                    aria-labelledby="headingOne"
+                    data-parent="#footnote-acc"
+                  >
                     <div class="card-body">
                       <ul>
                         <li>Active = Confirmed - Recovered - Deaths</li>
-                        <li><b>*1</b> <i>Tested People</i> excludes tests covered by insurance conducted at medical institutions.</li>
-                        <li><b>*2</b> Insurance-covered private testing data is updated on Fridays. Until then, testing data from Thursday to the following Wednesday will consist only of tests conducted by public institutions.</li>
+                        <li>
+                          <b>*1</b> <i>Tested People</i> excludes tests covered
+                          by insurance conducted at medical institutions.
+                        </li>
+                        <li>
+                          <b>*2</b> Insurance-covered private testing data is
+                          updated on Fridays. Until then, testing data from
+                          Thursday to the following Wednesday will consist only
+                          of tests conducted by public institutions.
+                        </li>
                         <li>
                           Some people have been tested multiple times.
                         </li>
@@ -182,7 +209,11 @@
           </div>
         </div>
         <div class="col-md-7">
-          <div class="card" style="height: fit-content; min-height: 400px;" itemprop="trends">
+          <div
+            class="card"
+            style="height: fit-content; min-height: 400px;"
+            itemprop="trends"
+          >
             <h4 id="latestTrends">Trends</h4>
             <hr />
             <div style="min-height: 338px; padding: 0 30px;">
@@ -225,8 +256,11 @@
             <div style="min-height: 336px; padding: 0 30px;">
               <canvas id="dailyChart" width="50vh"></canvas>
             </div>
-            <div style="padding: 0 20px; font-size: 12px; color: #37474fc5">
-              <b>Note:</b> Insurance-covered private testing data is updated on Fridays. Until then, testing data from Thursday to the following Wednesday will consist only of tests conducted by public institutions.
+            <div style="padding: 0 20px; font-size: 12px; color: #37474fc5;">
+              <b>Note:</b> Insurance-covered private testing data is updated on
+              Fridays. Until then, testing data from Thursday to the following
+              Wednesday will consist only of tests conducted by public
+              institutions.
             </div>
           </div>
         </div>
@@ -234,21 +268,27 @@
         <div class="col-md">
           <div class="card" id="testing-info">
             <div>
-            <h4 id="pos-title">Testing and Positivity Rate </h4>
-            <span id="pos-latest">
-              <div id="pos-latest-rate"></div>
-              <div id="pos-latest-period"></div>
-            </span>
+              <h4 id="pos-title">Testing and Positivity Rate</h4>
+              <span id="pos-latest">
+                <div id="pos-latest-rate"></div>
+                <div id="pos-latest-period"></div>
+              </span>
             </div>
-            
-            <hr/>
+
+            <hr />
             <div id="positivity-chart-container">
               <canvas id="positivityChart" width="50vh"></canvas>
             </div>
             <div class="footnote">
               <ul>
-                <li>Positivity rate = No. of people tested positive / No. of people tested</li>
-                <li>The positivity rate for each day is shown as its 7-day rolling average.</li>
+                <li>
+                  Positivity rate = No. of people tested positive / No. of
+                  people tested
+                </li>
+                <li>
+                  The positivity rate for each day is shown as its 7-day rolling
+                  average.
+                </li>
                 <li>Includes both private and public testing data</li>
                 <li>Excludes tests performed to test recovery.</li>
               </ul>
@@ -391,14 +431,26 @@
               <div id="ward-list">
                 <h6>23 Wards</h6>
                 <p>
-                  Chiyoda-Ku, Chuo-Ku, Minato-Ku, Shinjuku-Ku, Bunkyo-Ku, Taito-Ku, Sumida-Ku, Koto-Ku, Shinagawa-Ku, Meguro-Ku, Ota-Ku, Setagaya-Ku, Shibuya-Ku, Nakano-Ku, Suginami-Ku, Toshima-Ku, Kita-Ku, Arakawa-Ku, Itabashi-Ku, Nerima-Ku, Adachi-Ku, Katsushika-Ku, Edogawa-Ku
+                  Chiyoda-Ku, Chuo-Ku, Minato-Ku, Shinjuku-Ku, Bunkyo-Ku,
+                  Taito-Ku, Sumida-Ku, Koto-Ku, Shinagawa-Ku, Meguro-Ku, Ota-Ku,
+                  Setagaya-Ku, Shibuya-Ku, Nakano-Ku, Suginami-Ku, Toshima-Ku,
+                  Kita-Ku, Arakawa-Ku, Itabashi-Ku, Nerima-Ku, Adachi-Ku,
+                  Katsushika-Ku, Edogawa-Ku
                 </p>
                 <h6>Other Districts (39)</h6>
                 <p>
-                  Hachioji-Shi, Tachikawa-Shi, Musashino-Shi, Mitaka-Shi, Ome-Shi, Fuchu-Shi, Akishima-Shi, Chofu-Shi, Machida-Shi, Koganei-Shi, Kodaira-Shi, Hino-Shi, Higashimurayama-Shi, Kokubunji-Shi, Kunitachi-Shi, Fussa-Shi, Komae-Shi, Higashiyamato-Shi, Kiyose-Shi, Higashikurume-Shi, Musashimurayama-Shi, Tama-Shi, Inagi-Shi, Hamura-Shi, Akiruno-Shi, Nishitokyo-Shi, Mizuho-Machi, Hinode-Machi, Hinohara-Mura, Okutama-Machi, Oshima-Machi, Toshima-Mura, Niijima-Mura, Kozushima-Mura, Miyake-Mura, Mikurajima-Mura, Hachijo-Machi, Aogashima-Mura, Ogasawara-Mura
+                  Hachioji-Shi, Tachikawa-Shi, Musashino-Shi, Mitaka-Shi,
+                  Ome-Shi, Fuchu-Shi, Akishima-Shi, Chofu-Shi, Machida-Shi,
+                  Koganei-Shi, Kodaira-Shi, Hino-Shi, Higashimurayama-Shi,
+                  Kokubunji-Shi, Kunitachi-Shi, Fussa-Shi, Komae-Shi,
+                  Higashiyamato-Shi, Kiyose-Shi, Higashikurume-Shi,
+                  Musashimurayama-Shi, Tama-Shi, Inagi-Shi, Hamura-Shi,
+                  Akiruno-Shi, Nishitokyo-Shi, Mizuho-Machi, Hinode-Machi,
+                  Hinohara-Mura, Okutama-Machi, Oshima-Machi, Toshima-Mura,
+                  Niijima-Mura, Kozushima-Mura, Miyake-Mura, Mikurajima-Mura,
+                  Hachijo-Machi, Aogashima-Mura, Ogasawara-Mura
                 </p>
               </div>
-
             </div>
           </div>
         </div>
@@ -450,13 +502,13 @@
 
       <div class="row">
         <div class="col">
-          <div class="card" style="height: fit-content" itemscope>
+          <div class="card" style="height: fit-content;" itemscope>
             <h4>About</h4>
             <hr />
             <p>
               <span id="staySafe"
-                >Stay safe and informed with real-time coronavirus infection/testing data from
-                <b>covid19tokyo.live</b>.</span
+                >Stay safe and informed with real-time coronavirus
+                infection/testing data from <b>covid19tokyo.live</b>.</span
               >
             </p>
             <div
@@ -466,25 +518,28 @@
 
             <p>
               <span id="aboutLabel"
-                >This website was created by three college students to better 
-                visualize and understand the trends of the novel coronavirus (COVID-19) outbreak in
-                Tokyo, Japan.</span
+                >This website was created by three college students to better
+                visualize and understand the trends of the novel coronavirus
+                (COVID-19) outbreak in Tokyo, Japan.</span
               >
               <br /><br />
               <b>Credit</b><br />
               <a
-                class="linkedin" 
+                class="linkedin"
                 target="_blank"
                 href="https://www.linkedin.com/in/atharvap4til/"
                 >Atharva Patil</a
               >
-              
-              <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/rahuljoshi4/"
+
+              <a
+                class="linkedin"
+                target="_blank"
+                href="https://www.linkedin.com/in/rahuljoshi4/"
                 >Rahul Joshi</a
               >
-              
+
               <a
-                class="linkedin" 
+                class="linkedin"
                 target="_blank"
                 href="https://www.linkedin.com/in/yoshiki-yarlagadda/"
                 >Yoshiki Yarlagadda</a
@@ -507,14 +562,14 @@
                 >Press releases from the Bureau of Social Welfare and Public
                 Health, Tokyo Metro. Govt.</a
               >
-              <br/>
+              <br />
               <a
                 id="openData"
                 target="_blank"
                 href="https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068"
                 >Tokyo Open Data</a
               >
-              <br/>
+              <br />
               <a
                 id="openData"
                 target="_blank"
@@ -524,10 +579,15 @@
             </p>
 
             <p>
-              <b>Source Code</b><br/>
+              <b>Source Code</b><br />
               Contribute to the project on
-              <a href="https://github.com/patilatharva/covid19tokyo.live" target="_blank">
-                <i style="margin-right: 4px" class="fab fa-github"></i>GitHub</a>.
+              <a
+                href="https://github.com/patilatharva/covid19tokyo.live"
+                target="_blank"
+              >
+                <i style="margin-right: 4px;" class="fab fa-github"></i
+                >GitHub</a
+              >.
             </p>
             <!--div class="col-sm-3 offset-sm-5">
               <a
@@ -551,16 +611,20 @@
 
       <div id="supported-by">
         Supported by &nbsp;
-        <span style="display: inline-block; margin-top: 10px">
+        <span style="display: inline-block; margin-top: 10px;">
           <a href="https://cloud.google.com/" target="_blank">
-            <img id="google-logo" src="../images/google-cloud.png" alt="Google Cloud"> &nbsp;
+            <img
+              id="google-logo"
+              src="../images/google-cloud.png"
+              alt="Google Cloud"
+            />
+            &nbsp;
           </a>
           <a href="https://mapbox.com" target="_blank">
-            <img id="mapbox-logo" src="../images/mapbox.png" alt="Mapbox">
+            <img id="mapbox-logo" src="../images/mapbox.png" alt="Mapbox" />
           </a>
         </span>
       </div>
-
     </div>
 
     <script
