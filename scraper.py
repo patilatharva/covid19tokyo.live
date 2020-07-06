@@ -10,6 +10,7 @@
 
 import requests, json
 from datetime import date
+from git import Repo
 
 
 def update_ward_data():
@@ -87,6 +88,16 @@ def get_json(url):
     data = json.loads(response.text)
     return data
 
+# commits to git repo
+def commit_to_repo():
+    repo = Repo('./.git')
+    repo.git.add(all=True)
+    repo.index.commit('automatically updated deaths/discharges and ward history')
+    origin = repo.remote(name='origin')
+    origin.push()
+
+
 # update all data
 update_ward_data()
 update_deaths_and_discharged()
+commit_to_repo()
