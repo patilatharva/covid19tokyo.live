@@ -27,6 +27,7 @@ const initializeDailyChart = (data) => {
 	var testsPerDay = [];
 	var casesPerDay = [];
 	var deathsPerDay = [];
+	var prevDayDeaths = 0;
 
 	// Initializing all arrays
 	for (var i = 0; i < tokyoTestData.length; i++) {
@@ -43,16 +44,18 @@ const initializeDailyChart = (data) => {
 		}
 
 		casesPerDay.push(casesData[i]["小計"]);
-		deathsPerDay.push(deathData[i]);
 		testsPerDay.push(dayTests);
 		cumulativeTests.push(totalTests);
+
+		deathsPerDay.push(deathData[i] - prevDayDeaths);
+		prevDayDeaths = deathData[i];
 	}
 	// setting items to local storage to prevent running this function multiple times
 	localStorage.setItem("labels", JSON.stringify(labels));
 	localStorage.setItem("testsPerDay", JSON.stringify(testsPerDay));
 	localStorage.setItem("cumulativeTests", JSON.stringify(cumulativeTests));
 	localStorage.setItem("casesPerDay", JSON.stringify(casesPerDay));
-	localStorage.setItem("deathsPerDay", JSON.stringify(deathData));
+	localStorage.setItem("deathsPerDay", JSON.stringify(deathsPerDay));
 
 	// Initially setting the plot to tests per day
 	plotDailyChart(labels, casesPerDay, "confirmed");
