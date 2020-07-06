@@ -39,7 +39,7 @@ const getTodayData = (data) => {
 		summary["main_summary"]["children"][0]["children"][1]["value"]
 	);
 	const deathsByDate = Object.values(deathCount);
-	const deathsNew = deathsByDate[deathsByDate.length - 1];
+	const deathsNew = deathsByDate[deathsByDate.length - 1] - deathsByDate[deathsByDate.length - 2]
 
 	const critical =
 		summary["main_summary"]["children"][0]["children"][0]["children"][1]["value"];

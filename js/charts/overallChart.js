@@ -8,24 +8,24 @@ const plotOverallChart = (data) => {
     var cases = []; // number of cases
     var recovered = []; // number of discharges
     var dates = []; // x axis (labels)
-    var deaths = [];
+    //var deaths = [];
     var active = [];
 
-    let deathData = Object.values(data["deaths"]);
+    let deaths = Object.values(data["deaths"]);
     var caseTotal = 0;
-    var deathsTotal = 0;
+    //var deathsTotal = 0;
   
     for (var i = 0; i < patientData.length; i++) {
 		caseTotal += patientData[i]["小計"];
 		cases.push(caseTotal);
 	
-		deathsTotal += deathData[i];
-		deaths.push(deathsTotal);
+		//deathsTotal += deathData[i];
+		//deaths.push(deathsTotal);
 	
 		if (dischargedData[i]) {
 			var recov = dischargedData[i]; // - deathsTotal;
 			recovered.push(recov);
-			active.push(caseTotal - recov - deathsTotal);
+			active.push(caseTotal - recov - deaths[i]);
 		} else {
 			recovered.push(null);
 			active.push(null);
@@ -35,6 +35,8 @@ const plotOverallChart = (data) => {
 		dates.push(date.getMonth() + 1 + "/" + date.getDate());
     }
   
+	console.log(deaths);
+
     dates = dates.slice(dates.length - 60);
     var ctx = document.getElementById("totalCasesChart").getContext("2d");
   
