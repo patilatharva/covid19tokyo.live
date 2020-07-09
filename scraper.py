@@ -72,8 +72,8 @@ def update_deaths(new_data):
     
 
     # e.g. '07-04-20'
-    #today = date.today().strftime('%m-%d-%y')
-    today = '2020-07-08'
+    today = date.today().strftime('%m-%d-%y')
+
     # append new data to existing data
     deaths[today] = latest_deaths
 
@@ -99,5 +99,5 @@ def commit_to_repo():
 
 # update all data
 update_ward_data()
-#update_deaths_and_discharged()
+update_deaths_and_discharged()
 commit_to_repo()
