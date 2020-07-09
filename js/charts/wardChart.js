@@ -73,7 +73,7 @@ const drawWardChart = (currentWard, history) => {
 							align: 260, // slight top-lefts so that 3-digit values aren't cropped out
 							offset: 3,
 							display: (context) => {
-								return ((values.length - context.dataIndex) % 3) == 1;
+								return ((values.length - context.dataIndex) % 7) == 1;
 							},
 							opacity: (context) => {
 								return context.dataIndex == values.length - 1? 1: 0.5;
