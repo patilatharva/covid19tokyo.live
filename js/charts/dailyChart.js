@@ -73,7 +73,7 @@ const plotDailyChart = (labels, dataset, type) => {
 	// destroy previous instance of chart to prevent glitching
 	if (dailyChart) dailyChart.destroy();
 
-	dataset = dataset.slice(dataset.length - 60);
+	dataset = dataset.slice(dataset.length - 90);
 
 	var backgroundColor = "", borderColor = "";
 
@@ -91,7 +91,7 @@ const plotDailyChart = (labels, dataset, type) => {
 	dailyChart = new Chart(ctx, {
 		type: "bar",
 		data: {
-			labels: labels.slice(labels.length - 60),
+			labels: labels.slice(labels.length - 90),
 			datasets: [{
 				label: lang[type + "Label"],
 				data: dataset,

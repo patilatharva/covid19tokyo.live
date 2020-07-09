@@ -14,10 +14,10 @@ const plotPositivityChart = (data) => {
 	}
 	
 	// show data of the last 60 days
-	dates = dates.slice(dates.length - 60);
-	positivity = positivity.slice(positivity.length - 60);
-	positive= positive.slice(positive.length - 60);
-	negative = negative.slice(negative.length - 60);
+	dates = dates.slice(dates.length - 90);
+	positivity = positivity.slice(positivity.length - 90);
+	positive= positive.slice(positive.length - 90);
+	negative = negative.slice(negative.length - 90);
   
     var ctx = document.getElementById("positivityChart").getContext("2d");
 
