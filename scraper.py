@@ -100,4 +100,4 @@ def commit_to_repo():
 # update all data
 update_ward_data()
 update_deaths_and_discharged()
-#commit_to_repo()
+commit_to_repo()
