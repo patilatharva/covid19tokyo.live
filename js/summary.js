@@ -6,6 +6,15 @@ export {getTodayData, fillSummaryCard};
  * @param {object} data		covid-19 data from Tokyo govt 
  */
 const getTodayData = (data) => {
+	// utility function to sum array values
+	const sum = (list) => {
+		var total = 0
+		for (const num of list) {
+			total += num
+		}
+		return total
+	}
+	
 	const summary = data.summary;
 	const deathCount = data.deaths;
 	const dischargedCount = data.discharged;
@@ -54,6 +63,7 @@ const getTodayData = (data) => {
 	const active = confirmed - discharged - deaths;
 	const activeNew = confirmedNew - dischargedNew - deathsNew;
 
+	/*
 	const tested = summary["inspection_status_summary"]["value"];
 	const testedNew =
 		summary["inspection_persons"]["datasets"][0]["data"][
@@ -66,6 +76,12 @@ const getTodayData = (data) => {
 	const testsNew =
 		testData["都内"][testData["都内"].length - 1] +
 		testData["その他"][testData["その他"].length - 1];
+	*/
+
+	const testData = summary["inspections_summary"]["data"]
+	const tests = sum(testData["都内"]) + sum(testData["保険適用分"])
+	const testsNew = testData["都内"][testData["都内"].length-1] + testData["保険適用分"][testData["保険適用分"].length-1]
+
 
 	const result = {
 		lastUpdated: lastUpdated,
@@ -80,8 +96,8 @@ const getTodayData = (data) => {
 		dischargedNew: dischargedNew,
 		recovered: recovered,
 		recoveredNew: recoveredNew,
-		tested: tested,
-		testedNew: testedNew,
+		tested: 0,
+		testedNew: 0,
 		tests: tests,
 		testsNew: testsNew,
 	};
