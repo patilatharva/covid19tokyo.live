@@ -39,8 +39,8 @@ $(document).ready(function() {
 								discharged: discharged,
 							});
 							fillSummaryCard(latestData);
-
-							plotAgeGenderChart(summary["patients"]);
+							console.log(summary)
+							//plotAgeGenderChart(summary["patients"]);
 
 							initializeDailyChart({
 								summary: summary,
