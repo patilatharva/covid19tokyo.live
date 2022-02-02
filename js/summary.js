@@ -20,7 +20,14 @@ const getTodayData = (data) => {
 	const dischargedCount = data.discharged;
 
 	const lastUpdatedDate = new Date(summary["lastUpdate"]);
-	const today = new Date();
+	var today = new Date();
+
+	function convertTZ(date, tzString) {
+		return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));   
+	}
+	
+	today = convertTZ(today, "Asia/Tokyo")
+
 	const minutesSinceUpdate = Math.round((today - lastUpdatedDate) / (60 * 1000));
 
 	var lastUpdated;
